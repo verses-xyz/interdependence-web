@@ -149,7 +149,7 @@ export default function Home() {
         <div className="font-mono text-gray-900 
         font-opacity-50 grid grid-cols-2 
         outline-blue mb-40 hover:bg-gray-100 
-        rounded-xl p-4 text-left">
+        rounded-xl p-4 text-left overflow-hidden">
           <p className="left-0"> ETHEREUM ADDRESS </p>
           <p> 0x29668d39c163f64a1c177c272a8e2D9ecc85F0dE </p> 
         </div>
