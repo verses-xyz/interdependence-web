@@ -13,11 +13,7 @@ module.exports = {
       },
       colors: {
         blue: {
-          20: '#F8F9F9',
-          420: '#0D1A33'
-        },
-        red: {
-          20: "FFFFF0"
+          20: '#F8F9F9'
         }
       }
     },
