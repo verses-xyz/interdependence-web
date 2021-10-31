@@ -10,6 +10,8 @@ function init() {
   })
 }
 
+const arweave = init()
+
 const DOC_TYPE = "interdependence_doc_type"
 const DOC_ORIGIN = "interdependence_doc_origin"
 const DOC_REF = "interdependence_doc_ref"
@@ -17,7 +19,6 @@ const SIG_NAME = "interdependence_sig_name"
 const SIG_HANDLE = "interdependence_sig_handle"
 
 export async function forkDeclaration(oldTxId, newText, key) {
-  const arweave = init()
   let transaction = await arweave.createTransaction({
     data: newText
   }, key)
@@ -28,9 +29,8 @@ export async function forkDeclaration(oldTxId, newText, key) {
 }
 
 export async function signDeclaration(txId, name, handle, key) {
-  const arweave = init()
   // empty transaction, just attach tags
-  let transaction = await arweave.createTransaction({ data: "" }, key)
+  let transaction = await arweave.createTransaction({ data: handle }, key)
   transaction.addTag(DOC_TYPE, 'signature')
   transaction.addTag(DOC_REF, txId)
   transaction.addTag(SIG_NAME, name)
@@ -79,17 +79,17 @@ async function fetchSignatures(txId) {
       `
     })
   })
-  
+
   const json = await req.json()
   return json.data.transactions.edges.map(nodeItem => ({
-    SIG_TX: nodeItem.signature,
+    SIG_ID: nodeItem.node.id,
+    SIG_TX: nodeItem.node.signature,
     SIG_NAME: nodeItem.node.tags.find(tag => tag.name === SIG_NAME).value,
     SIG_HANDLE: nodeItem.node.tags.find(tag => tag.name === SIG_HANDLE).value
   }))
 }
 
 export async function getDeclaration(txId) {
-  const arweave = init()
   const transactionMetadata = await arweave.transactions.get(txId)
   const tags = transactionMetadata.get('tags').reduce((prev, tag) => {
     let key = tag.get('name', {decode: true, string: true})
@@ -111,6 +111,7 @@ export async function getDeclaration(txId) {
   // fetch associated signatures
   const sigs = await fetchSignatures(txId)
   return {
+    txId,
     data,
     sigs,
   }

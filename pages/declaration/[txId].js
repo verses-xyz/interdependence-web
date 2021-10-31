@@ -1,11 +1,12 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import {getDeclaration} from "../../arweaveFns";
+import Sign from "../../components/Sign";
 
-export default function Declaration({ data, sigs }) {
-  console.log(data, sigs)
+export default function Declaration({ data, sigs, txId }) {
+  console.log(sigs)
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
+    <div className="flex flex-col items-center justify-center min-h-screen py-4">
       <Head>
         <title>Interdependence</title>
         <link rel="icon" href="/favicon.ico" />
@@ -25,8 +26,19 @@ export default function Declaration({ data, sigs }) {
                         ml-10
                         sm:ml-5
                         lg:ml-20
-                        xl:mx-40">
+                        xl:mx-40
+                        whitespace-pre-wrap">
           {data}
+        </div>
+        <Sign txId={txId} />
+
+        <br/>
+        <h2 className="font-body">Signatures</h2>
+        <div>
+          {sigs.map(sig => <div className="font-body">
+            <h3>{sig.SIG_NAME}, @{sig.SIG_HANDLE}</h3>
+            <a href={`https://arweave.net/tx/${sig.SIG_ID}`}>tx: {sig.SIG_TX.slice(0, 30)}</a>
+          </div>)}
         </div>
       </main>
     </div>
@@ -35,6 +47,6 @@ export default function Declaration({ data, sigs }) {
 
 export async function getServerSideProps(context) {
   return {
-    props: await getDeclaration(context.params.txId), // will be passed to the page component as props
+    props: await getDeclaration(context.params.txId),
   }
 }

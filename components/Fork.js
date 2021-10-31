@@ -35,10 +35,8 @@ async function createDeclaration(key, text) {
   }, key);
   transaction.addTag('interdependence_doc_type', 'declaration');
   await arweave.transactions.sign(transaction, key);
-  console.log(transaction);
 
   const response = await arweave.transactions.post(transaction);
-  console.log(response)
 }
 
 export default function Fork() {
