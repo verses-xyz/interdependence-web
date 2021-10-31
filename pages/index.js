@@ -11,10 +11,10 @@ export default function Home() {
 
       {/* Warning: tailwind speghatti. */}
 
-      <main className="flex flex-col items-center justify-center w-full flex-1 px-40 py-20 text-center bg-blue-420 md:px-40 sm:px-5">
+      <main className="flex flex-col items-center justify-center w-full flex-1 px-40 py-20 text-center bg-blue-420 md:px-20 sm:px-5">
 
       <div className="bg-yellow-50 rounded-md"> 
-        <h1 className="text-4xl font-body mt-20 text-bold italic px-20">
+        <h1 className="text-2xl font-body mt-20 text-bold italic px-20">
         A Declaration of the Interdependence of Cyberspace
         </h1>
 
