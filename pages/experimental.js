@@ -9,27 +9,16 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {/* This code was written in ~15 minutes. */}
-
-      <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center bg-blue-20 ">
+      <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center bg-blue-20">
         <h1 className="text-2xl font-body mt-20 italic">
         A Declaration of the Interdependence of Cyberspace
         </h1>
 
 
-        <div className="mt-10 
-                        font-body 
-                        text-2xl 
-                        text-left 
-                        space-y-12
-                        text-opacity-75 
-                        max-w-4xl 
-                        ml-10 
-                        sm:ml-5 
-                        lg:ml-20 
-                        xl:mx-40">
+        <div className="text-opacity-75 ml-10 sm:ml-5 lg:ml-20 xl:mx-40 max-w-4xl mt-10 font-body text-2xl text-left space-y-12">
 
-      
+        
+       
         <p>
         Closed fiefdoms of the Web2 world, you weary giants of stocks and small talk, 
         I come from the Pluriverse, the new home of the heart. 
@@ -131,6 +120,7 @@ export default function Home() {
         We will create a civilization of the Heart in the Pluriverse. 
         May it be more humane than the world you are attempting to build.        </p>
 
+        {/* do something cool with date */}
         <p>
         October 29, 2021
         </p>
@@ -156,9 +146,23 @@ export default function Home() {
         </div>
 
 
+        {/* <div className="font-mono overflow-hidden text-gray-900 
+        font-opacity-75 grid grid-cols-2 
+        outline-blue mb-40 hover:bg-gray-100 
+        rounded-lg p-4 text-left sm: invisible md: invisible">
+          <p className="left-0 "> ETHEREUM ADDRESS </p>
+          <p> 0x29668d39c163f64a1c177c272a8e2D9ecc85F0dE </p> 
+        </div> */}
+
       </main>
 
+      {/* <footer className="bg-blue-20"> 
 
+        </footer> */}
+
+      {/* <footer className="flex items-center justify-center w-full h-24 border-t">
+
+      </footer> */}
     </div>
   )
 }

@@ -9,9 +9,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {/* This code was written in ~15 minutes. */}
 
-      <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center bg-blue-20 ">
+      <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center bg-blue-20">
         <h1 className="text-2xl font-body mt-20 italic">
         A Declaration of the Interdependence of Cyberspace
         </h1>
@@ -28,6 +27,12 @@ export default function Home() {
                         sm:ml-5 
                         lg:ml-20 
                         xl:mx-40">
+
+
+      {/* This code was written in ~15 minutes. 
+            
+        
+      */}
 
       
         <p>
@@ -131,6 +136,7 @@ export default function Home() {
         We will create a civilization of the Heart in the Pluriverse. 
         May it be more humane than the world you are attempting to build.        </p>
 
+        {/* do something cool with date */}
         <p>
         October 29, 2021
         </p>
@@ -154,10 +160,7 @@ export default function Home() {
         <div className="fixed bottom-0 left-0 text-left rounded-xl p-6">
           <Image className="rounded-xl" src="/apple-touch-icon.png" width={100} height={100}/>
         </div>
-
-
       </main>
-
 
     </div>
   )
