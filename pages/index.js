@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Fork from "../components/Fork";
 
 export default function Home() {
   return (
@@ -9,14 +10,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {/* This code was written in ~15 minutes. */}
+      <Fork/>
 
       <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center bg-blue-20 ">
         <h1 className="text-2xl font-body mt-20 italic">
         A Declaration of the Interdependence of Cyberspace
         </h1>
-
-
         <div className="mt-10 
                         font-body 
                         text-2xl 
@@ -157,8 +156,6 @@ export default function Home() {
 
 
       </main>
-
-
     </div>
   )
 }
