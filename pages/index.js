@@ -12,9 +12,12 @@ export default function Home() {
       {/* Warning: tailwind speghatti. */}
 
       <main className="flex flex-col items-center justify-center w-full flex-1 
-                      px-40 py-20 
+                      px-10
+                      lg:px-40
+                      xl:px-60
+                      py-20 
                       text-center bg-blue-420 
-                      md:px-20 sm:px-5">
+                      md:px-20 sm:px-5 xs:px-5">
 
       <div className="bg-yellow-50 rounded-md"> 
         <h1 className="text-2xl font-body mt-20 text-bold italic px-20">
@@ -29,7 +32,6 @@ export default function Home() {
                         space-y-12
                         text-opacity-75 
                         max-w-4xl 
-                        sm:max-w-5xl
                         ml-10 
                         sm:mr-10 
                         md:mr-10">
