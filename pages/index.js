@@ -11,7 +11,7 @@ export default function Home() {
 
       {/* This code was written in ~15 minutes. */}
 
-      <main className="flex flex-col items-center justify-center w-full flex-1 px-40 py-20 text-center bg-blue-420">
+      <main className="flex flex-col items-center justify-center w-full flex-1 px-40 py-20 text-center bg-blue-420 sm:px-5">
 
 
       <div className="bg-yellow-50 rounded-md"> 
@@ -28,12 +28,10 @@ export default function Home() {
                         text-opacity-75 
                         max-w-4xl 
                         ml-10 
-                        sm:ml-5 
+                        sm:mr-10 
                         md:mr-10
                         lg:ml-20 
                         xl:mx-40">
-
-      
         <p>
         Closed fiefdoms of the Web2 world, you weary giants of stocks and small talk, 
         I come from the Pluriverse, the new home of the heart. 
