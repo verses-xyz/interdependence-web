@@ -132,12 +132,12 @@ export default function Home() {
 
 
         {/* <p> <b> Authors </b> </p>   */}
-          <p> Jasmine Wang, Gareth Graunsaull, Daanish Shabbir, Saffron Huang </p>
+          <p> Jasmine Wang, Gareth Graunsaull, Daanish Shabbir, Saffron Huang, tk.. </p>
           
           <div className="text-center text-gray-500 text-opacity-50 not-italic">
           <p> 
           </p>
-          Thanks to Tina He, Sidcode, Scott Moore, Sonia Joseph, Kelsey Chen, Jasmine Sun, & Jackson Dame for conversations & comments towards this text.
+          Thanks to Tina He, Sidcode, Scott Moore, Sonia Joseph, Kelsey Chen, Jasmine Sun, & Jackson Dame for valuable feedback and dialogue on this document. 
             </div>
         </div>
        
@@ -146,12 +146,12 @@ export default function Home() {
         </div>
 
 
-        <div className="font-mono text-gray-900 
-        font-opacity-50 grid grid-cols-2 
+        <div className="font-mono overflow-hidden text-gray-900 
+        font-opacity-75 grid grid-cols-2 
         outline-blue mb-40 hover:bg-gray-100 
-        rounded-xl p-4 text-left overflow-hidden">
-          <p className="left-0"> ETHEREUM ADDRESS </p>
-          <p> 0x29668d39c163f64a1c177c272a8e2D9ecc85F0dE </p> 
+        rounded-lg p-4 text-left ">
+          <p className="left-0 "> ETHEREUM ADDRESS </p>
+          <p className="font-mono"> 0x29668d39c163f64a1c177c272a8e2D9ecc85F0dE </p> 
         </div>
 
       </main>
