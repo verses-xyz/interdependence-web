@@ -4,8 +4,7 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {
-      'body': ['Sabon'],
-      'display': ['Anko']
+      'body': ['Sabon']
 
     },
     extend: {

@@ -15,7 +15,7 @@ export default function Home() {
 
 
       <div className="bg-yellow-50 rounded-md"> 
-        <h1 className="text-4xl font-display mt-20 text-bold italic px-20">
+        <h1 className="text-4xl font-body mt-20 text-bold italic px-20">
         A Declaration of the Interdependence of Cyberspace
         </h1>
 
