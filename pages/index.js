@@ -11,8 +11,11 @@ export default function Home() {
 
       {/* This code was written in ~15 minutes. */}
 
-      <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center bg-blue-20 ">
-        <h1 className="text-2xl font-body mt-20 italic">
+      <main className="flex flex-col items-center justify-center w-full flex-1 px-40 py-20 text-center bg-blue-420">
+
+
+      <div className="bg-yellow-50 rounded-md"> 
+        <h1 className="text-4xl font-display mt-20 text-bold italic px-20">
         A Declaration of the Interdependence of Cyberspace
         </h1>
 
@@ -26,6 +29,7 @@ export default function Home() {
                         max-w-4xl 
                         ml-10 
                         sm:ml-5 
+                        md:mr-10
                         lg:ml-20 
                         xl:mx-40">
 
@@ -141,19 +145,18 @@ export default function Home() {
         <div className="text-opacity-75 font-body italic mt-20 mb-20 text-xl">
 
 
-        {/* <p> <b> Authors </b> </p>   */}
-          <p> Jasmine Wang, Gareth Graunsaull, Daanish Shabbir, Saffron Huang, tk.. </p>
+          {/* <p> <b> Authors </b> </p>   */}
+          {/* <p> Jasmine Wang, Gareth Graunsaull, Daanish Shabbir, Saffron Huang, tk.. </p>
           
           <div className="text-center text-gray-500 text-opacity-50 not-italic">
-          <p> 
-          </p>
           Thanks to Tina He, Sidcode, Scott Moore, Sonia Joseph, Kelsey Chen, Jasmine Sun, & Jackson Dame for valuable feedback and dialogue on this document. 
-            </div>
+            </div> */}
         </div>
        
-        <div className="fixed bottom-0 left-0 text-left rounded-xl p-6">
+      </div>
+        {/* <div className="fixed bottom-0 left-0 text-left rounded-xl p-6">
           <Image className="rounded-xl" src="/apple-touch-icon.png" width={100} height={100}/>
-        </div>
+        </div> */}
 
 
       </main>
