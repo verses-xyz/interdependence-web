@@ -32,6 +32,7 @@ export default function Home() {
                         space-y-12
                         text-opacity-75 
                         max-w-4xl 
+                        px-10
                         sm:px-10
                         md:px-10">
         <p>
