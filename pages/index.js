@@ -32,9 +32,8 @@ export default function Home() {
                         space-y-12
                         text-opacity-75 
                         max-w-4xl 
-                        ml-10 
-                        sm:mr-10 
-                        md:mr-10">
+                        sm:px-10
+                        md:px-10">
         <p>
         Closed fiefdoms of the Web2 world, you weary giants of stocks and small talk, 
         I come from the Pluriverse, the new home of the heart. 
