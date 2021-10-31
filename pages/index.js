@@ -154,9 +154,9 @@ export default function Home() {
         </div>
        
       </div>
-        <div className="fixed bottom-0 left-0 text-left rounded-xl p-6">
+        {/* <div className="fixed bottom-0 left-0 text-left rounded-xl p-6">
           <Image className="rounded-xl" src="/apple-touch-icon.png" width={100} height={100}/>
-        </div>
+        </div> */}
 
 
       </main>
