@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Image from 'next/image'
 
 export default function Home() {
   return (
@@ -127,7 +128,7 @@ export default function Home() {
 
 
         </div>
-        <div className="text-opacity-75 font-body italic mt-20 mb-40 text-xl">
+        <div className="text-opacity-75 font-body italic mt-20 mb-20 text-xl">
 
 
         <p> <b> Authors </b> </p>  
@@ -139,9 +140,23 @@ export default function Home() {
           Thanks to Tina He, Sidcode, Scott Moore, Sonia Joseph, Kelsey Chen, Jasmine Sun, Jackson Dame for conversation & comments.
             </div>
         </div>
+        {/* <div>
+          <Image src="/public/android-chrome-192x192.png" width={192} height={192}/>
+        </div> */}
 
+        <div className="font-mono text-gray-900 
+        font-opacity-50 grid grid-cols-2 
+        outline-blue mb-40 hover:bg-gray-100 
+        rounded-xl p-4 text-left">
+          <p className="left-0"> ETHEREUM ADDRESS </p>
+          <p> 0x29668d39c163f64a1c177c272a8e2D9ecc85F0dE </p> 
+        </div>
 
       </main>
+
+      {/* <footer className="bg-blue-20"> 
+
+        </footer> */}
 
       {/* <footer className="flex items-center justify-center w-full h-24 border-t">
 
