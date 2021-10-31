@@ -131,18 +131,20 @@ export default function Home() {
         <div className="text-opacity-75 font-body italic mt-20 mb-20 text-xl">
 
 
-        <p> <b> Authors </b> </p>  
+        {/* <p> <b> Authors </b> </p>   */}
           <p> Jasmine Wang, Gareth Graunsaull, Daanish Shabbir, Saffron Huang </p>
           
           <div className="text-center text-gray-500 text-opacity-50 not-italic">
           <p> 
           </p>
-          Thanks to Tina He, Sidcode, Scott Moore, Sonia Joseph, Kelsey Chen, Jasmine Sun, Jackson Dame for conversation & comments.
+          Thanks to Tina He, Sidcode, Scott Moore, Sonia Joseph, Kelsey Chen, Jasmine Sun, & Jackson Dame for conversations & comments towards this text.
             </div>
         </div>
-        {/* <div>
-          <Image src="/public/android-chrome-192x192.png" width={192} height={192}/>
-        </div> */}
+       
+        <div className="fixed bottom-0 left-0 text-left rounded-xl p-6">
+          <Image className="rounded-xl" src="/apple-touch-icon.png" width={100} height={100}/>
+        </div>
+
 
         <div className="font-mono text-gray-900 
         font-opacity-50 grid grid-cols-2 
