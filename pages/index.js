@@ -11,7 +11,7 @@ export default function Home() {
 
       {/* Warning: tailwind speghatti. */}
 
-      <main className="flex flex-col items-center justify-center w-full flex-1 px-40 py-20 text-center bg-blue-420 sm:px-5">
+      <main className="flex flex-col items-center justify-center w-full flex-1 px-40 py-20 text-center bg-blue-420 md:px-40 sm:px-5">
 
       <div className="bg-yellow-50 rounded-md"> 
         <h1 className="text-4xl font-body mt-20 text-bold italic px-20">
@@ -21,16 +21,14 @@ export default function Home() {
 
         <div className="mt-10 
                         font-body 
-                        text-2xl 
+                        text-lg 
                         text-left 
                         space-y-12
                         text-opacity-75 
                         max-w-4xl 
                         ml-10 
                         sm:mr-10 
-                        md:mr-10
-                        lg:ml-20 
-                        xl:mx-40">
+                        md:mr-10">
         <p>
         Closed fiefdoms of the Web2 world, you weary giants of stocks and small talk, 
         I come from the Pluriverse, the new home of the heart. 
