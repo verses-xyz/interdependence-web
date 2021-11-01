@@ -64,17 +64,17 @@ export default function Declaration({ data, sigs, txId, status }) {
 
           <hr className="my-20" />
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 flex w-1/2">
+          <div className="grid grid-cols-1 lg:grid-cols-2 flex w-full sm:w-4/5 md:w-1/2 lg:w-3/5">
             <div id="signatureForm" className="flex-1 mx-4 lg:mx-8">
-            <p className="lg:text-justify font-mono">
-              If you'd like to endorse this declaration, you can sign the declaration by clicking the button below. Signatures will become part of this document's permanent history on the Arweave blockchain.
-            </p>
-            <p className="text-gray-400 font-mono mt-2"> * Coming soon * </p>
-            <Button
-              primary>
-              Sign
-            </Button>
-            {/* <Sign txId={txId} walletKey={""} /> */}
+              <p className="lg:text-justify font-mono">
+                If you'd like to endorse this declaration, you can sign the declaration by clicking the button below. Signatures will become part of this document's permanent history on the Arweave blockchain.
+              </p>
+              <p className="text-gray-400 font-mono mt-2"> * Coming soon * </p>
+              <Button
+                primary>
+                Sign
+              </Button>
+              {/* <Sign txId={txId} walletKey={""} /> */}
             </div>
 
             <div className="mt-20 flex-1 mx-4 md:mx-8 lg:mt-0">
@@ -83,7 +83,7 @@ export default function Declaration({ data, sigs, txId, status }) {
             </div>
           </div>
 
-          <div className="m-24 w-4/5 md:w-3/5 lg:w-1/2 md:m-12 sm:m-6">
+          <div className="m-24 w-full sm:w-4/5 md:w-3/5 lg:w-1/2 md:m-12 sm:m-6">
             <Signatures sigs={sigs}/>
           </div>
         </main>

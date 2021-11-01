@@ -1,6 +1,6 @@
-import React from 'react'
-import { useForm } from 'react-hook-form'
-import { signDeclaration } from "../arweaveFns"
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { signDeclaration } from "../arweaveFns";
 import Modal from "react-modal";
 import Button from "./core/Button";
 
