@@ -4,7 +4,7 @@ import HeadComponent from "../components/Head";
 export default function About() {
   return (
     <div>
-      <HeadComponent/>
+      <HeadComponent />
       <div
         className="flex flex-col items-center flex-1
                       px-48
@@ -14,13 +14,16 @@ export default function About() {
                       text-center 
                       md:px-20 sm:px-5 xs:px-5"
       >
-      <div className="flex w-full">
+        <div className="flex w-full">
           <div className="flex-0">
-              <button className="ml-2.5 mt-5 px-6 py-2 rounded-full bg-gray-200 text-brown-120 text-md">
-                <a className="font-mono" href="/declaration"> ← Declaration</a>
-              </button>
-            </div>
+            <button className="ml-2.5 mt-5 px-6 py-2 rounded-full bg-gray-200 text-brown-120 text-md">
+              <a className="font-mono" href="/declaration">
+                {" "}
+                ← Declaration
+              </a>
+            </button>
           </div>
+        </div>
         <h1 className="text-6xl font-title w-full font-bold px-20 text-center">
           About
         </h1>
@@ -122,6 +125,14 @@ export default function About() {
             </a>
             . The diff from the original Declaration is here.
             <br />
+            &emsp;&emsp;Readers with revisions, additions, or challenges are
+            encouraged to articulate their own visions by creating and
+            committing a fork. The Pluriverse is built upon the coexistence of
+            many worlds and value systems; as such, all forks will be linked
+            below the Declaration on our site. Forks of the Declaration are
+            automatically uploaded to Arweave upon creation; thus, our site is
+            only one way among many possible ways to interface with that data.
+            <br />
             &emsp;&emsp;Anyone is able to show their support for our Declaration
             by signing with an Arweave wallet. [tk add copy about being able to
             query everything that a user has signed - this is an inversion of
@@ -149,11 +160,20 @@ export default function About() {
             </li>
             <br />
             <p>
+              &emsp;&emsp;How we define who contributed to the project depends
+              so heavily on how we conceptualize the borders of our selfhood and
+              how we relate to each other, so we thought it was worth
+              elaborating upon here. People contributed to this project in a
+              multitude of ways. People wrote, edited, gave feedback. Some of
+              this work was more ephemeral than others; editing feedback and
+              private messages disappeared faster than code. Some of this work
+              occurred at different times; some people were It is difficult to
+              collapse all these things in an attempt to create some legible
+              rank ordering of authorship.
+              <br />
               &emsp;&emsp;This work was in some ways a microcosm of the
-              difficulty of collective, plural work - recognition is difficult
-              especially given Shapley values and the multidimensional nature of
-              contribution. We collapse all these things in an attempt to create
-              some legible rank ordering of authorship.
+              difficulty of collective, plural work, especially when working
+              with such a values-laden and historically important document.
               <br />
               <br />
               <ul className="list-disc">
