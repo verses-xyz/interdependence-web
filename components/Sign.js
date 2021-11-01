@@ -64,11 +64,11 @@ export default function Sign({ txId, walletKey }) {
             <p className="font-mono text-light font-body p-4">
               <ul>
                 <li>
-                  1. Install the Arweave wallet extension
+                  1. Install the <a href="https://arconnect.io/">Arconnect wallet extension</a>
                 </li>
 
                 <li>
-                  2. Get free $AR from the Arweave faucet
+                  2. Get free $AR from the <a href="https://faucet.arweave.net/">Arweave faucet</a>
                 </li>
 
                 <li> 3. Sign below</li>
