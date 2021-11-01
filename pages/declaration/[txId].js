@@ -31,9 +31,9 @@ export default function Declaration({ data, sigs, txId, status }) {
           </div>
 
           <div className="w-1/2">
-            <h1 className="text-7xl font-title m-20 md:mx-1 sm:mx-1 sm:text-4xl lg:text-7xl font-semibold">
+            <h1 className="text-7xl font-title m-20 md:mx-1 sm:mx-1 sm:text-2xl lg:text-7xl font-semibold">
               Declaration
-              <span className="block font-light italic m-5 text-4xl sm:text-xl lg:text-4xl">of the</span>
+              <span className="block font-light italic m-5 text-4xl sm:text-lg lg:text-4xl">of the</span>
               Interdependence of Cyberspace
             </h1>
           </div>
