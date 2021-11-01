@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Fork from "../components/Fork";
 
 export default function Home() {
   return (
@@ -23,8 +24,6 @@ export default function Home() {
         <h1 className="text-2xl font-body mt-20 text-bold italic px-20">
         A Declaration of the Interdependence of Cyberspace
         </h1>
-
-
         <div className="mt-10 
                         font-body 
                         text-lg 
@@ -151,8 +150,6 @@ export default function Home() {
         </div>
 
       </main>
-
-
     </div>
   )
 }
