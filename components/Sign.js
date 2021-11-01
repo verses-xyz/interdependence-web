@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form'
 import { signDeclaration } from "../arweaveFns"
 import Modal from "react-modal";
 import Button from "./core/Button";
+import {useMetaMask} from "metamask-react";
 
 Modal.setAppElement('#__next');
 Modal.defaultStyles.overlay.backgroundColor = '#555555aa';
@@ -19,7 +20,6 @@ const customStyles = {
     borderColor: '#e5e7eb',
     borderRadius: '0.75em',
     padding: '0',
-    webkitFontSmoothing: 'subpixel-antialiased',
   },
 };
 
@@ -29,9 +29,11 @@ export default function Sign({ txId, walletKey }) {
     handleSubmit,
   } = useForm();
   const [modalIsOpen, setIsOpen] = React.useState(false);
+  const { status, connect, account } = useMetaMask();
 
   function openModal() {
     setIsOpen(true);
+    connect().then(() => console.log(account))
   }
 
   function closeModal() {
@@ -39,8 +41,7 @@ export default function Sign({ txId, walletKey }) {
   }
 
   const onSubmit = (data) =>
-    signDeclaration(txId, data.name, data.handle, walletKey)
-      .then(data => console.log(data.data));
+    signDeclaration(txId, data.name, data.handle, walletKey);
 
   return (
     <div>
@@ -61,23 +62,6 @@ export default function Sign({ txId, walletKey }) {
         <div className="items-center justify-center border-2 border-brown-20 rounded-md" >
           <h2 className="rounded-t-md bg-brown-80 font-mono py-2"> Sign the Declaration </h2>
           <div className="border-t-2 px-2 py-4 border-brown-20">
-            <p className="font-mono text-light font-body p-4">
-              <ul>
-                <li>
-                  1. Install the Arweave wallet extension
-                </li>
-
-                <li>
-                  2. Get free $AR from the Arweave faucet
-                </li>
-
-                <li> 3. Sign below</li>
-              </ul>
-            </p>
-
-            {/* TODO fix layout here:
-
-      */}
             <form className="ml-40 flex flex-col items-center justify-center w-1/2" onSubmit={handleSubmit(onSubmit)}>
               <input className="focus:outline-none border-b-2 px-1 py-2" type="text" {...register("name")} placeholder="Name / Alias" />
               <input className="focus:outline-none border-b-2 px-1 py-2" type="text"{...register("handle")} placeholder="Twitter Handle"/>

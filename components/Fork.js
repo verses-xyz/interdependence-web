@@ -19,7 +19,6 @@ const customStyles = {
     borderColor: '#e5e7eb',
     borderRadius: '0.75em',
     padding: '0',
-    webkitFontSmoothing: 'subpixel-antialiased',
   },
 };
 
