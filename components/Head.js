@@ -13,6 +13,6 @@ export default function HeadComponent() {
           property="og:description"
           content="Declaration of the Interdependence of Cyberspace"
         />
-    <meta property="og:image" content={"/public/og-image.png"} />
+    <meta property="og:image" content="https://res.cloudinary.com/djp21wtxm/image/upload/v1635801698/fczrixfn4krjqmjf3vld.png" />
   </Head>
 }
