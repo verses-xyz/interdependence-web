@@ -11,7 +11,7 @@ const cleanHandle = handle => {
 export default function Signatures({sigs}) {
   return <>
   <div className="mt-5 border-2 rounded-lg min-w-1/2">
-    <h2 className="font-mono py-2 bg-brown-80"> {sigs.length} Signature</h2>
+    <h2 className="rounded-t font-body py-2 bg-brown-80"> {sigs.length} Signature{sigs.length !== 1 && 's'}</h2>
     <div className="border-t-2 p-10">
       {sigs.map(sig => <div className="font-body" key={sig.SIG_HANDLE}>
         <div className="flex flex-row space-x-10 border-b-2 py-2"> 
