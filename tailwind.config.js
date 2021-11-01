@@ -6,6 +6,7 @@ module.exports = {
     fontFamily: {
       title: ["EB Garamond"],
       body: ["EB Garamond"],
+      mono: ["Roboto Mono"],
     },
     backgroundColor: (theme) => ({
       ...theme("colors"),
