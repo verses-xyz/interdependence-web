@@ -44,7 +44,7 @@ export default function Sign({ txId, walletKey }) {
 
   return (
     <div>
-      <p className="text-justify">
+      <p className="text-justify font-mono">
         If you'd like to endorse this declaration, you can sign the declaration by clicking the button below. Signatures will become part of this document's permanent history on the Arweave blockchain.
       </p>
       <Button

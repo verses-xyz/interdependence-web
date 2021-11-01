@@ -47,12 +47,12 @@ export default function Fork({text, txId, walletKey}) {
       .then(data => window.location.href = `/declaration/${data.id}`);
 
   return (<div>
-    <p className="text-justify">
+    <p className="text-justify font-mono">
       If you have a revision, addition, or challenge to this declaration, we strongly encourage you to articulate your own vision and values through a fork of this version of the declaration.
     </p>
     <Button
       onClick={openModal}>
-      Fork This
+      Fork
     </Button>
     <Modal
       isOpen={modalIsOpen}

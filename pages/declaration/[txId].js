@@ -70,7 +70,7 @@ export default function Declaration({ data, sigs, txId, status }) {
             </div>
           </div>
 
-          <div className="mt-10">
+          <div className="m-24 w-2/5">
             <Signatures sigs={sigs}/>
           </div>
         </main>
