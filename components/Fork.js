@@ -41,15 +41,25 @@ export default function Fork({text, txId, walletKey}) {
       .then(data => window.location.href = `/declaration/${data.id}`);
 
   return (<div>
-    <button onClick={openModal}>Fork This</button>
+    <button
+      className="mt-3 px-6 py-2 rounded-lg bg-brown-20 text-white text-md"
+      onClick={openModal}>
+      Fork This
+    </button>
     <Modal
       isOpen={modalIsOpen}
       onRequestClose={closeModal}
       style={customStyles}
+      contentLabel="fork-editor"
     >
       <form onSubmit={handleSubmit(onSubmit)} className="w-full">
-        <textarea {...register("declaration")} className="w-full" rows={30}/>
-        <button>Fork</button>
+        <div className="text-center pb-4">Fork the declaration</div>
+        <textarea {...register("declaration")} className="max-h-96 resize-none border border-gray-200 rounded-sm px-5 py-4 w-full outline-none" rows={30}/>
+        <div className="text-center">
+          <button className="mt-3 px-6 py-2 rounded-lg bg-brown-20 text-white text-md">
+            Fork
+          </button>
+        </div>
       </form>
     </Modal>
   </div>)
