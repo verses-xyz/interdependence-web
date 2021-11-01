@@ -1,5 +1,5 @@
-import Head from 'next/head'
-import Image from 'next/image'
+import Head from 'next/head';
+import Image from 'next/image';
 import {getDeclaration} from "../../arweaveFns";
 import Sign from "../../components/Sign";
 import Fork from "../../components/Fork";
@@ -14,20 +14,24 @@ export default function Declaration({ data, sigs, txId, status }) {
   if (status === 200) {
     const {declaration, authors, timestamp} = data
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen py-4">
+      <div className="flex flex-col items-center justify-center min-h-screen py-4 bg-blue-20">
         <Head>
           <title>Interdependence</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
-        <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center bg-blue-20 ">
-          
-          {/*
-          TODO: SOMEONE MAKE THE HEADER 
-          */}
-          <div className=""> 
-            <Fork text={data} txId={txId} walletKey={""} />
-            <a href="/about"> About </a>
+        <main className="flex flex-col items-center justify-center w-full max-w-3xl flex-1 px-20 text-center">
+          <div className="flex w-full">
+            <div className="flex-1">
+            </div>
+            <div className="flex-0">
+              <button className="mt-5 px-6 py-2 rounded-full bg-brown-20 text-white text-md" onClick={() => { document.getElementById('signatureForm').scrollIntoView(); }}>
+                <p className="font-mono">Sign</p>
+              </button>
+              <button className="ml-2.5 mt-5 px-6 py-2 rounded-full bg-gray-200 text-brown-120 text-md">
+                <p className="font-mono">About</p>
+              </button>
+            </div>
           </div>
 
           <h1 className="text-2xl font-body mt-20 italic">
@@ -70,15 +74,15 @@ export default function Declaration({ data, sigs, txId, status }) {
           </div>
         </main>
       </div>
-    )
+    );
   } else {
     // error
-    return <div>can't find that version of the declaration</div>
+    return <div>can't find that version of the declaration</div>;
   }
 }
 
 export async function getServerSideProps(context) {
   return {
     props: await getDeclaration(context.params.txId),
-  }
+  };
 }
