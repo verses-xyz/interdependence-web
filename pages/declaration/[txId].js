@@ -25,7 +25,7 @@ export default function Declaration({ data, sigs, txId, status }) {
           <div className="flex w-full">
             <div className="hidden sm:block flex-1">
             </div>
-            <div className="flex-0">
+            <div className="flex-0 w-full flex justify-center">
               <Button text="Sign" primary onClick={() => { document.getElementById('signatureForm').scrollIntoView(); }}>
                 <p className="font-mono">Sign</p>
               </Button>
@@ -39,7 +39,9 @@ export default function Declaration({ data, sigs, txId, status }) {
             <h1 className="text-3xl font-title my-10 sm:my-10 xl:my-20 sm:text-4xl md:text-5xl lg:text-7xl font-semibold">
               Declaration
               <span className="text-2xl block font-light italic -mb-5 sm:-mb-4 md:-mb-1.5 lg:-mb-1 mt-1 sm:mt-2 md:mt-4 lg:mt-4 text-xl sm:text-2xl md:text-3xl xl:text-4xl">of the</span>
-              <div className="max-w-2xl m-auto" style={{ lineHeight: "5.25rem" }}>Interdependence of Cyberspace</div>
+              {/* Two responsive elements to fix line breaking on xs viewports. */}
+              <div className="hidden sm:block max-w-2xl m-auto" style={{ lineHeight: "5.25rem" }}>Interdependence of Cyberspace</div>
+              <div className="sm:hidden max-w-2xl m-auto mt-5">Interdependence of Cyberspace</div>
             </h1>
           </div>
 
