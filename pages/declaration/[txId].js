@@ -4,7 +4,6 @@ import {getDeclaration} from "../../arweaveFns";
 import Sign from "../../components/Sign";
 import Fork from "../../components/Fork";
 import Signatures from "../../components/Signatures";
-import Fork from "../../components/Fork"
 
 
 export default function Declaration({ data, sigs, txId, status }) {
