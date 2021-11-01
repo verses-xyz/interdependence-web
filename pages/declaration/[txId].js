@@ -16,7 +16,7 @@ export default function Declaration({ data, sigs, txId, status }) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen py-4 bg-blue-20">
         <HeadComponent/>
-        <main className="flex flex-col items-center justify-center w-full flex-1 px-20 md:px-10 sm:px-10 text-center">
+        <main className="flex flex-col items-center justify-center w-full flex-1 px-2 sm:px-10 lg:px-20 xl:px-20 text-center">
           <div className="flex w-full">
             <div className="flex-1">
             </div>
@@ -31,9 +31,9 @@ export default function Declaration({ data, sigs, txId, status }) {
           </div>
 
           <div className="w-1/2">
-            <h1 className="text-7xl font-title m-20 md:mx-1 sm:mx-1 sm:text-4xl lg:text-7xl font-semibold">
+            <h1 className="text-3xl font-title my-10 sm:m-10 xl:m-20 sm:text-4xl md:text-5xl lg:text-7xl font-semibold">
               Declaration
-              <span className="block font-light italic m-5 text-4xl sm:text-xl lg:text-4xl">of the</span>
+              <span className="text-2xl block font-light italic m-5 sm:text-2xl md:text-4xl lg:text-4xl xl:text-7xl">of the</span>
               Interdependence of Cyberspace
             </h1>
           </div>
@@ -59,12 +59,12 @@ export default function Declaration({ data, sigs, txId, status }) {
 
           <hr className="my-20" />
 
-          <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 mt-10 flex w-1/2">
-            <div id="signatureForm" className="flex-1 mx-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 flex w-1/2">
+            <div id="signatureForm" className="flex-1 mx-4 md:mx-8">
               <Sign txId={txId} walletKey={""} />
             </div>
 
-            <div className="flex-1 mx-8 sm:mt-10 md:mt-0 lg:mt-0">
+            <div className="mt-20 flex-1 mx-4 md:mx-8 md:mt-0">
               <Fork
                 text={declaration} txId={txId} walletKey={""} />
             </div>
