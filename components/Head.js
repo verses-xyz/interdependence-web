@@ -2,7 +2,7 @@ import Head from 'next/head';
 
 export default function HeadComponent() {
   return <Head>
-    <title>Interdependence</title>
+    <title>A Declaration of the Interdependence of Cyberspace</title>
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Roboto+Mono&display=swap" rel="stylesheet"/>
     
     {/* Place any emoji as text wrapped in svg for favicon */}
@@ -11,9 +11,10 @@ export default function HeadComponent() {
       ✍️ 
       </text></svg>"/>
 
-    <meta property="og:title" content="Declaration of the Interdependence of Cyberspace"/>
+    <meta property="og:title" content="A Declaration of the Interdependence of Cyberspace"/>
 
-    <meta property="og:description" content="Lorem ipsum fiefdoms floripsum at vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident "/>/>
+    <meta property="og:description" 
+      content="Collectively authored and backed by the citizens of the Pluriverse"/>
 
     <meta property="og:image" content="https://res.cloudinary.com/djp21wtxm/image/upload/v1635801698/fczrixfn4krjqmjf3vld.png" />
 
