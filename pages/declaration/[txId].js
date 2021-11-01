@@ -12,6 +12,7 @@ export default function Declaration({ data, sigs, txId, status }) {
   }
 
   if (status === 200) {
+    const {declaration, authors, timestamp} = data
     return (
       <div className="flex flex-col items-center justify-center min-h-screen py-4">
         <Head>
@@ -35,10 +36,14 @@ export default function Declaration({ data, sigs, txId, status }) {
                         lg:ml-20
                         xl:mx-40
                         whitespace-pre-wrap">
-            {data}
+            {declaration}
           </div>
+          <p>{timestamp}</p>
+          <ul>
+            {authors.map(author => <li key={author.name}><a href={author.url}>{author.name}</a></li>)}
+          </ul>
           <Sign txId={txId} walletKey={""} />
-          <Fork text={data} txId={txId} walletKey={""} />
+          <Fork text={declaration} txId={txId} walletKey={""} />
           <Signatures sigs={sigs}/>
         </main>
       </div>
