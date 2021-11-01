@@ -48,16 +48,30 @@ export default function Declaration({ data, sigs, txId, status }) {
                         sm:ml-5
                         lg:ml-20
                         xl:mx-40
-                        whitespace-pre-wrap">
+                        whitespace-pre-wrap
+                        mb-10">
             {declaration}
           </div>
-          <p>{timestamp}</p>
-          <ul>
-            {authors.map(author => <li key={author.name}><a href={author.url}>{author.name}</a></li>)}
-          </ul>
-          <Sign txId={txId} walletKey={""} />
-          <Fork text={declaration} txId={txId} walletKey={""} />
-          <Signatures sigs={sigs}/>
+
+          <div classname="mt-5">
+            <ul className="ml-10 grid grid-cols-5 gap-3">
+              <p className="p-2 border-2 border-black rounded-3xl">{timestamp}</p>
+                {authors.map(author => <li className="p-2 border-2 border-black rounded-3xl bg-brown-80" key={author.name}><a href={author.url}>{author.name}</a></li>)}
+            </ul>
+          </div>
+          
+          <div className="mt-10">
+            <Sign txId={txId} walletKey={""} />
+          </div>
+
+          <div className="mt-10">
+            <Fork 
+              text={declaration} txId={txId} walletKey={""} />
+          </div>
+
+          <div className="mt-10"> 
+            <Signatures sigs={sigs}/>
+          </div>
         </main>
       </div>
     );
