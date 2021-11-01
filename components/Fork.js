@@ -78,7 +78,7 @@ export default function Fork({text, txId, walletKey}) {
             </div>
           </div>
           <div className="flex-0">
-            <Button primary className="mb-5 ml-10 px-6 py-2 rounded-full bg-brown-20 text-white font-mono rounded-full">Fork</Button>
+            <Button primary className="mb-5 px-6 py-2 rounded-full bg-brown-20 text-white font-mono rounded-full">Fork</Button>
           </div>
         </div>
       </form>

@@ -8,7 +8,12 @@ import Button from "../../components/core/Button";
 
 export default function Declaration({ data, sigs, txId, status }) {
   if (status === 202) {
-    return <p>for status: we are handwriting at the moment, please wait 5-10 mins.</p>
+    return (
+      <div className="my-20 max-w-lg m-auto">
+        <HeadComponent/>
+        <p className="text-center text-sm font-mono">Indexing in progress, please wait 5-10 minutes for the document to be written to Arweave.</p>
+      </div>
+    );
   }
 
   if (status === 200) {
@@ -16,9 +21,9 @@ export default function Declaration({ data, sigs, txId, status }) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen py-4 bg-blue-20">
         <HeadComponent/>
-        <main className="flex flex-col items-center justify-center w-full flex-1 px-2 sm:px-10 lg:px-20 xl:px-20 text-center">
+        <main className="flex flex-col items-center justify-center w-full flex-1 px-4 sm:px-10 lg:px-20 xl:px-20 text-center">
           <div className="flex w-full">
-            <div className="flex-1">
+            <div className="hidden sm:block flex-1">
             </div>
             <div className="flex-0">
               <Button text="Sign" primary onClick={() => { document.getElementById('signatureForm').scrollIntoView(); }}>
@@ -59,9 +64,9 @@ export default function Declaration({ data, sigs, txId, status }) {
 
           <hr className="my-20" />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 flex w-1/2">
-            <div id="signatureForm" className="flex-1 mx-4 md:mx-8">
-            <p className="md:text-justify font-mono">
+          <div className="grid grid-cols-1 lg:grid-cols-2 flex w-1/2">
+            <div id="signatureForm" className="flex-1 mx-4 lg:mx-8">
+            <p className="lg:text-justify font-mono">
               If you'd like to endorse this declaration, you can sign the declaration by clicking the button below. Signatures will become part of this document's permanent history on the Arweave blockchain.
             </p>
             <p className="text-gray-400 font-mono mt-2"> * Coming soon * </p>
@@ -72,7 +77,7 @@ export default function Declaration({ data, sigs, txId, status }) {
             {/* <Sign txId={txId} walletKey={""} /> */}
             </div>
 
-            <div className="mt-20 flex-1 mx-4 md:mx-8 md:mt-0">
+            <div className="mt-20 flex-1 mx-4 md:mx-8 lg:mt-0">
               <Fork
                 text={declaration} txId={txId} walletKey={""} />
             </div>
