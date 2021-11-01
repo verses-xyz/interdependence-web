@@ -17,6 +17,13 @@ export default function About() {
                       text-center 
                       md:px-20 sm:px-5 xs:px-5"
       >
+      <div className="flex w-full">
+          <div className="flex-0">
+              <button className="ml-2.5 mt-5 px-6 py-2 rounded-full bg-gray-200 text-brown-120 text-md">
+                <a className="font-mono" href="/declaration"> ← Declaration</a>
+              </button>
+            </div>
+          </div>
         <h1 className="text-6xl font-title text-bold px-20 text-center">
           About
         </h1>
