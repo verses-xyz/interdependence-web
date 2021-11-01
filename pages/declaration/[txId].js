@@ -25,7 +25,7 @@ export default function Declaration({ data, sigs, txId, status }) {
           {/*
           TODO: SOMEONE MAKE THE HEADER 
           */}
-          <div classNamee=""> 
+          <div className=""> 
             <Fork text={data} txId={txId} walletKey={""} />
             <a href="/about"> About </a>
           </div>
@@ -47,10 +47,13 @@ export default function Declaration({ data, sigs, txId, status }) {
                         whitespace-pre-wrap">
             {declaration}
           </div>
-          <p>{timestamp}</p>
-          <ul>
-            {authors.map(author => <li key={author.name}><a href={author.url}>{author.name}</a></li>)}
+
+          <div>
+          <ul className="ml-10 grid grid-cols-5 gap-3">
+          <p className="p-2 border-2 border-black rounded-3xl">{timestamp}</p>
+            {authors.map(author => <li className="p-2 border-2 border-black rounded-3xl bg-brown-80" key={author.name}><a href={author.url}>{author.name}</a></li>)}
           </ul>
+          </div>
           <Sign txId={txId} walletKey={""} />
           <Fork text={declaration} txId={txId} walletKey={""} />
           <Signatures sigs={sigs}/>
