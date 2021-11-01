@@ -69,7 +69,7 @@ export default function Fork({text, txId, walletKey}) {
             {" "}
             the plugin and
             {" "}
-            <a href="#" target="_blank">secure some $AR</a>
+            <a href="https://faucet.arweave.net/" target="_blank">secure some $AR</a>
           </div>
           <div className="flex-0">
             <button className="mb-5 px-6 py-2 rounded-lg bg-brown-20 text-white text-md rounded-full">
