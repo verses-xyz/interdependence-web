@@ -1,3 +1,24 @@
 html {
     scroll-behavior: smooth;
 }
+
+hr {
+    overflow: visible;
+    padding: 0;
+    border: none;
+    border-top: 2px solid #CCC;
+    color: #CCC;
+    text-align: center;
+    width: 20%;
+}
+
+hr:after {
+    content: "*\a0\a0\a0*\a0\a0\a0*";
+    display: inline-block;
+    background: none;
+    position: relative;
+    top: -0.65em;
+    font-size: 1.5em;
+    padding: 0 1em;
+    background: #F9F9F9;
+}

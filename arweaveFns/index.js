@@ -102,7 +102,7 @@ async function fetchSignatures(txId) {
       SIG_TX: sig,
       SIG_NAME: n.tags.find(tag => tag.name === SIG_NAME).value,
       SIG_HANDLE: n.tags.find(tag => tag.name === SIG_HANDLE).value,
-    }]
+    }].reverse()
   })
 }
 

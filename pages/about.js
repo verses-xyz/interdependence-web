@@ -1,16 +1,13 @@
 import Head from "next/head";
+import HeadComponent from "../components/Head";
 
 export default function About() {
   return (
     <div>
-      <Head>
-        <title>About</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
+      <HeadComponent/>
       <div
-        className="flex flex-col items-center justify-center w-full flex-1 
-                      px-10
+        className="flex flex-col items-center flex-1
+                      px-48
                       lg:px-40
                       xl:px-60
                       py-20 
@@ -24,7 +21,7 @@ export default function About() {
               </button>
             </div>
           </div>
-        <h1 className="text-6xl font-title text-bold px-20 text-center">
+        <h1 className="text-6xl font-title w-full font-bold px-20 text-center">
           About
         </h1>
         <div
@@ -42,7 +39,7 @@ export default function About() {
           <ol className="list-decimal">
             <li className="font-bold">
               <h2 className="ml-8">
-                Backstory of how this document came to be{" "}
+                Backstory of how this document came to be
               </h2>
             </li>
             <p>

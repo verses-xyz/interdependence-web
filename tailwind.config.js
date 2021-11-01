@@ -4,8 +4,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {
-      title: ["Cahuega"],
-      body: ["Garamond"],
+      title: ["EB Garamond"],
+      body: ["EB Garamond"],
+      mono: ["Roboto Mono"],
     },
     backgroundColor: (theme) => ({
       ...theme("colors"),
@@ -25,8 +26,7 @@ module.exports = {
           20: "#F8F9F9",
         },
         brown: {
-
-          20: '#666666',
+          20: '#4f4f4f',
           80: '#EBEBEB',
           120: '#666666'
         }
