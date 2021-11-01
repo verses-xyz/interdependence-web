@@ -59,7 +59,7 @@ export default function Sign({ txId, walletKey }) {
         contentLabel="sign-modal"
       >
           <div className="">
-          <form onSubmit={handleSubmit(onSubmit)} className="w-full font-body bg-gray-50">             
+          <form onSubmit={handleSubmit(onSubmit)} className="w-full font-body bg-gray-50 max-w-2xl">             
           <div className="font-mono font-bold text-center py-3.5 bg-gray-100 text-gray-800 border-b border-gray-200">Sign the Declaration</div>
             <div className="pt-4 pb-2.5 px-5 bg-gray-50">
               <p className="font-mono text-center text-xl p-4">
