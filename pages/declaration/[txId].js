@@ -54,9 +54,9 @@ export default function Declaration({ data, sigs, txId, status }) {
           </div>
 
           <div classname="mt-5">
-            <ul className="ml-10 grid grid-cols-5 gap-3 sm: grid-cols-3">
-              <p className="p-2 border-2 border-black rounded-3xl">{timestamp}</p>
-                {authors.map(author => <li className="p-2 border-2 border-black rounded-3xl bg-brown-80" key={author.name}><a href={author.url}>{author.name}</a></li>)}
+            <ul className="ml-10 grid grid-cols-5 gap-3 sm: grid-cols-2">
+              <p className="p-2 border-2 border-black rounded-3xl overflow-hidden">{timestamp}</p>
+                {authors.map(author => <li className=" overflow-hidden p-2 border-2 border-black rounded-3xl bg-brown-80" key={author.name}><a href={author.url}>{author.name}</a></li>)}
             </ul>
           </div>
           
