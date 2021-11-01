@@ -10,25 +10,30 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Fork/>
+      {/* Warning: tailwind speghatti. */}
 
-      <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center bg-blue-20 ">
-        <h1 className="text-2xl font-body mt-20 italic">
+      <main className="flex flex-col items-center justify-center w-full flex-1 
+                      px-10
+                      lg:px-40
+                      xl:px-60
+                      py-20 
+                      text-center bg-blue-420 
+                      md:px-20 sm:px-5 xs:px-5">
+
+      <div className="bg-yellow-50 rounded-md"> 
+        <h1 className="text-2xl font-body mt-20 text-bold italic px-20">
         A Declaration of the Interdependence of Cyberspace
         </h1>
         <div className="mt-10 
                         font-body 
-                        text-2xl 
+                        text-lg 
                         text-left 
                         space-y-12
                         text-opacity-75 
                         max-w-4xl 
-                        ml-10 
-                        sm:ml-5 
-                        lg:ml-20 
-                        xl:mx-40">
-
-      
+                        px-10
+                        sm:px-10
+                        md:px-10">
         <p>
         Closed fiefdoms of the Web2 world, you weary giants of stocks and small talk, 
         I come from the Pluriverse, the new home of the heart. 
@@ -138,22 +143,11 @@ export default function Home() {
 
         </div>
         <div className="text-opacity-75 font-body italic mt-20 mb-20 text-xl">
+        
 
-
-        {/* <p> <b> Authors </b> </p>   */}
-          <p> Jasmine Wang, Gareth Graunsaull, Daanish Shabbir, Saffron Huang, tk.. </p>
-          
-          <div className="text-center text-gray-500 text-opacity-50 not-italic">
-          <p> 
-          </p>
-          Thanks to Tina He, Sidcode, Scott Moore, Sonia Joseph, Kelsey Chen, Jasmine Sun, & Jackson Dame for valuable feedback and dialogue on this document. 
-            </div>
         </div>
-       
-        <div className="fixed bottom-0 left-0 text-left rounded-xl p-6">
-          <Image className="rounded-xl" src="/apple-touch-icon.png" width={100} height={100}/>
+      
         </div>
-
 
       </main>
     </div>
