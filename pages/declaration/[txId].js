@@ -25,7 +25,7 @@ export default function Declaration({ data, sigs, txId, status }) {
           {/*
           TODO: SOMEONE MAKE THE HEADER 
           */}
-          <div classNamee=""> 
+          <div className="">
             <Fork text={data} txId={txId} walletKey={""} />
             <a href="/about"> About </a>
           </div>

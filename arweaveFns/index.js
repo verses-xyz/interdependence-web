@@ -70,7 +70,9 @@ async function fetchSignatures(txId) {
           edges {
             node {
               id
-              signature
+              owner {
+                address
+              }
               tags {
                 name
                 value
@@ -84,12 +86,24 @@ async function fetchSignatures(txId) {
   })
 
   const json = await req.json()
-  return json.data.transactions.edges.map(nodeItem => ({
-    SIG_ID: nodeItem.node.id,
-    SIG_TX: nodeItem.node.signature,
-    SIG_NAME: nodeItem.node.tags.find(tag => tag.name === SIG_NAME).value,
-    SIG_HANDLE: nodeItem.node.tags.find(tag => tag.name === SIG_HANDLE).value,
-  }))
+
+  const unique_tx = new Set()
+  return json.data.transactions.edges.flatMap(nodeItem => {
+    const n = nodeItem.node
+    const sig = n.owner.address
+
+    if (unique_tx.has(sig)) {
+      return []
+    }
+
+    unique_tx.add(sig)
+    return [{
+      SIG_ID: n.id,
+      SIG_TX: sig,
+      SIG_NAME: n.tags.find(tag => tag.name === SIG_NAME).value,
+      SIG_HANDLE: n.tags.find(tag => tag.name === SIG_HANDLE).value,
+    }]
+  })
 }
 
 export async function getDeclaration(txId) {
