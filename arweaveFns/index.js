@@ -18,9 +18,12 @@ const DOC_REF = "interdependence_doc_ref"
 const SIG_NAME = "interdependence_sig_name"
 const SIG_HANDLE = "interdependence_sig_handle"
 
-export async function forkDeclaration(oldTxId, newText, key) {
+export async function forkDeclaration(oldTxId, newText, authors, key) {
   let transaction = await arweave.createTransaction({
-    data: newText
+    data: JSON.stringify({
+      declaration: newText,
+      authors: authors
+    })
   }, key)
   transaction.addTag(DOC_TYPE, 'declaration')
   transaction.addTag(DOC_ORIGIN, oldTxId)
@@ -72,9 +75,6 @@ async function fetchSignatures(txId) {
                 name
                 value
               }
-              block {
-                timestamp
-              }
             }
           }
         }
@@ -88,7 +88,7 @@ async function fetchSignatures(txId) {
     SIG_ID: nodeItem.node.id,
     SIG_TX: nodeItem.node.signature,
     SIG_NAME: nodeItem.node.tags.find(tag => tag.name === SIG_NAME).value,
-    SIG_HANDLE: nodeItem.node.tags.find(tag => tag.name === SIG_HANDLE).value
+    SIG_HANDLE: nodeItem.node.tags.find(tag => tag.name === SIG_HANDLE).value,
   }))
 }
 
@@ -104,6 +104,7 @@ export async function getDeclaration(txId) {
     res.status = txStatus.status
     return res
   }
+
   const transactionMetadata = await arweave.transactions.get(txId)
   const tags = transactionMetadata.get('tags').reduce((prev, tag) => {
     let key = tag.get('name', {decode: true, string: true})
@@ -113,14 +114,21 @@ export async function getDeclaration(txId) {
 
   // ensure correct type, return undefined otherwise
   if (!(DOC_TYPE in tags) || tags[DOC_TYPE] !== 'declaration') {
-    return undefined
+    return res
   }
 
   // otherwise metadata seems correct, go ahead and fetch
-  res.data = await arweave.transactions.getData(txId, {
-    decode: true,
-    string: true,
-  })
+  const blockId = txStatus.confirmed.block_indep_hash
+  const blockMeta = await arweave.blocks.get(blockId)
+  const options = { year: 'numeric', month: 'long', day: 'numeric' }
+  const time = new Date(blockMeta.timestamp * 1000)
+  res.data = {
+    ...JSON.parse(await arweave.transactions.getData(txId, {
+      decode: true,
+      string: true,
+    })),
+    timestamp: time.toLocaleDateString('en-US', options),
+  }
 
   // fetch associated signatures
   res.sigs = await fetchSignatures(txId)
