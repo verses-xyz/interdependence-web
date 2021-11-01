@@ -13,7 +13,6 @@ export default function Sign({ txId, walletKey }) {
 
   return (
 
-
     <div className="items-center justify-center border-2 rounded-md p-10"> 
       <div className="px-10"> 
       
