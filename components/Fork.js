@@ -37,7 +37,7 @@ export default function Fork({text, txId, walletKey}) {
   }
 
   const onSubmit = (data) =>
-    forkDeclaration("", data.declaration, walletKey)
+    forkDeclaration(txId, data.declaration, [], walletKey)
       .then(data => window.location.href = `/declaration/${data.id}`);
 
   return (<div>
@@ -46,7 +46,6 @@ export default function Fork({text, txId, walletKey}) {
       isOpen={modalIsOpen}
       onRequestClose={closeModal}
       style={customStyles}
-      contentLabel="peepoopee"
     >
       <form onSubmit={handleSubmit(onSubmit)} className="w-full">
         <textarea {...register("declaration")} className="w-full" rows={30}/>
