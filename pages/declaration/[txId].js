@@ -20,7 +20,7 @@ export default function Declaration({ data, sigs, txId, status }) {
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
-        <main className="flex flex-col items-center justify-center w-full max-w-3xl flex-1 px-20 text-center">
+        <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
           <div className="flex w-full">
             <div className="flex-1">
             </div>
@@ -52,24 +52,23 @@ export default function Declaration({ data, sigs, txId, status }) {
                         mb-10">
             {declaration}
           </div>
-
           <div classname="mt-5">
             <ul className="ml-10 grid grid-cols-5 gap-3">
               <p className="p-2 border-2 border-black rounded-3xl">{timestamp}</p>
                 {authors.map(author => <li className="p-2 border-2 border-black rounded-3xl bg-brown-80" key={author.name}><a href={author.url}>{author.name}</a></li>)}
             </ul>
           </div>
-          
-          <div className="mt-10">
+
+          <div className="mt-10" id="signatureForm">
             <Sign txId={txId} walletKey={""} />
           </div>
 
           <div className="mt-10">
-            <Fork 
+            <Fork
               text={declaration} txId={txId} walletKey={""} />
           </div>
 
-          <div className="mt-10"> 
+          <div className="mt-10">
             <Signatures sigs={sigs}/>
           </div>
         </main>
