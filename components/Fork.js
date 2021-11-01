@@ -65,7 +65,7 @@ export default function Fork({text, txId, walletKey}) {
           <div className="flex-1 text-sm mt-2.5 text-gray-800">
             To commit your fork, first
             {" "}
-            <a href="#" target="_blank">install</a>
+            <a href="https://chrome.google.com/webstore/detail/arconnect/einnioafmpimabjcddiinlhmijaionap" target="_blank">install</a>
             {" "}
             the plugin and
             {" "}
