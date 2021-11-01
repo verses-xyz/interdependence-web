@@ -29,7 +29,7 @@ export default function Declaration({ data, sigs, txId, status }) {
                 <p className="font-mono">Sign</p>
               </button>
               <button className="ml-2.5 mt-5 px-6 py-2 rounded-full bg-gray-200 text-brown-120 text-md">
-                <p className="font-mono">About</p>
+                <a className="font-mono" href="/about">About</a>
               </button>
             </div>
           </div>
@@ -43,18 +43,16 @@ export default function Declaration({ data, sigs, txId, status }) {
                         text-left
                         space-y-12
                         text-opacity-75
-                        max-w-4xl
+                        max-w-3xl
                         ml-10
                         sm:ml-5
-                        lg:ml-20
-                        xl:mx-40
                         whitespace-pre-wrap
                         mb-10">
             {declaration}
           </div>
 
           <div classname="mt-5">
-            <ul className="ml-10 grid grid-cols-5 gap-3 sm: grid-cols-2">
+            <ul className="ml-10 grid grid-cols-5 gap-3 sm:grid-cols-2">
               <p className="p-2 border-2 border-black rounded-3xl overflow-hidden">{timestamp}</p>
                 {authors.map(author => <li className=" overflow-hidden p-2 border-2 border-black rounded-3xl bg-brown-80" key={author.name}><a href={author.url}>{author.name}</a></li>)}
             </ul>
