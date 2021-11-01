@@ -2,11 +2,11 @@ import Arweave from 'arweave'
 
 function init() {
   return Arweave.init({
-    host: 'arweave.net',// Hostname or IP address for a Arweave host
-    port: 443,          // Port
-    protocol: 'https',  // Network protocol http or https
-    timeout: 20000,     // Network request timeouts in milliseconds
-    logging: true,     // Enable network request logging
+    host: 'arweave.net',
+    port: 443,
+    protocol: 'https',
+    timeout: 20000,
+    logging: false,
   })
 }
 
@@ -25,7 +25,10 @@ export async function forkDeclaration(oldTxId, newText, key) {
   transaction.addTag(DOC_TYPE, 'declaration')
   transaction.addTag(DOC_ORIGIN, oldTxId)
   await arweave.transactions.sign(transaction, key)
-  return await arweave.transactions.post(transaction)
+  return {
+    ...await arweave.transactions.post(transaction),
+    id: transaction.id,
+  }
 }
 
 export async function signDeclaration(txId, name, handle, key) {
@@ -90,12 +93,23 @@ async function fetchSignatures(txId) {
 }
 
 export async function getDeclaration(txId) {
+  const res = {
+    txId,
+    data: {},
+    sigs: [],
+    status: 404,
+  }
+  const txStatus = await arweave.transactions.getStatus(txId)
+  if (txStatus.status !== 200) {
+    res.status = txStatus.status
+    return res
+  }
   const transactionMetadata = await arweave.transactions.get(txId)
   const tags = transactionMetadata.get('tags').reduce((prev, tag) => {
     let key = tag.get('name', {decode: true, string: true})
     prev[key] = tag.get('value', {decode: true, string: true})
     return prev
-  }, {});
+  }, {})
 
   // ensure correct type, return undefined otherwise
   if (!(DOC_TYPE in tags) || tags[DOC_TYPE] !== 'declaration') {
@@ -103,16 +117,13 @@ export async function getDeclaration(txId) {
   }
 
   // otherwise metadata seems correct, go ahead and fetch
-  const data = await arweave.transactions.getData(txId, {
+  res.data = await arweave.transactions.getData(txId, {
     decode: true,
     string: true,
   })
 
   // fetch associated signatures
-  const sigs = await fetchSignatures(txId)
-  return {
-    txId,
-    data,
-    sigs,
-  }
+  res.sigs = await fetchSignatures(txId)
+  res.status = 200
+  return res
 }
