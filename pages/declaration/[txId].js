@@ -16,7 +16,7 @@ export default function Declaration({ data, sigs, txId, status }) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen py-4 bg-blue-20">
         <HeadComponent/>
-        <main className="flex flex-col items-center justify-center w-full flex-1 px-10 md:px-10 sm:px-10 lg:px-20 xl:px-20 text-center">
+        <main className="flex flex-col items-center justify-center w-full flex-1 px-2 sm:px-10 lg:px-20 xl:px-20 text-center">
           <div className="flex w-full">
             <div className="flex-1">
             </div>
