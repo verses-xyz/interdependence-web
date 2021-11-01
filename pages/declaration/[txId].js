@@ -1,9 +1,8 @@
-import Head from 'next/head';
-import Image from 'next/image';
 import {getDeclaration} from "../../arweaveFns";
 import Sign from "../../components/Sign";
 import Fork from "../../components/Fork";
 import Signatures from "../../components/Signatures";
+import HeadComponent from "../../components/Head";
 
 
 export default function Declaration({ data, sigs, txId, status }) {
@@ -15,11 +14,7 @@ export default function Declaration({ data, sigs, txId, status }) {
     const {declaration, authors, timestamp} = data
     return (
       <div className="flex flex-col items-center justify-center min-h-screen py-4 bg-blue-20">
-        <Head>
-          <title>Interdependence</title>
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
-
+        <HeadComponent/>
         <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center">
           <div className="flex w-full">
             <div className="flex-1">
@@ -34,9 +29,15 @@ export default function Declaration({ data, sigs, txId, status }) {
             </div>
           </div>
 
-          <h1 className="text-2xl font-body mt-20 italic">
-            A Declaration of the Interdependence of Cyberspace
-          </h1>
+          <div className="w-1/2">
+            <h1 className="text-7xl font-title m-20 font-semibold">
+              Declaration
+              <span className="block font-light italic m-5 text-4xl">of the</span>
+              Interdependence of Cyberspace
+            </h1>
+          </div>
+
+          <hr/>
           <div className="mt-10
                         font-body
                         text-2xl

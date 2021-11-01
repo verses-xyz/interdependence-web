@@ -1,13 +1,10 @@
 import Head from "next/head";
+import HeadComponent from "../components/Head";
 
 export default function About() {
   return (
     <div>
-      <Head>
-        <title>About</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
+      <HeadComponent/>
       <div
         className="flex flex-col items-center justify-center w-full flex-1 
                       px-10
