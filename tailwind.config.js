@@ -4,6 +4,7 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {
+      title: ["Cahuega"],
       body: ["Garamond"],
     },
     backgroundColor: (theme) => ({

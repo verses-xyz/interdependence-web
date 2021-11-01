@@ -17,7 +17,7 @@ export default function About() {
                       text-center 
                       md:px-20 sm:px-5 xs:px-5"
       >
-        <h1 className="text-6xl font-body text-bold px-20 text-center">
+        <h1 className="text-6xl font-title text-bold px-20 text-center">
           About
         </h1>
         <div
@@ -59,6 +59,7 @@ export default function About() {
               <a
                 href="https://www.eff.org/cyberspace-independence"
                 target="_blank"
+                className="text-blue-900 underline"
               >
                 Declaration of the Interdependence of Cyberspace{" "}
               </a>{" "}
@@ -83,40 +84,94 @@ export default function About() {
               <br />
               <br />
               <ul className="list-disc">
-                <li className="ml-8">
+                <li className="ml-4 pl-4">
                   True interoperability and the resulting ability to pave our
                   own desire paths
                 </li>
-                <li className="ml-8">
+                <li className="ml-4 pl-4">
                   Hard and soft norms of mutualism, reciprocity, and collective
                   ownership
                 </li>
               </ul>
               <br />
-              <br />
             </p>
             <li className="font-bold">
               <h2 className="ml-8">Software</h2>
             </li>
-            The medium is the message / the poetics of infrastructure. The tools
-            we used (look to @cryptowanderer’s talk on this & the importance of
-            tools) Ability to fork easily / build a different UI on top of the
-            same blocks that we use Signing There are also a few other hidden
-            Easter eggs in the design decisions - let us know if you discover
-            them.
+            <br />
+            &emsp;&emsp;The ontology of this object, and how other related
+            objects can be generated related to it, reflects the ethos of our
+            Declaration.
+            <br />
+            &emsp;&emsp;The document was entered into the permaweb on Oct 31,
+            2021, on the thirteenth anniversary of the publication of the
+            Bitcoin whitepaper.
+            <br />
+            &emsp;&emsp;The code for our digital home is all open-source, and
+            available{" "}
+            <a
+              href="https://github.com/danishabbir/Interdependence-"
+              target="_blank"
+              className="text-blue-900 underline"
+            >
+              here
+            </a>
+            . The diff from the original Declaration is here.
+            <br />
+            &emsp;&emsp;Anyone is able to show their support for our Declaration
+            by signing with an Arweave wallet. [tk add copy about being able to
+            query everything that a user has signed - this is an inversion of
+            the user-NFT ownership relation]
+            <br />
+            <br />
+            <ol className="list-disc">
+              <li className="ml-4 pl-4">
+                The tools we used (look to @cryptowanderer’s talk on this & the
+                importance of tools){" "}
+              </li>{" "}
+              <li className="ml-4 pl-4">
+                Ability to fork easily / build a different UI on top of the same
+                blocks that we use{" "}
+              </li>{" "}
+              <li className="ml-4 pl-4">Signing</li>
+            </ol>
+            <br />
+            There are also a few other hidden Easter eggs in the design
+            decisions - let us know if you discover them.
+            <br />
+            <br />
             <li className="font-bold">
               <h2 className="ml-8">Authorship</h2>
             </li>
-            This work was in some ways a microcosm of the difficulty of
-            collective, plural work - recognition is difficult especially given
-            Shapley values and the multidimensional nature of contribution. We
-            collapse all these things in an attempt to create some legible rank
-            ordering of authorship. Recognition is difficult because it is
-            multidimensional Writing, editing (the latter especially is
-            ephemeral) Intellectual / thought partnership. We owe intellectual
-            debts, for example, to @cryptowanderer. Organizing / PM Engineering
-            Diff temporal commitments (e.g. hint at larger body of written /
-            software work that is to come here)
+            <br />
+            <p>
+              &emsp;&emsp;This work was in some ways a microcosm of the
+              difficulty of collective, plural work - recognition is difficult
+              especially given Shapley values and the multidimensional nature of
+              contribution. We collapse all these things in an attempt to create
+              some legible rank ordering of authorship.
+              <br />
+              <br />
+              <ul className="list-disc">
+                <li className="ml-4 pl-4">
+                  Recognition is difficult because it is multidimensional{" "}
+                </li>{" "}
+                <li className="ml-16 pl-4">
+                  Writing, editing (the latter especially is ephemeral){" "}
+                </li>{" "}
+                <li className="ml-16 pl-4">
+                  {" "}
+                  Intellectual / thought partnership. We owe intellectual debts,
+                  for example, to @cryptowanderer.{" "}
+                </li>{" "}
+                <li className="ml-16 pl-4">Organizing / PM </li>
+                <li className="ml-16 pl-4">Engineering </li>
+                <li className="ml-4 pl-4">
+                  Diff temporal commitments (e.g. hint at larger body of written
+                  / software work that is to come here)
+                </li>
+              </ul>
+            </p>
           </ol>
         </div>
       </div>
