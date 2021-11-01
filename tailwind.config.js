@@ -18,6 +18,9 @@ module.exports = {
         },
         red: {
           20: '#F8F9F9'
+        },
+        brown: {
+          20: '#666666'
         }
       }
     },
