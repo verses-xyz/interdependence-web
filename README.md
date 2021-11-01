@@ -4,7 +4,7 @@ Running the application locally:
 
 ```
 npm install
-npm run start
+npm run dev
 ```
 
 Deploying:
