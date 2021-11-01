@@ -12,7 +12,7 @@ export default function Declaration({ data, sigs, txId, status }) {
   }
 
   if (status === 200) {
-    const {declaration, authors, timestamp} = data
+    const {declaration, authors, timestamp} = data;
     return (
       <div className="flex flex-col items-center justify-center min-h-screen py-4 bg-blue-20">
         <HeadComponent/>
@@ -30,11 +30,11 @@ export default function Declaration({ data, sigs, txId, status }) {
             </div>
           </div>
 
-          <div className="w-1/2">
-            <h1 className="text-3xl font-title my-10 sm:m-10 xl:m-20 sm:text-4xl md:text-5xl lg:text-7xl font-semibold">
+          <div className="w-full">
+            <h1 className="text-3xl font-title my-10 sm:my-10 xl:my-20 sm:text-4xl md:text-5xl lg:text-7xl font-semibold">
               Declaration
-              <span className="text-2xl block font-light italic m-5 sm:text-2xl md:text-4xl lg:text-4xl xl:text-7xl">of the</span>
-              Interdependence of Cyberspace
+              <span className="text-2xl block font-light italic -mb-5 sm:-mb-4 md:-mb-1.5 lg:-mb-1 mt-1 sm:mt-2 md:mt-4 lg:mt-4 text-xl sm:text-2xl md:text-3xl xl:text-4xl">of the</span>
+              <div className="max-w-2xl m-auto" style={{ lineHeight: "5.25rem" }}>Interdependence of Cyberspace</div>
             </h1>
           </div>
 
@@ -53,7 +53,7 @@ export default function Declaration({ data, sigs, txId, status }) {
           <div className="mt-20 max-w-3xl">
             <ul className="flex flex-wrap font-mono">
               <p className="py-2 px-4 my-1 mx-2 border border-brown-120 rounded-3xl overflow-hidden">{timestamp}</p>
-              {authors.map(author => <li className="my-1 mx-2 overflow-hidden py-2 px-4 rounded-3xl text-brown-120 bg-gray-200" key={author.name}><a href={author.url}>{author.name}</a></li>)}
+              {authors.map(author => <li className="my-1 mx-2 overflow-hidden py-2 px-4 rounded-3xl text-brown-120 hover:text-brown-20 bg-gray-200" key={author.name}><a href={author.url}>{author.name}</a></li>)}
             </ul>
           </div>
 
@@ -78,7 +78,7 @@ export default function Declaration({ data, sigs, txId, status }) {
             </div>
           </div>
 
-          <div className="m-24 w-2/5 md:m-12 sm:m-6">
+          <div className="m-24 w-4/5 md:w-3/5 lg:w-1/2 md:m-12 sm:m-6">
             <Signatures sigs={sigs}/>
           </div>
         </main>
