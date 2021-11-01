@@ -4,6 +4,7 @@ import {getDeclaration} from "../../arweaveFns";
 import Sign from "../../components/Sign";
 import Fork from "../../components/Fork";
 import Signatures from "../../components/Signatures";
+import Fork from "../../components/Fork"
 
 
 export default function Declaration({ data, sigs, txId, status }) {
@@ -21,6 +22,15 @@ export default function Declaration({ data, sigs, txId, status }) {
         </Head>
 
         <main className="flex flex-col items-center justify-center w-full flex-1 px-20 text-center bg-blue-20 ">
+          
+          {/*
+          TODO: SOMEONE MAKE THE HEADER 
+          */}
+          <div classNamee=""> 
+            <Fork text={data} txId={txId} walletKey={""} />
+            <a href="/about"> About </a>
+          </div>
+
           <h1 className="text-2xl font-body mt-20 italic">
             A Declaration of the Interdependence of Cyberspace
           </h1>
