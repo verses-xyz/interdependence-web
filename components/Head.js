@@ -11,7 +11,9 @@ export default function HeadComponent() {
       ✍️ 
       </text></svg>"/>
 
-    <meta property="og:description" content="Declaration of the Interdependence of Cyberspace"/>
+    <meta property="og:title" content="Declaration of the Interdependence of Cyberspace"/>
+
+    <meta property="og:description" content="Lorem ipsum fiefdoms floripsum at vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident "/>/>
 
     <meta property="og:image" content="https://res.cloudinary.com/djp21wtxm/image/upload/v1635801698/fczrixfn4krjqmjf3vld.png" />
 
