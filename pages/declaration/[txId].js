@@ -60,11 +60,11 @@ export default function Declaration({ data, sigs, txId, status }) {
           <hr className="my-20" />
 
           <div className="grid grid-cols-1 md:grid-cols-2 flex w-1/2">
-            <div id="signatureForm" className="flex-1 mx-8">
+            <div id="signatureForm" className="flex-1 mx-4 md:mx-8">
               <Sign txId={txId} walletKey={""} />
             </div>
 
-            <div className="mt-10 flex-1 mx-8 md:mt-0">
+            <div className="mt-20 flex-1 mx-4 md:mx-8 md:mt-0">
               <Fork
                 text={declaration} txId={txId} walletKey={""} />
             </div>

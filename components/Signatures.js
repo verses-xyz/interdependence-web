@@ -13,8 +13,8 @@ export default function Signatures({sigs}) {
     <h2 className="rounded-t font-mono py-2 bg-brown-80"> {sigs.length} Signature{sigs.length !== 1 && 's'}</h2>
     <div className="px-10">
       {sigs.map(sig => <div className="font-mono" key={sig.SIG_HANDLE}>
-        
-        <div className="space-x-0 flex border-b py-4 md:space-x-4 sm:py-1 md:py-4">
+         
+        <div className="space-x-0 flex border-b py-4 md:space-x-4 sm:py-1 md:py-4 overflow-hidden">
           <h3 className="py-2"><a href={`https://twitter.com/${sig.SIG_HANDLE}`}>{sig.SIG_NAME}</a></h3>
           <div className="flex-1"/>
           <a
