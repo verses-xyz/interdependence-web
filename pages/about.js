@@ -20,7 +20,7 @@ export default function About() {
       <div className="flex w-full">
           <div className="flex-0">
               <button className="ml-2.5 mt-5 px-6 py-2 rounded-full bg-gray-200 text-brown-120 text-md">
-                <a className="font-mono" href="/="> ← Declaration</a>
+                <a className="font-mono" href="/"> ← Declaration</a>
               </button>
             </div>
           </div>
