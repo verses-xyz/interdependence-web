@@ -57,13 +57,17 @@ export default function Declaration({ data, sigs, txId, status }) {
             </ul>
           </div>
 
-          <div className="mt-10" id="signatureForm">
-            <Sign txId={txId} walletKey={""} />
-          </div>
+          <hr className="my-20" />
 
-          <div className="mt-10">
-            <Fork
-              text={declaration} txId={txId} walletKey={""} />
+          <div className="mt-10 flex w-1/2">
+            <div id="signatureForm" className="flex-1 mx-8">
+              <Sign txId={txId} walletKey={""} />
+            </div>
+
+            <div className="flex-1 mx-8">
+              <Fork
+                text={declaration} txId={txId} walletKey={""} />
+            </div>
           </div>
 
           <div className="mt-10">
