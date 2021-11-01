@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Fork from "../components/Fork";
 
+
 export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
