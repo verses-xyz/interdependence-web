@@ -36,14 +36,14 @@ function Body({ txId, data, sigs, status }) {
           <p className="font-bold text-left max-w-3xl font-title text-2xl mt-16">{timestamp}</p>
         </div>
 
-        {parsedAuthors.length > 0 && <>
+        {/* {parsedAuthors.length > 0 && <>
           <hr/>
           <div className="mt-20 max-w-3xl">
             <ul className="flex flex-wrap font-mono">
               {parsedAuthors.map(author => <li className="my-1 mx-2 overflow-hidden py-2 px-4 rounded-3xl text-brown-120 hover:text-brown-20 bg-gray-200" key={author.name}><a target="_blank" href={author.url}>{author.name}</a></li>)}
             </ul>
           </div>
-        </>}
+        </>} */}
         <hr className="mt-20 mb-16" />
         <div id="signatureForm" className="mx-4 lg:mx-8 w-full sm:w-4/5 md:w-3/5 lg:w-1/2">
           <Sign txId={txId} declaration={declaration} />
