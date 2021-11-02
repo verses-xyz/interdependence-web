@@ -6,7 +6,7 @@ function init() {
     port: 443,
     protocol: 'https',
     timeout: 20000,
-    logging: true,
+    logging: false,
   })
 }
 
