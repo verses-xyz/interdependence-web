@@ -33,8 +33,17 @@ export async function forkDeclaration(oldTxId, newText, authors) {
   }).then(data => data.json())
 }
 
-export async function signDeclaration(txId, name, handle, key) {
+export async function signDeclaration(txId, name, address, handle) {
+  const formData = new URLSearchParams({
+    name,
+    address,
+    handle
+  })
 
+  return fetch(`${SERVER_URL}/sign/${txId}`, {
+    method: 'post',
+    body: formData,
+  }).then(data => data.json())
 }
 
 async function fetchSignatures(txId) {

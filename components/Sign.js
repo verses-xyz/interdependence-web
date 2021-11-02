@@ -50,7 +50,7 @@ export default function Sign({ txId, content }) {
   }
 
   const onSubmit = (data) =>
-    signDeclaration(txId, data.name, data.handle, walletKey);
+    signDeclaration(txId, data.name, account, data.handle);
 
   return (
     <div>
