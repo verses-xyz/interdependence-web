@@ -43,23 +43,24 @@ export default function Sign({ txId }) {
   function openModal() {
     setIsOpen(true);
     if (status === "notConnected") {
-      connect()
+      connect();
     }
   }
 
   function closeModal() {
     setIsOpen(false);
+    setIsLoading(false);
   }
 
   const onSubmit = (data) => {
-    setIsLoading(true)
+    setIsLoading(true);
     signDeclaration(txId, data.name, account, data.handle)
       .finally(() => {
-        setIsLoading(false)
-        closeModal()
+        setIsLoading(false);
+        closeModal();
         // TODO: other parts of flow idk
-      })
-  }
+      });
+  };
 
   return (<Box title="Sign the Declaration" content={
     <>

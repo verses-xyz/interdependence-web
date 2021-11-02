@@ -1,4 +1,4 @@
-import Arweave from 'arweave'
+import Arweave from 'arweave';
 
 function init() {
   return Arweave.init({
@@ -7,32 +7,33 @@ function init() {
     protocol: 'https',
     timeout: 20000,
     logging: false,
-  })
+  });
 }
 
-const arweave = init()
+const arweave = init();
 
-const ADMIN_ACCT = "aek33fcNH1qbb-SsDEqBF1KDWb8R1mxX6u4QGoo3tAs"
-const DOC_TYPE = "interdependence_doc_type"
-const DOC_ORIGIN = "interdependence_doc_origin"
-const DOC_REF = "interdependence_doc_ref"
-const SIG_NAME = "interdependence_sig_name"
-const SIG_HANDLE = "interdependence_sig_handle"
-const SIG_ADDR = "interdependence_sig_addr"
-const SIG_ISVERIFIED = "interdependence_sig_verified"
+const ADMIN_ACCT = "aek33fcNH1qbb-SsDEqBF1KDWb8R1mxX6u4QGoo3tAs";
+const DOC_TYPE = "interdependence_doc_type";
+const DOC_ORIGIN = "interdependence_doc_origin";
+const DOC_REF = "interdependence_doc_ref";
+const SIG_NAME = "interdependence_sig_name";
+const SIG_HANDLE = "interdependence_sig_handle";
+const SIG_ADDR = "interdependence_sig_addr";
+const SIG_ISVERIFIED = "interdependence_sig_verified";
 
-const SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:8080"
+const SERVER_URL = "https://interdependence-server-4uhf3li22a-uc.a.run.app";
+//process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:8080";
 
 export async function forkDeclaration(oldTxId, newText, authors) {
   const formData = new URLSearchParams({
     authors: JSON.stringify(authors),
     newText,
-  })
+  });
 
   return fetch(`${SERVER_URL}/fork/${oldTxId}`, {
     method: 'post',
     body: formData,
-  }).then(data => data.json())
+  }).then(data => data.json());
 }
 
 export async function signDeclaration(txId, name, address, handle) {
@@ -40,12 +41,15 @@ export async function signDeclaration(txId, name, address, handle) {
     name,
     address,
     handle
-  })
+  });
 
   return fetch(`${SERVER_URL}/sign/${txId}`, {
     method: 'post',
     body: formData,
-  }).then(data => data.json())
+  }).then(data => data.json()).catch((err) => {
+    alert("Could not reach signing server");
+    throw err;
+  });
 }
 
 export async function verifyTwitter(address, handle) {
@@ -95,29 +99,29 @@ async function fetchSignatures(txId) {
       }
       `
     })
-  })
+  });
 
-  const json = await req.json()
+  const json = await req.json();
 
-  const unique_tx = new Set()
+  const unique_tx = new Set();
   return json.data.transactions.edges.flatMap(nodeItem => {
-    const n = nodeItem.node
-    const sig = n.tags.find(tag => tag.name === SIG_ADDR).value
-    const handle = n.tags.find(tag => tag.name === SIG_HANDLE).value
+    const n = nodeItem.node;
+    const sig = n.tags.find(tag => tag.name === SIG_ADDR).value;
+    const handle = n.tags.find(tag => tag.name === SIG_HANDLE).value;
 
     if (unique_tx.has(sig)) {
-      return []
+      return [];
     }
 
-    unique_tx.add(sig)
+    unique_tx.add(sig);
     return [{
       SIG_ID: n.id,
       SIG_ADDR: sig,
       SIG_NAME: n.tags.find(tag => tag.name === SIG_NAME).value,
       SIG_HANDLE: handle === 'null' ? 'UNSIGNED' : handle,
       SIG_ISVERIFIED: n.tags.find(tag => tag.name === SIG_ISVERIFIED).value === 'true',
-    }]
-  })
+    }];
+  });
 }
 
 export async function getDeclaration(txId) {
@@ -126,40 +130,40 @@ export async function getDeclaration(txId) {
     data: {},
     sigs: [],
     status: 404,
-  }
-  const txStatus = await arweave.transactions.getStatus(txId)
+  };
+  const txStatus = await arweave.transactions.getStatus(txId);
   if (txStatus.status !== 200) {
-    res.status = txStatus.status
-    return res
+    res.status = txStatus.status;
+    return res;
   }
 
-  const transactionMetadata = await arweave.transactions.get(txId)
+  const transactionMetadata = await arweave.transactions.get(txId);
   const tags = transactionMetadata.get('tags').reduce((prev, tag) => {
-    let key = tag.get('name', {decode: true, string: true})
-    prev[key] = tag.get('value', {decode: true, string: true})
-    return prev
-  }, {})
+    let key = tag.get('name', {decode: true, string: true});
+    prev[key] = tag.get('value', {decode: true, string: true});
+    return prev;
+  }, {});
 
   // ensure correct type, return undefined otherwise
   if (!(DOC_TYPE in tags) || tags[DOC_TYPE] !== 'declaration') {
-    return res
+    return res;
   }
 
   // otherwise metadata seems correct, go ahead and fetch
-  const blockId = txStatus.confirmed.block_indep_hash
-  const blockMeta = await arweave.blocks.get(blockId)
-  const options = { year: 'numeric', month: 'long', day: 'numeric' }
-  const time = new Date(blockMeta.timestamp * 1000)
+  const blockId = txStatus.confirmed.block_indep_hash;
+  const blockMeta = await arweave.blocks.get(blockId);
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  const time = new Date(blockMeta.timestamp * 1000);
   res.data = {
     ...JSON.parse(await arweave.transactions.getData(txId, {
       decode: true,
       string: true,
     })),
     timestamp: time.toLocaleDateString('en-US', options),
-  }
+  };
 
   // fetch associated signatures
-  res.sigs = await fetchSignatures(txId)
-  res.status = 200
-  return res
+  res.sigs = await fetchSignatures(txId);
+  res.status = 200;
+  return res;
 }
