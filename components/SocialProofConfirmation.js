@@ -5,19 +5,20 @@ import Button from './core/Button';
 export default function VerificationPopUp({ }) {
     return (
       <Box
-        title="Verify Tweet"
+        title="Thank you for signing!"
         content={
             <div className="my-6">
                 <p className="font-mono">
-                  Once you've tweeted, click below to verify:                
+                    We're heartened you'll join us in the Pluriverse. If you have a moment, please share what this vision means to you.
                  </p>
                 <Button
                 primary
                 onClick={openModal}>
-                  Verify Tweet
+                  {/* Twitter icon */}
+                  Share
                 </Button>
                 <button className="text-gray-400">
-                    Back
+                    Close
                 </button>
           </div>}
       />
