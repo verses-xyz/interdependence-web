@@ -43,7 +43,7 @@ export async function signDeclaration(txId, name, userProvidedHandle, declaratio
   }
 
   // Sign the declarataion. Any errors here should be handled by the caller.
-  await window.ethereum.send("eth_requestAccounts");
+  await window.ethereum.request({ method: "eth_requestAccounts" });
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const signer = provider.getSigner();
   const signature = await signer.signMessage(declaration);
@@ -55,7 +55,7 @@ export async function signDeclaration(txId, name, userProvidedHandle, declaratio
     handle: userProvidedHandle,
   });
 
-  return fetch(`${SERVER_URL}/sign/${txId}`, {
+  await fetch(`${SERVER_URL}/sign/${txId}`, {
     method: 'post',
     body: formData,
   }).then(data => data.json()).catch((err) => {
@@ -67,12 +67,12 @@ export async function signDeclaration(txId, name, userProvidedHandle, declaratio
 export async function verifyTwitter(address, handle) {
   const formData = new URLSearchParams({
     address,
-  })
+  });
 
   return fetch(`${SERVER_URL}/verify/${handle}`, {
     method: 'post',
     body: formData,
-  }).then(data => data.json())
+  }).then(data => data.json());
 }
 
 async function fetchSignatures(txId) {
