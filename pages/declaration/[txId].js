@@ -6,14 +6,14 @@ import HeadComponent from "../../components/Head";
 import Button from "../../components/core/Button";
 import {useAsync} from "react-async-hook";
 import GridLoader from "react-spinners/GridLoader";
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
 
-const ORIGINAL = "pB-rlYjCZJcLK7205sjHzeci6DEsX4PU0xG00GYpahE"
+const ORIGINAL = "pB-rlYjCZJcLK7205sjHzeci6DEsX4PU0xG00GYpahE";
 function Header({ show }) {
   return (<div className="flex w-full mb-8">
     <div className="hidden sm:block flex-1">
     </div>
-    {show && 
+    {show &&
     <div className="flex-0 w-full flex justify-center sm:justify-end">
       <Button text="Sign" primary onClick={() => { document.getElementById('signatureForm').scrollIntoView(); }}>
         <p className="font-mono">Sign</p>
@@ -22,25 +22,17 @@ function Header({ show }) {
         <a className="font-mono" href="/about">About</a>
       </Button>
     </div>}
-  </div>)
+  </div>);
 }
 
 function Body({ txId, data, sigs, status }) {
-  const {declaration, authors, timestamp} = data
-  const parsedAuthors = Array.isArray(authors) ? authors : JSON.parse(authors || "[]")
+  const {declaration, authors, timestamp} = data;
+  const parsedAuthors = Array.isArray(authors) ? authors : JSON.parse(authors || "[]");
 
   if (status === 200) {
-    return <>
+    return (<>
       <hr/>
-        <div className="
-          my-20
-          font-body
-          text-2xl
-          text-justify
-          space-y-12
-          text-opacity-75
-          max-w-3xl
-          whitespace-pre-wrap">
+        <div className="my-20 font-body text-2xl text-justify space-y-12 text-opacity-75 max-w-3xl whitespace-pre-wrap">
           {declaration}
           <p className="font-bold text-left max-w-3xl font-title text-2xl mt-16">{timestamp}</p>
         </div>
@@ -49,45 +41,38 @@ function Body({ txId, data, sigs, status }) {
           <hr/>
           <div className="mt-20 max-w-3xl">
             <ul className="flex flex-wrap font-mono">
-              {parsedAuthors.map(author => <li className="my-1 mx-2 overflow-hidden py-2 px-4 rounded-3xl text-brown-120 hover:text-brown-20 bg-gray-200" key={author.name}><a href={author.url}>{author.name}</a></li>)}
+              {parsedAuthors.map(author => <li className="my-1 mx-2 overflow-hidden py-2 px-4 rounded-3xl text-brown-120 hover:text-brown-20 bg-gray-200" key={author.name}><a target="_blank" href={author.url}>{author.name}</a></li>)}
             </ul>
           </div>
         </>}
-
-        <hr className="my-20" />
-
-        <div className="grid grid-cols-1 xl:grid-cols-2 flex w-full sm:w-4/5 md:w-1/2 lg:w-3/5">
-          <div id="signatureForm" className="flex-1 mx-4 lg:mx-8">
-            <Sign txId={txId} />
-          </div>
-
-          <div className="mt-10 flex-1 mx-4 md:mx-10 xl:mt-0">
-            <Fork
-              text={declaration} txId={txId} />
-          </div>
+        <hr className="mt-20 mb-16" />
+        <div id="signatureForm" className="mx-4 lg:mx-8 w-full sm:w-4/5 md:w-3/5 lg:w-1/2">
+          <Sign txId={txId} />
         </div>
-
-        <div className="my-32 m-24 w-full sm:w-4/5 md:w-3/5 lg:w-1/2 md:m-12 sm:m-6">
+        <div className="mt-4 mx-4 lg:mx-8 w-full sm:w-4/5 md:w-3/5 lg:w-1/2">
           <Signatures sigs={sigs}/>
         </div>
-    </>
+        <div className="mt-4 mb-12 mx-4 lg:mx-8 w-full sm:w-4/5 md:w-3/5 lg:w-1/2">
+          <Fork text={declaration} txId={txId} />
+        </div>
+    </>);
   } else if (status === 202) {
     return <div className="w-1/4 font-title">
       <h3 className="text-2xl font-bold">Forking in Progress</h3>
       <p className="text-lg">The block containing your new declaration has not been mined yet. Check back in 5-10 minutes.</p>
-    </div>
+    </div>;
   } else {
     return <div className="w-1/4 font-title">
       <h3 className="text-2xl font-bold">Not Found</h3>
       <p className="text-lg">Either this transaction doesn't exist or the data format is incorrect.</p>
-    </div>
+    </div>;
   }
 }
 
 export default function Declaration() {
-  const router = useRouter()
-  const txId = router.query.txId || ORIGINAL
-  const maybeDeclaration = useAsync(getDeclaration, [txId])
+  const router = useRouter();
+  const txId = router.query.txId || ORIGINAL;
+  const maybeDeclaration = useAsync(getDeclaration, [txId]);
 
   return (
     <div className="flex flex-col items-center justify-center py-4 bg-blue-20">
