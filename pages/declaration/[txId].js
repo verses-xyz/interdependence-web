@@ -88,7 +88,7 @@ export default function Declaration() {
           </h1>
         </div>
 
-        {maybeDeclaration.loading ? <GridLoader/> : <Body txId={txId} {...maybeDeclaration.result} />}
+        {maybeDeclaration.loading ? <GridLoader color="#333"/> : <Body txId={txId} {...maybeDeclaration.result} />}
       </main>
     </div>
   );
