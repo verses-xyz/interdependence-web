@@ -19,11 +19,10 @@ const customStyles = {
     borderColor: '#e5e7eb',
     borderRadius: '0.75em',
     padding: '0',
-    webkitFontSmoothing: 'subpixel-antialiased',
   },
 };
 
-export default function Fork({text, txId, walletKey}) {
+export default function Fork({text, txId}) {
   const {
     register,
     handleSubmit,
@@ -41,9 +40,8 @@ export default function Fork({text, txId, walletKey}) {
   function closeModal() {
     setIsOpen(false);
   }
-
   const onSubmit = (data) =>
-    forkDeclaration(txId, data.declaration, [], walletKey)
+    forkDeclaration(txId, data.declaration, [])
       .then(data => window.location.href = `/declaration/${data.id}`);
 
   return (<Box title="Fork the Declaration" content={

@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { signDeclaration } from "../arweaveFns";
 import Modal from "react-modal";
 import Button from "./core/Button";
+import {useMetaMask} from "metamask-react";
 import Box from "./core/Box";
 
 Modal.setAppElement('#__next');
@@ -19,19 +20,29 @@ const customStyles = {
     borderColor: '#e5e7eb',
     borderRadius: '0.75em',
     padding: '0',
-    webkitFontSmoothing: 'subpixel-antialiased',
   },
 };
 
-export default function Sign({ txId, walletKey }) {
+export default function Sign({ txId, content }) {
   const {
     register,
     handleSubmit,
   } = useForm();
   const [modalIsOpen, setIsOpen] = React.useState(false);
+  const { status, connect, account } = useMetaMask();
+
+  // TODO: switch on status and display appropriate error messages
+  // cases:
+  // - unavailable -> no metamask, disable button
+  // - notConnected -> ok to sign
+  // - connected -> ready to sign
+  // TODO: check if user already signed using this wallet
 
   function openModal() {
     setIsOpen(true);
+    if (status === "notConnected") {
+      connect()
+    }
   }
 
   function closeModal() {
@@ -39,8 +50,7 @@ export default function Sign({ txId, walletKey }) {
   }
 
   const onSubmit = (data) =>
-    signDeclaration(txId, data.name, data.handle, walletKey)
-      .then(data => console.log(data.data));
+    signDeclaration(txId, data.name, account, data.handle);
 
   return (<Box title="Sign the Declaration" content={
     <>

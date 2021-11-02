@@ -12,37 +12,38 @@ function init() {
 
 const arweave = init()
 
+const ADMIN_ACCT = "aek33fcNH1qbb-SsDEqBF1KDWb8R1mxX6u4QGoo3tAs"
 const DOC_TYPE = "interdependence_doc_type"
 const DOC_ORIGIN = "interdependence_doc_origin"
 const DOC_REF = "interdependence_doc_ref"
 const SIG_NAME = "interdependence_sig_name"
 const SIG_HANDLE = "interdependence_sig_handle"
 
-export async function forkDeclaration(oldTxId, newText, authors, key) {
-  let transaction = await arweave.createTransaction({
-    data: JSON.stringify({
-      declaration: newText,
-      authors: authors
-    })
-  }, key)
-  transaction.addTag(DOC_TYPE, 'declaration')
-  transaction.addTag(DOC_ORIGIN, oldTxId)
-  await arweave.transactions.sign(transaction, key)
-  return {
-    ...await arweave.transactions.post(transaction),
-    id: transaction.id,
-  }
+const SERVER_URL = process.env.SERVER_URL || "http://localhost:8080"
+
+export async function forkDeclaration(oldTxId, newText, authors) {
+  const formData = new URLSearchParams({
+    authors: JSON.stringify(authors),
+    newText,
+  })
+
+  return fetch(`${SERVER_URL}/fork/${oldTxId}`, {
+    method: 'post',
+    body: formData,
+  }).then(data => data.json())
 }
 
-export async function signDeclaration(txId, name, handle, key) {
-  // empty transaction, just attach tags
-  let transaction = await arweave.createTransaction({ data: handle }, key)
-  transaction.addTag(DOC_TYPE, 'signature')
-  transaction.addTag(DOC_REF, txId)
-  transaction.addTag(SIG_NAME, name)
-  transaction.addTag(SIG_HANDLE, handle)
-  await arweave.transactions.sign(transaction, key)
-  return await arweave.transactions.post(transaction)
+export async function signDeclaration(txId, name, address, handle) {
+  const formData = new URLSearchParams({
+    name,
+    address,
+    handle
+  })
+
+  return fetch(`${SERVER_URL}/sign/${txId}`, {
+    method: 'post',
+    body: formData,
+  }).then(data => data.json())
 }
 
 async function fetchSignatures(txId) {
@@ -65,7 +66,8 @@ async function fetchSignatures(txId) {
               name: "${DOC_REF}",
               values: ["${txId}"]
             }
-          ]
+          ],
+          owners: ["${ADMIN_ACCT}"]
         ) {
           edges {
             node {
@@ -102,7 +104,7 @@ async function fetchSignatures(txId) {
       SIG_TX: sig,
       SIG_NAME: n.tags.find(tag => tag.name === SIG_NAME).value,
       SIG_HANDLE: n.tags.find(tag => tag.name === SIG_HANDLE).value,
-    }].reverse()
+    }]
   })
 }
 
