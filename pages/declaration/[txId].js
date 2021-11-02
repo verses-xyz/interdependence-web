@@ -71,15 +71,7 @@ export default function Declaration({ data, sigs, txId, status }) {
 
           <div className="grid grid-cols-1 w-4/5 lg:grid-cols-2 flex w-full sm:w-4/5 md:w-1/2 lg:w-3/5">
             <div id="signatureForm" className="flex-1 mx-4 xl:mx-8">
-              <p className="font-mono">
-                To endorse this declaration, you can sign by clicking the button below. Signatures will become part of this document's permanent history on the Arweave blockchain.
-              </p>
-              <p className="text-gray-400 font-mono mt-2"> * Coming soon * </p>
-              <Button
-                primary>
-                Sign
-              </Button>
-              {/* <Sign txId={txId} walletKey={""} /> */}
+              <Sign txId={txId} walletKey={""} />
             </div>
 
             <div className="flex-1 mt-20 lg:mt-0 mx-4 xl:mx-8">
