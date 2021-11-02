@@ -48,6 +48,17 @@ export async function signDeclaration(txId, name, address, handle) {
   }).then(data => data.json())
 }
 
+export async function verifyTwitter(address, handle) {
+  const formData = new URLSearchParams({
+    address,
+  })
+
+  return fetch(`${SERVER_URL}/verify/${handle}`, {
+    method: 'post',
+    body: formData,
+  }).then(data => data.json())
+}
+
 async function fetchSignatures(txId) {
   const req = await fetch('https://arweave.net/graphql', {
     method: 'POST',
