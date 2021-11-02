@@ -58,38 +58,41 @@ export default function Sign({ txId, walletKey }) {
         style={customStyles}
         contentLabel="sign-modal"
       >
-        <div className="items-center justify-center border-2 border-brown-20 rounded-md" >
-          <h2 className="rounded-t-md bg-brown-80 font-mono py-2"> Sign the Declaration </h2>
-          <div className="border-t-2 px-2 py-4 border-brown-20">
-            <p className="font-mono text-light font-body p-4">
-              <ul>
-                <li>
-                  1. Install the Arweave wallet extension
-                </li>
+          <div className="">
+          <form onSubmit={handleSubmit(onSubmit)} className="w-full font-body bg-gray-50 max-w-2xl">             
+          <div className="font-mono font-bold text-center py-3.5 bg-gray-100 text-gray-800 border-b border-gray-200">Sign the Declaration</div>
+            <div className="pt-4 pb-2.5 px-5 bg-gray-50">
+              <p className="font-mono text-center text-xl p-4">
+                <p className="pt-10"> Follow these steps to sign the declaration on-chain. </p>
+                ---
+                <p className="pt-10">
+                  <ul>
+                    <li>
+                      1. Install the Arweave wallet extension
+                    </li>
 
-                <li>
-                  2. Get free $AR from the Arweave faucet
-                </li>
+                    <li>
+                      2. Get free $AR from the Arweave faucet
+                    </li>
 
-                <li> 3. Sign below</li>
-              </ul>
-            </p>
-
-            {/* TODO fix layout here:
-
-      */}
-            <form className="ml-40 flex flex-col items-center justify-center w-1/2" onSubmit={handleSubmit(onSubmit)}>
-              <input className="focus:outline-none border-b-2 px-1 py-2" type="text" {...register("name")} placeholder="Name / Alias" />
-              <input className="focus:outline-none border-b-2 px-1 py-2" type="text"{...register("handle")} placeholder="Twitter Handle"/>
-
-              <button className="mt-5 px-6 py-2 rounded-lg bg-brown-20 text-white text-md">
-                <p className="font-mono">
-                  Sign
+                    <li> 3. Sign below</li>
+                  </ul>
+                  </p>
                 </p>
-              </button>
+            
+              <div className=""> 
+                <input className="focus:outline-none w-full border-b-2 px-4 py-4" type="text" {...register("name")} placeholder="Name / Alias" />
+                <input className="focus:outline-none w-full border-b-2 px-4 py-4" type="text"{...register("handle")} placeholder="Twitter Handle"/>
+              </div>
+
+              <div className="mt-4 text-center"> 
+               <Button className="mb-5 px-8 py-4 rounded-full bg-brown-20 text-white font-mono rounded-full"> Submit </Button>
+              </div>
+            
+            </div>
+            
             </form>
           </div>
-        </div>
       </Modal>
     </div>
   )
