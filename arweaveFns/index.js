@@ -191,7 +191,7 @@ export async function getDeclaration(txId) {
   try {
     const signaturesReq = await fetch(`${SERVER_URL}`);
     const signatures = await signaturesReq.json();
-    res.sigs = signatures.map(({ address, signature, name, handle }) => {
+    const formattedSignatures = signatures.map(({ address, signature, name, handle }) => {
       return {
         SIG_ADDR: address || '',
         SIG_SIGNATURE: signature || '',
@@ -200,6 +200,13 @@ export async function getDeclaration(txId) {
         SIG_ISVERIFIED: false,
       };
     });
+    const FIRST_SIGNER = '0x29668d39c163f64a1c177c272a8e2d9ecc85f0de'; // jasminewang.eth
+    formattedSignatures.sort((a, b) => {
+      if (a.SIG_ADDR === FIRST_SIGNER) return -1;
+      if (b.SIG_ADDR === FIRST_SIGNER) return 1;
+      return 0;
+    });
+    res.sigs = formattedSignatures;
   } catch (err) {
     // couldn't fetch signatures
   }
