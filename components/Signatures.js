@@ -1,4 +1,5 @@
 import Box from "./core/Box";
+import Checkmark from './core/Checkmark';
 
 const cleanHandle = handle => {
   if (handle.length === 0) {
@@ -17,8 +18,11 @@ export default function Signatures({sigs}) {
         <div className={"space-x-0 flex py-4 md:space-x-4 sm:py-1 md:py-4 overflow-hidden" +
                         (index === sigs.length - 1 ? "" : " border-b")}>
           <h3 className="py-2 text-left">
-            <a target="_blank" className="hover:underline" href={`https://twitter.com/${sig.SIG_HANDLE}`}>{sig.SIG_NAME}</a>
+            <a target="_blank" className="hover:underline" href={`https://twitter.com/${sig.SIG_HANDLE}`}>{sig.SIG_NAME}  </a> 
           </h3>
+          <div className="mt-2.5">
+            <Checkmark filled />
+          </div>
           <div className="flex-1"/>
           <a
             target="_blank"
