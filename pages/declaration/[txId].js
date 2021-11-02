@@ -30,7 +30,7 @@ export default function Declaration({ data, sigs, txId, status }) {
                 <p className="font-mono">Sign</p>
               </Button>
               <Button>
-                <a className="font-mono" 
+                <a className="font-mono"
                   // href="/about"
                   >
                     About</a>
@@ -70,9 +70,9 @@ export default function Declaration({ data, sigs, txId, status }) {
           <hr className="my-20" />
 
           <div className="grid grid-cols-1 lg:grid-cols-2 flex w-full sm:w-4/5 md:w-1/2 lg:w-3/5">
-            <div id="signatureForm" className="flex-1 mx-4 lg:mx-8">
-              <p className="lg:text-justify font-mono">
-                If you'd like to endorse this declaration, you can sign the declaration by clicking the button below. Signatures will become part of this document's permanent history on the Arweave blockchain.
+            <div id="signatureForm" className="flex-1 mx-4 xl:mx-8">
+              <p className="font-mono">
+                To endorse this declaration, you can sign by clicking the button below. Signatures will become part of this document's permanent history on the Arweave blockchain.
               </p>
               <p className="text-gray-400 font-mono mt-2"> * Coming soon * </p>
               <Button
@@ -82,7 +82,7 @@ export default function Declaration({ data, sigs, txId, status }) {
               {/* <Sign txId={txId} walletKey={""} /> */}
             </div>
 
-            <div className="mt-20 flex-1 mx-4 md:mx-8 lg:mt-0">
+            <div className="flex-1 mt-20 lg:mt-0 mx-4 xl:mx-8">
               <Fork
                 text={declaration} txId={txId} walletKey={""} />
             </div>
