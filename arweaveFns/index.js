@@ -50,6 +50,8 @@ export async function generateSignature(declaration) {
   return await signer.signMessage(declaration.trim())
 }
 
+const cleanHandle = handle => handle[0] === "@" ? handle.substring(1) : handle;
+
 export async function signDeclaration(txId, name, userProvidedHandle, declaration, signature) {
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const signer = provider.getSigner();
@@ -65,7 +67,7 @@ export async function signDeclaration(txId, name, userProvidedHandle, declaratio
     name,
     address,
     signature,
-    handle: userProvidedHandle,
+    handle: cleanHandle(userProvidedHandle),
   });
 
   await fetch(`${SERVER_URL}/sign/${txId}`, {
@@ -81,8 +83,7 @@ export async function verifyTwitter(sig, handle) {
     address: sig,
   });
 
-  const cleanedHandle = handle[0] === "@" ? handle.substring(1) : handle;
-  return fetch(`${SERVER_URL}/verify/${cleanedHandle}`, {
+  return fetch(`${SERVER_URL}/verify/${cleanHandle(handle)}`, {
     method: 'post',
     body: formData,
   }).then(data => data.json());
