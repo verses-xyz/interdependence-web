@@ -148,13 +148,18 @@ async function fetchSignatures(txId) {
     })
   }).then(jsonOrErrorHandler);
 
+  const safeTag = (node, tagName, defaultValue) => {
+    const tag = node.tags.find(tag => tag.name === tagName)
+    return tag ? tag.value : defaultValue;
+  }
+
   const unique_tx = new Set();
   const unique_verif_tx = new Set();
   return req.data.transactions.edges.flatMap(nodeItem => {
     const n = nodeItem.node;
-    const sig = n.tags.find(tag => tag.name === SIG_ADDR).value;
-    const handle = n.tags.find(tag => tag.name === SIG_HANDLE).value;
-    const verified = n.tags.find(tag => tag.name === SIG_ISVERIFIED).value === 'true'
+    const sig = safeTag(n, SIG_ADDR, "UNKWN");
+    const handle = safeTag(n, SIG_HANDLE, "UNSIGNED");
+    const verified = safeTag(n, SIG_ISVERIFIED, 'false') === 'true'
 
     if (verified) {
       if (unique_verif_tx.has(sig)) {
@@ -171,23 +176,25 @@ async function fetchSignatures(txId) {
     return [{
       SIG_ID: n.id,
       SIG_ADDR: sig,
-      SIG_NAME: n.tags.find(tag => tag.name === SIG_NAME).value,
+      SIG_NAME: safeTag(n, SIG_NAME, "Anonymous"),
       SIG_HANDLE: handle === 'null' ? 'UNSIGNED' : handle,
       SIG_ISVERIFIED: verified,
-      SIG_SIG: n.tags.find(tag => tag.name === SIG_SIG)?.value || "",
+      SIG_SIG: safeTag(n, SIG_SIG, "UNKWN"),
     }];
   });
 }
 
 export async function getSigs(txId) {
   const TEAM = {
-    "0x29668d39c163f64a1c177c272a8e2D9ecc85F0dE": -8,
-    "0x35E61b11f1c05271B9369E324d6b4305f6aCB639": -7,
-    "0xbb806e75c7e71AD07dbEfd2B1B5DA2689A147340": -6,
-    "0x8416146b19e755B7Ad75914a57a2c77ca894B4DC": -5,
-    "0x6f9627aF4313508a4FB7E53577F7Fc55297A40A0": -4,
-    "0x34C3A5ea06a3A67229fb21a7043243B0eB3e853f": -3,
-    "0x99ed527BE6DF7a8196cECfE568ca03BC08863Ea5": -2,
+    "0x29668d39c163f64a1c177c272a8e2D9ecc85F0dE": -10,
+    "0x35E61b11f1c05271B9369E324d6b4305f6aCB639": -9,
+    "0xbb806e75c7e71AD07dbEfd2B1B5DA2689A147340": -8,
+    "0x8416146b19e755B7Ad75914a57a2c77ca894B4DC": -7,
+    "0x6f9627aF4313508a4FB7E53577F7Fc55297A40A0": -6,
+    "0x34C3A5ea06a3A67229fb21a7043243B0eB3e853f": -5,
+    "0x99ed527BE6DF7a8196cECfE568ca03BC08863Ea5": -4,
+    "0x0f170e97a52c465DbfFFa573370e403F703C7D73": -3,
+    "0xBBA0A1e1bE58f5e03425890ae121f3BaA2F95a77": -2,
   }
 
   const sigs = await fetchSignatures(txId);
@@ -241,6 +248,7 @@ export async function getDeclaration(txId) {
   res.data = {
     ...JSON.parse(data),
     timestamp: time.toLocaleDateString('en-US', options),
+    ancestor: tags[DOC_ORIGIN],
   };
 
   res.status = 200;

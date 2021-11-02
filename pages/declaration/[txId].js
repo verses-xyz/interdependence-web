@@ -10,7 +10,8 @@ import { useRouter } from 'next/router';
 import ScaleLoader from "react-spinners/ScaleLoader";
 import React from "react";
 
-const ORIGINAL = "e-bw-AGkYsZFYqmAe2771A6hi9ZMIkWrkBNtHIF1hF4";
+const CANONICAL = "e-bw-AGkYsZFYqmAe2771A6hi9ZMIkWrkBNtHIF1hF4";
+const ORIGINAL = "pB-rlYjCZJcLK7205sjHzeci6DEsX4PU0xG00GYpahE"
 function Header({ show }) {
   return (<div className="flex w-full">
     <div className="sm:block flex-1">
@@ -31,19 +32,24 @@ function Header({ show }) {
 function Body({ txId, data, status }) {
   if (status === 200) {
     const maybeSigs = useAsync(getSigs, [txId]);
+    const {declaration, authors, timestamp, ancestor} = data;
 
-    const {declaration, authors, timestamp} = data;
+    const isOriginal = ancestor === ""
+    const ancestorText = isOriginal ? "A Declaration of the Independence of Cyberspace" : ancestor.slice(0, 12)
+    const ancestorUrl = isOriginal ? "https://www.eff.org/cyberspace-independence" : `/declaration/${ancestor}`
+
     const parsedAuthors = Array.isArray(authors) ? authors : JSON.parse(authors || "[]");
     return (<>
       <hr/>
 
       <div className="mt-20 font-body text-gray-primary text-2xl text-left space-y-12 max-w-2xl whitespace-pre-wrap">
         {declaration}
-        <p className="font-bold text-left text-gray-primary max-w-2xl font-title text-2xl mt-8">{timestamp}</p>
+        <p className="font-bold text-left text-gray-primary max-w-2xl font-title text-2xl my-8">{timestamp}</p>
+        <p className="font-mono text-gray-detail text-base">This Declaration lives on ARWeave under transaction <a className="underline" href={`https://viewblock.io/arweave/tx/${txId}`}>{txId.slice(0,12)}</a>. The most recent ancestor of this document is <a className="underline" href={ancestorUrl}>{ancestorText}</a>.</p>
       </div>
 
       {parsedAuthors.length > 0 && <>
-        <hr/>
+        <hr className="mt-12" />
         <div className="mt-20 max-w-3xl">
           <ul className="flex flex-wrap font-mono">
             {parsedAuthors.map(author => <li className="my-1 mx-2 overflow-hidden py-2 px-4 rounded-3xl text-gray-120 hover:text-gray-20 bg-gray-200" key={author.name}><a target="_blank" href={author.url}>{author.name}</a></li>)}
@@ -56,7 +62,7 @@ function Body({ txId, data, status }) {
         <Sign txId={txId} declaration={declaration} />
       </div>
       <div className="mt-8 mx-4 lg:mx-8 w-full sm:w-4/5 md:w-3/5 lg:w-1/2">
-        {maybeSigs.loading ?
+        {(maybeSigs.loading || maybeSigs.error) ?
           <div className="my-4">
             <p className="my-4 font-mono text-xl">Loading signatures</p>
             <ScaleLoader color="#999" height={20} width={5} radius={2} margin={5} />
@@ -85,7 +91,7 @@ function Body({ txId, data, status }) {
 
 export default function Declaration() {
   const router = useRouter();
-  const txId = router.query.txId || ORIGINAL;
+  const txId = router.query.txId || CANONICAL;
   const maybeDeclaration = useAsync(getDeclaration, [txId]);
 
   return (

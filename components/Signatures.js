@@ -17,7 +17,7 @@ export default function Signatures({sigs}) {
   return (
     <Box
       title={`${sigs.length} Signature${sigs.length !== 1 ? 's' : ''}`}
-      content={sigs.map((sig, index) => <div className="font-mono" key={sig.SIG_HANDLE}>
+      content={sigs.map((sig, index) => <div className="font-mono" key={sig.SIG_ADDR}>
         <div className={"space-x-0 flex py-4 md:space-x-4 sm:py-2 md:py-4 overflow-hidden" + (index === sigs.length - 1 ? "" : " border-b")}>
           <h3 className="py-2 text-left">
             {sig.SIG_HANDLE ?
