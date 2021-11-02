@@ -1,9 +1,10 @@
-import React from 'react'
-import { useForm } from 'react-hook-form'
-import { signDeclaration } from "../arweaveFns"
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { signDeclaration } from "../arweaveFns";
 import Modal from "react-modal";
 import Button from "./core/Button";
 import {useMetaMask} from "metamask-react";
+import Box from "./core/Box";
 
 Modal.setAppElement('#__next');
 Modal.defaultStyles.overlay.backgroundColor = '#555555aa';
@@ -11,11 +12,10 @@ Modal.defaultStyles.overlay.backgroundColor = '#555555aa';
 const customStyles = {
   content: {
     top: '10vh',
-    left: '25vw',
+    left: '10vw',
     right: 'auto',
     bottom: 'auto',
-    width: '50vw',
-    height: '80vh',
+    width: '80vw',
     marginRight: '-50%',
     borderColor: '#e5e7eb',
     borderRadius: '0.75em',
@@ -52,39 +52,42 @@ export default function Sign({ txId, content }) {
   const onSubmit = (data) =>
     signDeclaration(txId, data.name, account, data.handle);
 
-  return (
-    <div>
-      <p className="md:text-justify font-mono">
-        If you'd like to endorse this declaration, you can sign the declaration by clicking the button below. Signatures will become part of this document's permanent history on the Arweave blockchain.
-      </p>
-      <Button
-        primary
-        onClick={openModal}>
-        Sign
-      </Button>
+  return (<Box title="Sign the Declaration" content={
+    <>
+      <div className="my-6">
+        <p className="font-mono">
+          If you'd like to endorse this declaration, you can sign the declaration by clicking the button below. Signatures will become part of this document's permanent history on the Arweave blockchain.
+        </p>
+        <p className="text-gray-400 font-mono mt-2"> * Coming soon * </p>
+        <Button
+          primary
+          onClick={openModal}>
+          Sign
+        </Button>
+      </div>
+
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         style={customStyles}
         contentLabel="sign-modal"
       >
-        <div className="items-center justify-center border-2 border-brown-20 rounded-md" >
-          <h2 className="rounded-t-md bg-brown-80 font-mono py-2"> Sign the Declaration </h2>
-          <div className="border-t-2 px-2 py-4 border-brown-20">
-            <form className="ml-40 flex flex-col items-center justify-center w-1/2" onSubmit={handleSubmit(onSubmit)}>
-              <input className="focus:outline-none border-b-2 px-1 py-2" type="text" {...register("name")} placeholder="Name / Alias" />
-              <input className="focus:outline-none border-b-2 px-1 py-2" type="text"{...register("handle")} placeholder="Twitter Handle"/>
-
-              <button className="mt-5 px-6 py-2 rounded-lg bg-brown-20 text-white text-md">
-                <p className="font-mono">
-                  Sign
-                </p>
-              </button>
-            </form>
-          </div>
+        <div className="w-full h-full bg-gray-50">
+          <form onSubmit={handleSubmit(onSubmit)} className="w-full font-body pb-4">
+            <div className="w-full font-mono font-bold text-center py-3.5 bg-gray-100 text-brown-20 border-b border-gray-200">Sign the Declaration</div>
+            <div className="pt-7 pb-4 px-8 bg-gray-50">
+              <p className="font-mono text-brown-20">Enter your name to sign:</p>
+              <div className="mt-6">
+                <input className="font-mono rounded-t-lg border-2 border-gray-200 focus:outline-none w-full px-4 py-4" type="text" {...register("name")} autocomplete="off" placeholder="Your name or alias" />
+                <input className="font-mono rounded-b-lg border-b-2 border-l-2 border-r-2 border-gray-200 focus:outline-none w-full px-4 py-4" type="text"{...register("handle")} autocomplete="off" placeholder="Your Twitter handle (optional)"/>
+              </div>
+              <div className="mt-2 text-center">
+                <Button className="mt-5 px-6 py-2 rounded-full bg-truegray-800 hover:text-gray-100 text-white text-sm sm:text-base font-mono" primary>Sign with Metamask</Button>
+              </div>
+            </div>
+          </form>
         </div>
       </Modal>
-    </div>
-  )
-
+    </>} />
+  );
 }
