@@ -1,4 +1,4 @@
-import {getDeclaration} from "../../arweaveFns";
+import {getDeclaration, getSigs} from "../../arweaveFns";
 import Sign from "../../components/Sign";
 import Fork from "../../components/Fork";
 import Signatures from "../../components/Signatures";
@@ -7,8 +7,10 @@ import Button from "../../components/core/Button";
 import {useAsync} from "react-async-hook";
 import BarLoader from "react-spinners/BarLoader";
 import { useRouter } from 'next/router';
+import ScaleLoader from "react-spinners/ScaleLoader";
+import React from "react";
 
-const ORIGINAL = "pB-rlYjCZJcLK7205sjHzeci6DEsX4PU0xG00GYpahE";
+const ORIGINAL = "e-bw-AGkYsZFYqmAe2771A6hi9ZMIkWrkBNtHIF1hF4";
 function Header({ show }) {
   return (<div className="flex w-full">
     <div className="sm:block flex-1">
@@ -26,38 +28,47 @@ function Header({ show }) {
   </div>);
 }
 
-function Body({ txId, data, sigs, status }) {
+function Body({ txId, data, status }) {
   if (status === 200) {
+    const maybeSigs = useAsync(getSigs, [txId]);
+
     const {declaration, authors, timestamp} = data;
     const parsedAuthors = Array.isArray(authors) ? authors : JSON.parse(authors || "[]");
     return (<>
       <hr/>
-        <div className="mt-20 font-body text-gray-primary text-2xl text-left space-y-12 max-w-2xl whitespace-pre-wrap">
-          {declaration}
-          <p className="font-bold text-left text-gray-primary max-w-2xl font-title text-2xl mt-8">{timestamp}</p>
+
+      <div className="mt-20 font-body text-gray-primary text-2xl text-left space-y-12 max-w-2xl whitespace-pre-wrap">
+        {declaration}
+        <p className="font-bold text-left text-gray-primary max-w-2xl font-title text-2xl mt-8">{timestamp}</p>
+      </div>
+
+      {parsedAuthors.length > 0 && <>
+        <hr/>
+        <div className="mt-20 max-w-3xl">
+          <ul className="flex flex-wrap font-mono">
+            {parsedAuthors.map(author => <li className="my-1 mx-2 overflow-hidden py-2 px-4 rounded-3xl text-gray-120 hover:text-gray-20 bg-gray-200" key={author.name}><a target="_blank" href={author.url}>{author.name}</a></li>)}
+          </ul>
         </div>
+      </>}
 
-{/*         {parsedAuthors.length > 0 && <>
-          <hr/>
-          <div className="mt-20 max-w-3xl">
-            <ul className="flex flex-wrap font-mono">
-              {parsedAuthors.map(author => <li className="my-1 mx-2 overflow-hidden py-2 px-4 rounded-3xl text-gray-120 hover:text-gray-20 bg-gray-200" key={author.name}><a target="_blank" href={author.url}>{author.name}</a></li>)}
-            </ul>
-          </div>
-        </>} */}
+      <hr className="my-20" />
+      <div id="signatureForm" className="mx-4 lg:mx-8 w-full sm:w-4/5 md:w-3/5 lg:w-1/2">
+        <Sign txId={txId} declaration={declaration} />
+      </div>
+      <div className="mt-8 mx-4 lg:mx-8 w-full sm:w-4/5 md:w-3/5 lg:w-1/2">
+        {maybeSigs.loading ?
+          <div className="my-4">
+            <p className="my-4 font-mono text-xl">Loading signatures</p>
+            <ScaleLoader color="#999" height={20} width={5} radius={2} margin={5} />
+          </div> :
+          <Signatures sigs={maybeSigs.result}/>
+        }
+      </div>
 
-        <hr className="my-20" />
-          <div id="signatureForm" className="mx-4 lg:mx-8 w-full sm:w-4/5 md:w-3/5 lg:w-1/2">
-            <Sign txId={txId} declaration={declaration} />
-          </div>
-          <div className="mt-8 mx-4 lg:mx-8 w-full sm:w-4/5 md:w-3/5 lg:w-1/2">
-            <Signatures sigs={sigs}/>
-          </div>
-
-        <hr className="my-20" />
-          <div className="mb-12 mx-4 lg:mx-8 w-full sm:w-4/5 md:w-3/5 lg:w-1/2">
-            <Fork text={declaration} txId={txId} />
-          </div>
+      <hr className="my-20" />
+      <div className="mb-12 mx-4 lg:mx-8 w-full sm:w-4/5 md:w-3/5 lg:w-1/2">
+        <Fork text={declaration} txId={txId} />
+      </div>
     </>);
   } else if (status === 202) {
     return <div className="w-1/4 font-title">
