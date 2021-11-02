@@ -32,7 +32,7 @@ module.exports = {
           primary:'#333333',
           secondary:'#666666',
           placeholder:'#a7a7a7',
-          detail: '#a7a7a7',
+          detail: '#CCCCCC',
           wash: '#EBEBEB',
           hover: '#DBDBDB', 
           bg:'#FAFAFA',
