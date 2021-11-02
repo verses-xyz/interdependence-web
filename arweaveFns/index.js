@@ -18,6 +18,8 @@ const DOC_ORIGIN = "interdependence_doc_origin"
 const DOC_REF = "interdependence_doc_ref"
 const SIG_NAME = "interdependence_sig_name"
 const SIG_HANDLE = "interdependence_sig_handle"
+const SIG_ADDR = "interdependence_sig_addr"
+const SIG_ISVERIFIED = "interdependence_sig_verified"
 
 const SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:8080"
 
@@ -72,9 +74,6 @@ async function fetchSignatures(txId) {
           edges {
             node {
               id
-              owner {
-                address
-              }
               tags {
                 name
                 value
@@ -92,7 +91,7 @@ async function fetchSignatures(txId) {
   const unique_tx = new Set()
   return json.data.transactions.edges.flatMap(nodeItem => {
     const n = nodeItem.node
-    const sig = n.owner.address
+    const sig = n.tags.find(tag => tag.name === SIG_ADDR).value
 
     if (unique_tx.has(sig)) {
       return []
@@ -101,9 +100,10 @@ async function fetchSignatures(txId) {
     unique_tx.add(sig)
     return [{
       SIG_ID: n.id,
-      SIG_TX: sig,
+      SIG_ADDR: sig,
       SIG_NAME: n.tags.find(tag => tag.name === SIG_NAME).value,
       SIG_HANDLE: n.tags.find(tag => tag.name === SIG_HANDLE).value,
+      SIG_ISVERIFIED: n.tags.find(tag => tag.name === SIG_ISVERIFIED).value === 'true',
     }]
   })
 }

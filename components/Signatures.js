@@ -1,13 +1,16 @@
 import Box from "./core/Box";
 import Checkmark from './core/Checkmark';
 
-const cleanHandle = handle => {
-  if (handle.length === 0) {
-    return handle;
-  } else {
-    const firstChar = handle[0];
-    return firstChar === "@" ? handle.slice(1) : handle;
+const cleanHandle = (handle, address, verified) => {
+  if (verified) {
+    if (handle.length === 0) {
+      return handle;
+    } else {
+      const firstChar = handle[0];
+      return firstChar === "@" ? handle : '@' + handle;
+    }
   }
+  return address.slice(0, 8)
 }
 
 export default function Signatures({sigs}) {
@@ -21,7 +24,7 @@ export default function Signatures({sigs}) {
             <a target="_blank" className="hover:underline" href={`https://twitter.com/${sig.SIG_HANDLE}`}>{sig.SIG_NAME}  </a> 
           </h3>
           <div className="mt-2.5">
-            <Checkmark filled />
+            {sig.SIG_ISVERIFIED && <Checkmark filled />}
           </div>
           <div className="flex-1"/>
           <a
@@ -29,7 +32,9 @@ export default function Signatures({sigs}) {
             href={`https://arweave.net/tx/${sig.SIG_ID}`}>TX: {sig.SIG_ID.slice(0, 6)}</a>
           <a
             className="invisible py-2 px-4 rounded-3xl text-brown-120 bg-gray-200 overflow-hidden md:visible"
-            href={`https://viewblock.io/arweave/address/${sig.SIG_TX}`}> @{cleanHandle(sig.SIG_HANDLE)} </a>
+            href={`https://viewblock.io/arweave/address/${sig.SIG_ADDR}`}>{
+              cleanHandle(sig.SIG_HANDLE, sig.SIG_ADDR, sig.SIG_ISVERIFIED)
+            } </a>
         </div>
       </div>)}
     />
