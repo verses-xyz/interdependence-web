@@ -95,6 +95,10 @@ export async function verifyTwitter(sig, handle) {
   }).then(jsonOrErrorHandler)
 }
 
+{/* 
+Transactions are mined into Arweave blocks in 60 mins
+So signature query order is roughly buckets by that
+*/}
 async function fetchSignatures(txId) {
   const req = await fetch('https://arweave.net/graphql', {
     method: 'POST',
@@ -106,6 +110,7 @@ async function fetchSignatures(txId) {
       query: `
       query {
         transactions(
+          sort: HEIGHT_ASC,
           tags: [
             {
               name: "${DOC_TYPE}",
@@ -116,7 +121,7 @@ async function fetchSignatures(txId) {
               values: ["${txId}"]
             }
           ],
-          owners: ["${ADMIN_ACCT}"]
+          owners: ["${ADMIN_ACCT}"],
         ) {
           edges {
             node {
@@ -124,6 +129,11 @@ async function fetchSignatures(txId) {
               tags {
                 name
                 value
+              }
+              block {
+                  id
+                  timestamp
+                  height
               }
             }
           }
