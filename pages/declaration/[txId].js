@@ -27,7 +27,7 @@ function Header({ show }) {
 
 function Body({ txId, data, sigs, status }) {
   const {declaration, authors, timestamp} = data
-  const parsedAuthors = JSON.parse(authors)
+  const parsedAuthors = Array.isArray(authors) ? authors : JSON.parse(authors)
 
   if (status === 200) {
     return <>

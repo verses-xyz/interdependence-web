@@ -13,7 +13,7 @@ const cleanHandle = handle => {
 export default function Signatures({sigs}) {
   return (
     <Box
-      title={`${sigs.length} Signature${sigs.length !== 1 && 's'}`}
+      title={`${sigs.length} Signature${sigs.length !== 1 ? 's' : ''}`}
       content={sigs.map((sig, index) => <div className="font-mono" key={sig.SIG_HANDLE}>
         <div className={"space-x-0 flex py-4 md:space-x-4 sm:py-1 md:py-4 overflow-hidden" +
                         (index === sigs.length - 1 ? "" : " border-b")}>
