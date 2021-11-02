@@ -26,12 +26,17 @@ const SIG_SIG = "interdependence_sig_signature";
 
 const SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:8080";
 
-const jsonOrErrorHandler = response => {
+const jsonOrErrorHandler = async response => {
+  const resp = response.json()
   if (response.ok) {
-    return response.json();
+    return resp;
   }
 
-  throw new Error('Internal server error');
+  if (resp) {
+    throw new Error((await resp).message)
+  } else {
+    throw new Error('Internal server error')
+  }
 }
 
 export async function forkDeclaration(oldTxId, newText, authors) {
