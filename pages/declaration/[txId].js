@@ -7,7 +7,6 @@ import Button from "../../components/core/Button";
 import {useAsync} from "react-async-hook";
 import GridLoader from "react-spinners/GridLoader";
 import { useRouter } from 'next/router'
-import {MetaMaskProvider} from "metamask-react";
 
 const ORIGINAL = "pB-rlYjCZJcLK7205sjHzeci6DEsX4PU0xG00GYpahE"
 function Header({ show }) {
