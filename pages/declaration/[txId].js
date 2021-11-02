@@ -10,10 +10,11 @@ import { useRouter } from 'next/router'
 
 const ORIGINAL = "pB-rlYjCZJcLK7205sjHzeci6DEsX4PU0xG00GYpahE"
 function Header({ show }) {
-  return (<div className="flex w-full absolute right-12">
+  return (<div className="flex w-full mb-8">
     <div className="hidden sm:block flex-1">
     </div>
-    {show && <div className="flex-0 w-full flex justify-center sm:justify-end">
+    {show && 
+    <div className="flex-0 w-full flex justify-center sm:justify-end">
       <Button text="Sign" primary onClick={() => { document.getElementById('signatureForm').scrollIntoView(); }}>
         <p className="font-mono">Sign</p>
       </Button>
@@ -31,7 +32,8 @@ function Body({ txId, data, sigs, status }) {
   if (status === 200) {
     return <>
       <hr/>
-        <div className="my-20
+        <div className="
+          my-20
           font-body
           text-2xl
           text-justify
@@ -54,18 +56,18 @@ function Body({ txId, data, sigs, status }) {
 
         <hr className="my-20" />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 flex w-full sm:w-4/5 md:w-1/2 lg:w-3/5">
+        <div className="grid grid-cols-1 xl:grid-cols-2 flex w-full sm:w-4/5 md:w-1/2 lg:w-3/5">
           <div id="signatureForm" className="flex-1 mx-4 lg:mx-8">
             <Sign txId={txId} />
           </div>
 
-          <div className="mt-20 flex-1 mx-4 md:mx-8 lg:mt-0">
+          <div className="mt-10 flex-1 mx-4 md:mx-10 xl:mt-0">
             <Fork
               text={declaration} txId={txId} />
           </div>
         </div>
 
-        <div className="m-24 w-full sm:w-4/5 md:w-3/5 lg:w-1/2 md:m-12 sm:m-6">
+        <div className="my-32 m-24 w-full sm:w-4/5 md:w-3/5 lg:w-1/2 md:m-12 sm:m-6">
           <Signatures sigs={sigs}/>
         </div>
     </>
