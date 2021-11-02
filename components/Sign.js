@@ -23,7 +23,7 @@ const customStyles = {
   },
 };
 
-export default function Sign({ txId, walletKey }) {
+export default function Sign({ txId, content }) {
   const {
     register,
     handleSubmit,
@@ -31,9 +31,18 @@ export default function Sign({ txId, walletKey }) {
   const [modalIsOpen, setIsOpen] = React.useState(false);
   const { status, connect, account } = useMetaMask();
 
+  // TODO: switch on status and display appropriate error messages
+  // cases:
+  // - unavailable -> no metamask, disable button
+  // - notConnected -> ok to sign
+  // - connected -> ready to sign
+  // TODO: check if user already signed using this wallet
+
   function openModal() {
     setIsOpen(true);
-    connect().then(() => console.log(account))
+    if (status === "notConnected") {
+      connect()
+    }
   }
 
   function closeModal() {

@@ -7,6 +7,7 @@ import Button from "../../components/core/Button";
 import {useAsync} from "react-async-hook";
 import GridLoader from "react-spinners/GridLoader";
 import { useRouter } from 'next/router'
+import {MetaMaskProvider} from "metamask-react";
 
 const ORIGINAL = "pB-rlYjCZJcLK7205sjHzeci6DEsX4PU0xG00GYpahE"
 function Header({ show }) {
@@ -52,12 +53,12 @@ function Body({ txId, data, sigs, status }) {
 
       <div className="grid grid-cols-1 md:grid-cols-2 flex w-1/2">
         <div id="signatureForm" className="flex-1 mx-4 md:mx-8">
-          <Sign txId={txId} walletKey={""} />
+          <Sign txId={txId} content={declaration} />
         </div>
 
         <div className="mt-20 flex-1 mx-4 md:mx-8 md:mt-0">
           <Fork
-            text={declaration} txId={txId} walletKey={""} />
+            text={declaration} txId={txId} />
         </div>
       </div>
 
@@ -84,20 +85,22 @@ export default function Declaration() {
   const maybeDeclaration = useAsync(getDeclaration, [txId])
 
   return (
-    <div className="flex flex-col items-center justify-center py-4 bg-blue-20">
-      <HeadComponent/>
-      <main className="flex flex-col items-center min-h-screen w-full flex-1 px-2 sm:px-10 lg:px-20 xl:px-20 text-center">
-        <Header show={!maybeDeclaration.loading} />
-        <div className="w-1/2">
-          <h1 className="text-3xl font-title my-10 sm:m-10 xl:m-20 sm:text-4xl md:text-5xl lg:text-7xl font-semibold">
-            Declaration
-            <span className="text-2xl block font-light italic m-5 sm:text-2xl md:text-4xl lg:text-4xl xl:text-7xl">of the</span>
-            Interdependence of Cyberspace
-          </h1>
-        </div>
+    <MetaMaskProvider>
+      <div className="flex flex-col items-center justify-center py-4 bg-blue-20">
+        <HeadComponent/>
+        <main className="flex flex-col items-center min-h-screen w-full flex-1 px-2 sm:px-10 lg:px-20 xl:px-20 text-center">
+          <Header show={!maybeDeclaration.loading} />
+          <div className="w-1/2">
+            <h1 className="text-3xl font-title my-10 sm:m-10 xl:m-20 sm:text-4xl md:text-5xl lg:text-7xl font-semibold">
+              Declaration
+              <span className="text-2xl block font-light italic m-5 sm:text-2xl md:text-4xl lg:text-4xl xl:text-7xl">of the</span>
+              Interdependence of Cyberspace
+            </h1>
+          </div>
 
-        {maybeDeclaration.loading ? <GridLoader/> : <Body txId={txId} {...maybeDeclaration.result} />}
-      </main>
-    </div>
+          {maybeDeclaration.loading ? <GridLoader/> : <Body txId={txId} {...maybeDeclaration.result} />}
+        </main>
+      </div>
+    </MetaMaskProvider>
   );
 }
