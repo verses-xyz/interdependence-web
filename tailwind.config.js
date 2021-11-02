@@ -1,34 +1,40 @@
 module.exports = {
-  mode: "jit",
-  purge: ["./pages/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
+  mode: 'jit',
+  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   darkMode: false, // or 'media' or 'class'
   theme: {
     fontFamily: {
-      title: ["EB Garamond"],
-      body: ["EB Garamond"],
-      mono: ["Roboto Mono"],
+      title: ['EB Garamond'],
+      body: ['EB Garamond'],
+      mono: ['Roboto Mono'],
     },
     backgroundColor: (theme) => ({
-      ...theme("colors"),
-      primary: "F9F9F9",
+      ...theme('colors'),
+      primary: 'F9F9F9',
     }),
 
     extend: {
       outline: {
-        blue: "4px solid #ECECEC",
+        blue: '4px solid #ECECEC',
       },
       colors: {
         blue: {
-          20: "#F8F9F9",
-          420: "#0D1A33",
+          20: '#fafafa',
+          420: '#0D1A33',
         },
         red: {
-          20: "#F8F9F9",
+          20: '#fafafa',
         },
-        brown: {
+        gray: {
           20: '#4f4f4f',
           80: '#EBEBEB',
-          120: '#666666'
+          120: '#666666',
+          primary:'#333333',
+          secondary:'#666666',
+          detail: '#BBBBBB',
+          wash: '#EBEBEB',
+          hover: '#DBDBDB', 
+          bg:'#FAFAFA',
         },
         truegray: {
           800: '#333333',
