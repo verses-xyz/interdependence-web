@@ -32,6 +32,8 @@ export default function Sign({ txId, declaration }) {
   } = useForm();
   const [modalIsOpen, setIsOpen] = React.useState(false);
   const [loading, setIsLoading] = React.useState(false);
+  const [displayedError, setDisplayedError] = React.useState(false);
+  const [displayedSuccess, setDisplayedSuccess] = React.useState(false);
   const { status, connect, account } = useMetaMask();
   const nameRef = useRef();
   const handleRef = useRef();
@@ -53,21 +55,23 @@ export default function Sign({ txId, declaration }) {
   function closeModal() {
     setIsOpen(false);
     setIsLoading(false);
+    setDisplayedError(null);
     reset();
   }
 
   const onSubmit = (data) => {
     setIsLoading(true);
+    setDisplayedError(null);
     signDeclaration(txId, data.name, data.handle, declaration)
       .then((signatureServerResponse) => {
         console.log("Signature saved:", signatureServerResponse);
+        setDisplayedSuccess("Signature saved! Refresh to see the update.");
         setIsLoading(false);
-        closeModal();
+        // closeModal();
       })
       .catch((err) => {
-        alert(err.message);
+        setDisplayedError(err.message);
         setIsLoading(false);
-        throw new Error();
       });
   };
 
@@ -102,6 +106,8 @@ export default function Sign({ txId, declaration }) {
               <div className="mt-2 text-center">
                 <Button className="mt-5 px-6 py-2 rounded-full bg-truegray-800 hover:text-gray-100 text-white text-sm sm:text-base font-mono" primary>{loading ? <ScaleLoader color="white" height={12} width={3}/> : 'Sign with Metamask'}</Button>
               </div>
+              {displayedError && <div className="mt-7 text-center font-mono text-sm text-red-700">{displayedError}</div>}
+              {displayedSuccess && <div className="mt-7 text-center font-mono text-sm text-green-700">{displayedSuccess}</div>}
             </div>
           </form>
         </div>

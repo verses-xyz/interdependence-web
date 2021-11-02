@@ -23,8 +23,7 @@ const SIG_HANDLE = "interdependence_sig_handle";
 const SIG_ADDR = "interdependence_sig_addr";
 const SIG_ISVERIFIED = "interdependence_sig_verified";
 
-const SERVER_URL = "https://interdependence-server-4uhf3li22a-uc.a.run.app";
-//process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:8080";
+const SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:8080";
 
 export async function forkDeclaration(oldTxId, newText, authors) {
   const formData = new URLSearchParams({
