@@ -24,3 +24,10 @@ hr:after {
     margin: 0 -1em;
     background: #F9F9F9;
 }
+
+@media(min-width: 800px) {
+    .ReactModal__Content {
+        inset: 10vh auto auto calc(50vw - 300px) !important;
+        width: 600px !important;
+    }
+}
