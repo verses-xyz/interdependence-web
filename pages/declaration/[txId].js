@@ -80,7 +80,7 @@ export default function Declaration() {
         <Header show={!maybeDeclaration.loading} />
         <div className="w-full">
           <h1 className="text-4xl font-title my-10 sm:my-10 xl:my-20 sm:text-4xl md:text-5xl lg:text-7xl font-semibold">
-            Declaration
+            A Declaration
             <span className="text-2xl block font-light italic -mb-5 sm:-mb-4 md:-mb-1.5 lg:-mb-1 mt-1 sm:mt-2 md:mt-4 lg:mt-4 text-xl sm:text-2xl md:text-3xl xl:text-4xl">of the</span>
             {/* Two responsive elements to fix line breaking on xs viewports. */}
             <div className="hidden sm:block max-w-2xl m-auto" style={{ lineHeight: "5.25rem" }}>Interdependence of Cyberspace</div>
