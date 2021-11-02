@@ -1,5 +1,4 @@
 import Box from "./core/Box";
-import Checkmark from './core/Checkmark';
 import Button from './core/Button';
 
 export default function VerificationPopUp({ }) {

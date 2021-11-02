@@ -1,8 +1,7 @@
 import Box from "./core/Box";
-import Checkmark from './core/Checkmark';
 import Button from './core/Button';
 
-export default function VerificationPopUp({ }) {
+export default function SocialProofConfirmation({ }) {
     return (
       <Box
         title="Thank you for signing!"

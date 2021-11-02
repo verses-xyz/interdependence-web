@@ -74,13 +74,7 @@ export default function Fork({text, txId}) {
           <div className="flex px-6">
             <div className="flex-1 text-sm pr-4 pb-4 text-gray-800">
               <div className="font-mono text-brown-20 text-xs">
-                Like forking a software project, forking this document enables you to copy, modify, and save your own version of the original text. To commit your fork, first
-                {" "}
-                <a className="underline" href="https://chrome.google.com/webstore/detail/arconnect/einnioafmpimabjcddiinlhmijaionap" target="_blank">install the plugin</a>
-                {" "}
-                and
-                {" "}
-                <a className="underline" href="https://faucet.arweave.net/" target="_blank">secure some $AR</a>.
+                Like forking a software project, forking this document enables you to copy, modify, and save your own version of the original text.
               </div>
             </div>
             <div className="flex-0 align-start pb-0.5">
