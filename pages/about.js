@@ -9,9 +9,9 @@ export default function About() {
       <HeadComponent/>
       <div
         className="flex flex-col items-center flex-1
-                      px-48
+                      px-10
+                      md:px-48
                       lg:px-40
-                      xl:px-60
                       py-20 
                       text-center 
                       md:px-20 sm:px-5 xs:px-5"
@@ -33,15 +33,14 @@ export default function About() {
         </h2>
         <div
           className="mt-10 
-        font-body 
-        text-lg 
-        text-left 
-        space-y-3
-        text-opacity-75 
-        max-w-4xl 
-        px-10
-        sm:px-10
-        md:px-10"
+            font-body 
+            text-lg 
+            text-left 
+            space-y-3
+            text-opacity-75 
+            max-w-4xl 
+            px-5
+            md:px-10"
         >
 
           <h2 className="pt-10 font-bold text-2xl text-title"> 1. The Story </h2>
