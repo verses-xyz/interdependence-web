@@ -26,6 +26,14 @@ const SIG_SIG = "interdependence_sig_signature";
 
 const SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:8080";
 
+const jsonOrErrorHandler = response => {
+  if (response.ok) {
+    return response.json();
+  }
+
+  throw new Error('Internal server error');
+}
+
 export async function forkDeclaration(oldTxId, newText, authors) {
   const formData = new URLSearchParams({
     authors: JSON.stringify(authors),
@@ -35,7 +43,7 @@ export async function forkDeclaration(oldTxId, newText, authors) {
   return fetch(`${SERVER_URL}/fork/${oldTxId}`, {
     method: 'post',
     body: formData,
-  }).then(data => data.json());
+  }).then(jsonOrErrorHandler)
 }
 
 export async function generateSignature(declaration) {
@@ -73,9 +81,7 @@ export async function signDeclaration(txId, name, userProvidedHandle, declaratio
   await fetch(`${SERVER_URL}/sign/${txId}`, {
     method: 'post',
     body: formData,
-  }).then(data => data.json()).catch((err) => {
-    throw err;
-  });
+  }).then(jsonOrErrorHandler)
 }
 
 export async function verifyTwitter(sig, handle) {
@@ -86,7 +92,7 @@ export async function verifyTwitter(sig, handle) {
   return fetch(`${SERVER_URL}/verify/${cleanHandle(handle)}`, {
     method: 'post',
     body: formData,
-  }).then(data => data.json());
+  }).then(jsonOrErrorHandler)
 }
 
 {/* 
@@ -135,13 +141,11 @@ async function fetchSignatures(txId) {
       }
       `
     })
-  });
-
-  const json = await req.json();
+  }).then(jsonOrErrorHandler);
 
   const unique_tx = new Set();
   const unique_verif_tx = new Set();
-  return json.data.transactions.edges.flatMap(nodeItem => {
+  return req.data.transactions.edges.flatMap(nodeItem => {
     const n = nodeItem.node;
     const sig = n.tags.find(tag => tag.name === SIG_ADDR).value;
     const handle = n.tags.find(tag => tag.name === SIG_HANDLE).value;
@@ -168,6 +172,16 @@ async function fetchSignatures(txId) {
       SIG_SIG: n.tags.find(tag => tag.name === SIG_SIG)?.value || "",
     }];
   });
+}
+
+const TEAM = {
+  "0x29668d39c163f64a1c177c272a8e2D9ecc85F0dE": -8, // jasmine w
+  "0x35E61b11f1c05271B9369E324d6b4305f6aCB639": -7, // jacky
+  "0xbb806e75c7e71AD07dbEfd2B1B5DA2689A147340": -6, // daanish
+  "0x8416146b19e755B7Ad75914a57a2c77ca894B4DC": -5, // gareth
+  "0x6f9627aF4313508a4FB7E53577F7Fc55297A40A0": -4, // jasmine s
+  "0x34C3A5ea06a3A67229fb21a7043243B0eB3e853f": -3, // raymond
+  "0x99ed527BE6DF7a8196cECfE568ca03BC08863Ea5": -2, // nick
 }
 
 export async function getDeclaration(txId) {
@@ -212,14 +226,17 @@ export async function getDeclaration(txId) {
   // fetch associated signatures
   try {
     const sigs = await fetchSignatures(txId);
-    console.log(sigs)
-    const FIRST_SIGNER = '0x29668d39c163f64a1c177c272a8e2d9ecc85f0de'.toUpperCase(); // jasminewang.eth
-    sigs.sort((a, b) => {
-      if (a.SIG_ADDR === FIRST_SIGNER) return -1;
-      if (b.SIG_ADDR === FIRST_SIGNER) return 1;
-      return 0;
-    });
-    res.sigs = sigs;
+    const priority = sig => {
+      if (sig.SIG_ADDR in TEAM) {
+        return TEAM[sig.SIG_ADDR]
+      }
+      if (sig.SIG_ISVERIFIED) {
+        return -1
+      }
+      return 1
+    }
+
+    res.sigs = sigs.sort((a, b) => priority(a) - priority(b));
   } catch (err) {
     // couldn't fetch signatures
     console.error(err)
