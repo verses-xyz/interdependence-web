@@ -30,7 +30,7 @@ export default function Declaration({ data, sigs, txId, status }) {
                 <p className="font-mono">Sign</p>
               </Button>
               <Button>
-                <a className="font-mono" 
+                <a className="font-mono"
                   href="/about"
                   >
                     About</a>

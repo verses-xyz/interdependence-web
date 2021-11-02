@@ -43,12 +43,22 @@ export async function signDeclaration(txId, name, userProvidedHandle, declaratio
     throw new Error("No wallet found. Please install Metamask or another Web3 wallet provider.");
   }
 
-  // Sign the declarataion. Any errors here should be handled by the caller.
+  // Sign the declaration. Any errors here should be handled by the caller.
   await window.ethereum.request({ method: "eth_requestAccounts" });
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const signer = provider.getSigner();
   const signature = await signer.signMessage(declaration);
   const address = await signer.getAddress();
+
+  // Verify the signature, and print to console for convenience
+  const verifyingAddress = ethers.utils.verifyMessage(declaration, signature);
+  console.log("Verify this on https://app.mycrypto.com/verify-message:");
+  console.log(JSON.stringify({
+    address,
+    msg: declaration,
+    sig: signature,
+    version: "2"
+  }));
 
   const formData = new URLSearchParams({
     name,
@@ -168,26 +178,32 @@ export async function getDeclaration(txId) {
   const blockMeta = await arweave.blocks.get(blockId);
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
   const time = new Date(blockMeta.timestamp * 1000);
+  const data = await arweave.transactions.getData(txId, {
+    decode: true,
+    string: true,
+  });
   res.data = {
-    ...JSON.parse(await arweave.transactions.getData(txId, {
-      decode: true,
-      string: true,
-    })),
+    ...JSON.parse(data),
     timestamp: time.toLocaleDateString('en-US', options),
   };
 
   // fetch associated signatures
-  const signaturesReq = await fetch(`${SERVER_URL}/`);
-  const signatures = await signaturesReq.json();
-  res.sigs = signatures.map(({ address, signature, name, handle }) => {
-    return {
-      SIG_ADDR: address || '',
-      SIG_SIGNATURE: signature || '',
-      SIG_NAME: name || '',
-      SIG_HANDLE: handle || '',
-      SIG_ISVERIFIED: false,
-    };
-  });
+  try {
+    const signaturesReq = await fetch(`${SERVER_URL}`);
+    const signatures = await signaturesReq.json();
+    res.sigs = signatures.map(({ address, signature, name, handle }) => {
+      return {
+        SIG_ADDR: address || '',
+        SIG_SIGNATURE: signature || '',
+        SIG_NAME: name || '',
+        SIG_HANDLE: handle || '',
+        SIG_ISVERIFIED: false,
+      };
+    });
+  } catch (err) {
+    // couldn't fetch signatures
+  }
+
   //res.sigs = await fetchSignatures(txId);
   res.status = 200;
   return res;

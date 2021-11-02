@@ -26,10 +26,9 @@ function Header({ show }) {
 }
 
 function Body({ txId, data, sigs, status }) {
-  const {declaration, authors, timestamp} = data;
-  const parsedAuthors = Array.isArray(authors) ? authors : JSON.parse(authors || "[]");
-
   if (status === 200) {
+    const {declaration, authors, timestamp} = data;
+    const parsedAuthors = Array.isArray(authors) ? authors : JSON.parse(authors || "[]");
     return (<>
       <hr/>
         <div className="my-20 font-body text-2xl text-justify space-y-12 text-opacity-75 max-w-3xl whitespace-pre-wrap">
@@ -59,12 +58,12 @@ function Body({ txId, data, sigs, status }) {
   } else if (status === 202) {
     return <div className="w-1/4 font-title">
       <h3 className="text-2xl font-bold">Forking in Progress</h3>
-      <p className="text-lg">The block containing your new declaration has not been mined yet. Check back in 5-10 minutes.</p>
+      <p className="text-lg leading-tight my-4">The block containing your new declaration has not been mined yet. Check back in 5-10 minutes.</p>
     </div>;
   } else {
     return <div className="w-1/4 font-title">
       <h3 className="text-2xl font-bold">Not Found</h3>
-      <p className="text-lg">Either this transaction doesn't exist or the data format is incorrect.</p>
+      <p className="text-lg leading-tight my-4">Either this transaction doesn't exist or the data format is incorrect.</p>
     </div>;
   }
 }
