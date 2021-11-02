@@ -12,6 +12,7 @@ function init() {
 
 const arweave = init()
 
+const ADMIN_ACCT = "aek33fcNH1qbb-SsDEqBF1KDWb8R1mxX6u4QGoo3tAs"
 const DOC_TYPE = "interdependence_doc_type"
 const DOC_ORIGIN = "interdependence_doc_origin"
 const DOC_REF = "interdependence_doc_ref"
@@ -56,7 +57,8 @@ async function fetchSignatures(txId) {
               name: "${DOC_REF}",
               values: ["${txId}"]
             }
-          ]
+          ],
+          owners: ["${ADMIN_ACCT}"]
         ) {
           edges {
             node {

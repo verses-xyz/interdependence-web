@@ -27,6 +27,7 @@ function Header({ show }) {
 
 function Body({ txId, data, sigs, status }) {
   const {declaration, authors, timestamp} = data
+  const parsedAuthors = JSON.parse(authors)
 
   if (status === 200) {
     return <>
@@ -40,14 +41,18 @@ function Body({ txId, data, sigs, status }) {
           max-w-3xl
           whitespace-pre-wrap">
         {declaration}
+        <p className="font-bold text-left max-w-3xl font-title text-2xl mt-16">{timestamp}</p>
       </div>
-      <hr/>
-      <div className="mt-20 max-w-3xl">
-        <ul className="flex flex-wrap font-mono">
-          <p className="py-2 px-4 my-1 mx-2 border border-brown-120 rounded-3xl overflow-hidden">{timestamp}</p>
-          {authors.map(author => <li className="my-1 mx-2 overflow-hidden py-2 px-4 rounded-3xl text-brown-120 bg-gray-200" key={author.name}><a href={author.url}>{author.name}</a></li>)}
-        </ul>
-      </div>
+
+      {parsedAuthors.length > 0 && <>
+        <hr/>
+        <div className="mt-16 max-w-3xl">
+          <ul className="flex flex-wrap font-mono">
+            {JSON.parse(authors).map(author => <li className="my-1 mx-2 overflow-hidden py-2 px-4 rounded-3xl text-brown-120 bg-gray-200" key={author.name}><a href={author.url}>{author.name}</a></li>)}
+          </ul>
+        </div>
+      </>}
+
 
       <hr className="my-20" />
 
@@ -85,22 +90,20 @@ export default function Declaration() {
   const maybeDeclaration = useAsync(getDeclaration, [txId])
 
   return (
-    <MetaMaskProvider>
-      <div className="flex flex-col items-center justify-center py-4 bg-blue-20">
-        <HeadComponent/>
-        <main className="flex flex-col items-center min-h-screen w-full flex-1 px-2 sm:px-10 lg:px-20 xl:px-20 text-center">
-          <Header show={!maybeDeclaration.loading} />
-          <div className="w-1/2">
-            <h1 className="text-3xl font-title my-10 sm:m-10 xl:m-20 sm:text-4xl md:text-5xl lg:text-7xl font-semibold">
-              Declaration
-              <span className="text-2xl block font-light italic m-5 sm:text-2xl md:text-4xl lg:text-4xl xl:text-7xl">of the</span>
-              Interdependence of Cyberspace
-            </h1>
-          </div>
+    <div className="flex flex-col items-center justify-center py-4 bg-blue-20">
+      <HeadComponent/>
+      <main className="flex flex-col items-center min-h-screen w-full flex-1 px-2 sm:px-10 lg:px-20 xl:px-20 text-center">
+        <Header show={!maybeDeclaration.loading} />
+        <div className="w-1/2">
+          <h1 className="text-3xl font-title my-10 sm:m-10 xl:m-20 sm:text-4xl md:text-5xl lg:text-7xl font-semibold">
+            Declaration
+            <span className="text-2xl block font-light italic m-5 sm:text-2xl md:text-4xl lg:text-4xl xl:text-7xl">of the</span>
+            Interdependence of Cyberspace
+          </h1>
+        </div>
 
-          {maybeDeclaration.loading ? <GridLoader/> : <Body txId={txId} {...maybeDeclaration.result} />}
-        </main>
-      </div>
-    </MetaMaskProvider>
+        {maybeDeclaration.loading ? <GridLoader/> : <Body txId={txId} {...maybeDeclaration.result} />}
+      </main>
+    </div>
   );
 }
