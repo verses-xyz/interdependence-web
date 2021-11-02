@@ -76,11 +76,12 @@ export async function signDeclaration(txId, name, userProvidedHandle, declaratio
   });
 }
 
-export async function verifyTwitter(address, handle) {
+export async function verifyTwitter(sig, handle) {
   const formData = new URLSearchParams({
-    address,
+    address: sig,
   });
 
+  const cleanedHandle = handle[0] === "@" ? handle.substring(1) : handle;
   return fetch(`${SERVER_URL}/verify/${handle}`, {
     method: 'post',
     body: formData,
@@ -128,12 +129,13 @@ async function fetchSignatures(txId) {
   const json = await req.json();
 
   const unique_tx = new Set();
-  return json.data.transactions.edges.flatMap(nodeItem => {
+  return json.data.transactions.edges.reverse().flatMap(nodeItem => {
     const n = nodeItem.node;
     const sig = n.tags.find(tag => tag.name === SIG_ADDR).value;
     const handle = n.tags.find(tag => tag.name === SIG_HANDLE).value;
+    const verified = n.tags.find(tag => tag.name === SIG_ISVERIFIED).value === 'true'
 
-    if (unique_tx.has(sig)) {
+    if (unique_tx.has(sig) && !verified) {
       return [];
     }
 
@@ -144,7 +146,7 @@ async function fetchSignatures(txId) {
       SIG_ADDR: sig,
       SIG_NAME: n.tags.find(tag => tag.name === SIG_NAME).value,
       SIG_HANDLE: handle === 'null' ? 'UNSIGNED' : handle,
-      SIG_ISVERIFIED: n.tags.find(tag => tag.name === SIG_ISVERIFIED).value === 'true',
+      SIG_ISVERIFIED: verified,
       SIG_SIG: n.tags.find(tag => tag.name === SIG_SIG)?.value || "",
     }];
   });

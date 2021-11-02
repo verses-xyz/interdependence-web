@@ -1,7 +1,12 @@
 import Box from "./core/Box";
 import Button from './core/Button';
 
-export default function SocialProofConfirmation({ }) {
+const generateTweet = () => {
+  const str = `I just signed A Declaration for the Interdependence of Cyberspace! interdependence.online`;
+  window.open(`https://twitter.com/intent/tweet?text=${encodeURI(str)}`);
+}
+
+export default function SocialProofConfirmation({ closeModal }) {
     return (
       <Box
         title="Thank you for signing!"
@@ -12,11 +17,11 @@ export default function SocialProofConfirmation({ }) {
                  </p>
                 <Button
                 primary
-                onClick={openModal}>
+                onClick={generateTweet}>
                   {/* Twitter icon */}
                   Share
                 </Button>
-                <button className="text-gray-400">
+                <button className="text-gray-400" onClick={closeModal}>
                     Close
                 </button>
           </div>}

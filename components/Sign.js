@@ -3,12 +3,11 @@ import { useForm } from 'react-hook-form';
 import {generateSignature, signDeclaration} from "../arweaveFns";
 import Modal from "react-modal";
 import Button from "./core/Button";
-import {useMetaMask} from "metamask-react";
 import Box from "./core/Box";
 import ScaleLoader from "react-spinners/ScaleLoader";
-import VerificationPopUp from "./SocialProofConfirmation";
+import VerificationPopUp from "./VerificationPopup";
 import SocialProofPopup from "./SocialProofPopup";
-import {ethers} from "ethers";
+import SocialProofConfirmation from "./SocialProofConfirmation";
 
 Modal.setAppElement('#__next');
 Modal.defaultStyles.overlay.backgroundColor = '#555555aa';
@@ -27,14 +26,13 @@ const customStyles = {
   },
 };
 
-export function DisplayedError({displayedError, displayedSuccess}) {
+export function DisplayedError({displayedError}) {
   return <>
     {(displayedError || !window.ethereum) && <div className="mt-7 text-center font-mono text-sm text-red-700">{displayedError || <>No wallet found. Please install <a className="underline" target="_blank" href="https://metamask.io/download.html">Metamask</a> or another Web3 wallet provider.</>}</div>}
-    {displayedSuccess && <div className="mt-7 text-center font-mono text-sm text-green-700">{displayedSuccess}</div>}
   </>
 }
 
-function SignScreen({handleSubmit, onSubmit, register, displayedError, displayedSuccess, loading}) {
+function SignScreen({handleSubmit, onSubmit, register, displayedError, loading}) {
   return <div className="w-full h-full bg-gray-50">
     <form onSubmit={handleSubmit(onSubmit)} className="w-full font-body pb-4">
       <div className="w-full font-mono font-bold text-center py-3.5 bg-gray-100 text-brown-20 border-b border-gray-200">Sign the Declaration</div>
@@ -47,7 +45,7 @@ function SignScreen({handleSubmit, onSubmit, register, displayedError, displayed
         <div className="mt-2 text-center">
           <Button disabled={!window.ethereum} className={"mt-5 px-6 py-2 rounded-full bg-truegray-800 hover:text-gray-100 text-white text-sm sm:text-base font-mono" + (window.ethereum ? "" : " opacity-60")} primary>{loading ? <ScaleLoader color="white" height={12} width={3}/> : 'Sign with Metamask'}</Button>
         </div>
-        <DisplayedError displayedError={displayedError} displayedSuccess={displayedSuccess} />
+        <DisplayedError displayedError={displayedError}/>
       </div>
     </form>
   </div>
@@ -67,7 +65,6 @@ export default function Sign({ txId, declaration }) {
 
   const [loading, setIsLoading] = React.useState(false);
   const [displayedError, setDisplayedError] = React.useState(false);
-  const [displayedSuccess, setDisplayedSuccess] = React.useState(false);
 
   function openModal() {
     setStage(0);
@@ -90,8 +87,7 @@ export default function Sign({ txId, declaration }) {
 
   const wrappedSign = () => sign()
     .then((signatureServerResponse) => {
-      console.log("Signature saved:", signatureServerResponse);
-      setDisplayedSuccess("Signature saved! Refresh to see the update.");
+      setStage(3)
       setIsLoading(false);
     })
     .catch((err) => {
@@ -144,8 +140,10 @@ export default function Sign({ txId, declaration }) {
         style={customStyles}
         contentLabel="sign-modal"
       >
-        {stage === 0 && <SignScreen {...{handleSubmit, onSubmit, register, displayedError, displayedSuccess, loading}} />}
+        {stage === 0 && <SignScreen {...{handleSubmit, onSubmit, register, displayedError, loading}} />}
         {stage === 1 && <SocialProofPopup {...{setStage, formData, sign}} />}
+        {stage === 2 && <VerificationPopUp {...{setStage, formData, sign }} /> }
+        {stage === 3 && <SocialProofConfirmation closeModal={closeModal} /> }
       </Modal>
     </>} />
   );

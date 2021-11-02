@@ -1,27 +1,23 @@
 import Box from "./core/Box";
 import Button from './core/Button';
-import {signDeclaration} from "../arweaveFns";
 import React from "react";
 import ScaleLoader from "react-spinners/ScaleLoader";
 import {DisplayedError} from "./Sign";
 
 const generateTweet = (sig) => {
-  const str = `I'm verifying to be a part of interdependence.online: sig:${sig}`;
+  const str = `I'm verifying to be a part of @verses_xyz: sig:${sig}`;
   window.open(`https://twitter.com/intent/tweet?text=${encodeURI(str)}`);
 }
 
 export default function SocialProofPopup({ setStage, formData, sign }) {
   const [loading, setIsLoading] = React.useState(false);
   const [displayedError, setDisplayedError] = React.useState(false);
-  const [displayedSuccess, setDisplayedSuccess] = React.useState(false);
-
 
   const wrappedSign = () => {
     setIsLoading(true)
     sign()
       .then((signatureServerResponse) => {
-        console.log("Signature saved:", signatureServerResponse);
-        setDisplayedSuccess("Signature saved! Refresh to see the update.");
+        setStage(3)
         setIsLoading(false);
       })
       .catch((err) => {
@@ -47,7 +43,7 @@ export default function SocialProofPopup({ setStage, formData, sign }) {
             Post Verification Tweet
           </Button>
           <Button onClick={wrappedSign}>{loading ? <ScaleLoader color="black" height={12} width={3}/> : 'Sign without verification'}</Button>
-          <DisplayedError displayedError={displayedError} displayedSuccess={displayedSuccess} />
+          <DisplayedError displayedError={displayedError}/>
         </div>}
     />
   );
