@@ -9,21 +9,27 @@ const generateTweet = () => {
 export default function SocialProofConfirmation({ closeModal }) {
     return (
       <Box
-        title="Thank you for signing!"
+        title={<p className="text-center"> Thank you for signing! </p>}
         content={
-            <div className="my-6">
-                <p className="font-mono">
+            <div className="mt-8 mb-6">
+                <p className="font-mono mx-6">
                     We're heartened you'll join us in the Pluriverse. If you have a moment, please share what this vision means to you.
-                 </p>
-                <Button
-                primary
-                onClick={generateTweet}>
-                  {/* Twitter icon */}
-                  Share
-                </Button>
-                <button className="text-gray-400" onClick={closeModal}>
-                    Close
-                </button>
+                </p>
+                <div className="mt-12 mb-5 text-center">
+                  <Button
+                  primary
+                  onClick={generateTweet}>
+                    {/* Twitter icon */}
+                    Share
+                  </Button>
+                </div>
+                <div className="text-center">
+                  <button 
+                    className="font-mono underline font-light text-gray-400"
+                    onClick={closeModal}>
+                      Close
+                  </button>
+                </div>
           </div>}
       />
     );
