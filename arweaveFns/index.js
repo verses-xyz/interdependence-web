@@ -47,15 +47,15 @@ export async function signDeclaration(txId, name, userProvidedHandle, declaratio
   await window.ethereum.request({ method: "eth_requestAccounts" });
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const signer = provider.getSigner();
-  const signature = await signer.signMessage(declaration);
+  const signature = await signer.signMessage(declaration.trim());
   const address = await signer.getAddress();
 
   // Verify the signature, and print to console for convenience
-  const verifyingAddress = ethers.utils.verifyMessage(declaration, signature);
+  const verifyingAddress = ethers.utils.verifyMessage(declaration.trim(), signature);
   console.log("Verify this on https://app.mycrypto.com/verify-message:");
   console.log(JSON.stringify({
     address,
-    msg: declaration,
+    msg: declaration.trim(),
     sig: signature,
     version: "2"
   }));
