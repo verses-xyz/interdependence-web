@@ -1,5 +1,5 @@
 import Box from "./core/Box";
-import Checkmark from './core/Checkmark';
+import Checkmark from './core/icons/Checkmark';
 
 const cleanHandle = (handle, address, verified) => {
   if (verified) {
@@ -10,7 +10,7 @@ const cleanHandle = (handle, address, verified) => {
       return firstChar === "@" ? handle : '@' + handle;
     }
   }
-  return address.slice(0, 8)
+  return address.slice(0, 8);
 }
 
 export default function Signatures({sigs}) {
