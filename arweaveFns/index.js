@@ -1,6 +1,6 @@
 // Arweave and Ethereum signing utilities.
 import Arweave from 'arweave';
-import { ethers } from "ethers";
+import {ethers} from "ethers";
 
 function init() {
   return Arweave.init({
@@ -22,9 +22,9 @@ const SIG_NAME = "interdependence_sig_name";
 const SIG_HANDLE = "interdependence_sig_handle";
 const SIG_ADDR = "interdependence_sig_addr";
 const SIG_ISVERIFIED = "interdependence_sig_verified";
+const SIG_SIG = "interdependence_sig_signature";
 
-//const SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:8080";
-const SERVER_URL = "https://interdependence-server-production.up.railway.app";
+const SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:8080";
 
 export async function forkDeclaration(oldTxId, newText, authors) {
   const formData = new URLSearchParams({
@@ -38,7 +38,7 @@ export async function forkDeclaration(oldTxId, newText, authors) {
   }).then(data => data.json());
 }
 
-export async function signDeclaration(txId, name, userProvidedHandle, declaration) {
+export async function generateSignature(declaration) {
   if (!window.ethereum) {
     throw new Error("No wallet found. Please install Metamask or another Web3 wallet provider.");
   }
@@ -47,18 +47,19 @@ export async function signDeclaration(txId, name, userProvidedHandle, declaratio
   await window.ethereum.request({ method: "eth_requestAccounts" });
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const signer = provider.getSigner();
-  const signature = await signer.signMessage(declaration.trim());
+  return await signer.signMessage(declaration.trim())
+}
+
+export async function signDeclaration(txId, name, userProvidedHandle, declaration, signature) {
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
+  const signer = provider.getSigner();
   const address = await signer.getAddress();
 
   // Verify the signature, and print to console for convenience
   const verifyingAddress = ethers.utils.verifyMessage(declaration.trim(), signature);
-  console.log("Verify this on https://app.mycrypto.com/verify-message:");
-  console.log(JSON.stringify({
-    address,
-    msg: declaration.trim(),
-    sig: signature,
-    version: "2"
-  }));
+  if (verifyingAddress !== address) {
+    throw new Error("Signature mismatch")
+  }
 
   const formData = new URLSearchParams({
     name,
@@ -71,7 +72,6 @@ export async function signDeclaration(txId, name, userProvidedHandle, declaratio
     method: 'post',
     body: formData,
   }).then(data => data.json()).catch((err) => {
-    alert("Could not reach signing server");
     throw err;
   });
 }
@@ -138,12 +138,14 @@ async function fetchSignatures(txId) {
     }
 
     unique_tx.add(sig);
+
     return [{
       SIG_ID: n.id,
       SIG_ADDR: sig,
       SIG_NAME: n.tags.find(tag => tag.name === SIG_NAME).value,
       SIG_HANDLE: handle === 'null' ? 'UNSIGNED' : handle,
       SIG_ISVERIFIED: n.tags.find(tag => tag.name === SIG_ISVERIFIED).value === 'true',
+      SIG_SIG: n.tags.find(tag => tag.name === SIG_SIG)?.value || "",
     }];
   });
 }
@@ -189,29 +191,19 @@ export async function getDeclaration(txId) {
 
   // fetch associated signatures
   try {
-    const signaturesReq = await fetch(`${SERVER_URL}`);
-    const signatures = await signaturesReq.json();
-    const formattedSignatures = signatures.map(({ address, signature, name, handle }) => {
-      return {
-        SIG_ADDR: address || '',
-        SIG_SIGNATURE: signature || '',
-        SIG_NAME: name || '',
-        SIG_HANDLE: handle || '',
-        SIG_ISVERIFIED: false,
-      };
-    });
-    const FIRST_SIGNER = '0x29668d39c163f64a1c177c272a8e2d9ecc85f0de'; // jasminewang.eth
-    formattedSignatures.sort((a, b) => {
+    const sigs = await fetchSignatures(txId);
+    const FIRST_SIGNER = '0x29668d39c163f64a1c177c272a8e2d9ecc85f0de'.toUpperCase(); // jasminewang.eth
+    sigs.sort((a, b) => {
       if (a.SIG_ADDR === FIRST_SIGNER) return -1;
       if (b.SIG_ADDR === FIRST_SIGNER) return 1;
       return 0;
     });
-    res.sigs = formattedSignatures;
+    res.sigs = sigs;
   } catch (err) {
     // couldn't fetch signatures
+    console.error(err)
   }
 
-  //res.sigs = await fetchSignatures(txId);
   res.status = 200;
   return res;
 }

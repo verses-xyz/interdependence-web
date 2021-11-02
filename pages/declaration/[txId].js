@@ -37,7 +37,7 @@ function Body({ txId, data, sigs, status }) {
           <p className="font-bold text-left text-gray-primary max-w-2xl font-title text-2xl mt-8">{timestamp}</p>
         </div>
 
-        {/* {parsedAuthors.length > 0 && <>
+{/*         {parsedAuthors.length > 0 && <>
           <hr/>
           <div className="mt-20 max-w-3xl">
             <ul className="flex flex-wrap font-mono">
