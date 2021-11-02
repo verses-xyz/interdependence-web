@@ -10,12 +10,13 @@ Modal.defaultStyles.overlay.backgroundColor = '#555555aa';
 const customStyles = {
   content: {
     top: '10vh',
-    left: '25vw',
+    left: '10vw',
     right: 'auto',
     bottom: 'auto',
-    width: '50vw',
-    height: '80vh',
+    width: '80vw',
+    height: '36vh',
     marginRight: '-50%',
+    paddingBottom: '1.5rem',
     borderColor: '#e5e7eb',
     borderRadius: '0.75em',
     padding: '0',
@@ -59,20 +60,22 @@ export default function Sign({ txId, walletKey }) {
         contentLabel="sign-modal"
       >
           <div className="">
-          <form onSubmit={handleSubmit(onSubmit)} className="w-full font-body bg-gray-50 max-w-2xl">             
-          <div className="font-mono font-bold text-center py-3.5 bg-gray-100 text-gray-800 border-b border-gray-200">Sign the Declaration</div>
-            <div className="pt-4 pb-2.5 px-5 bg-gray-50">
-              <p className="font-mono text-center text-xl p-4">
+          <form onSubmit={handleSubmit(onSubmit)} className="w-full h-full font-body bg-gray-50">             
+          <div className="font-mono font-bold text-center py-3.5 bg-gray-100 text-gray-800 border-b border-gray-200">
+            Sign the Declaration
+          </div>
+            <div className="pt-4 pb-2.5 px-5 bg-gray-50 max-h-20">
+              <p className="font-mono text-center text-xl p-4 text-gray-800">
                 <p className="pt-10"> Follow these steps to sign the declaration on-chain. </p>
                 ---
                 <p className="pt-10">
                   <ul>
                     <li>
-                      1. Install the Arweave wallet extension
+                      1. Install the <a <a href="https://arconnect.io/"> Arweave wallet </a> extension
                     </li>
 
                     <li>
-                      2. Get free $AR from the Arweave faucet
+                      2. Get free $AR from the <a href="https://faucet.arweave.net/"> Arweave faucet </a>
                     </li>
 
                     <li> 3. Sign below</li>
