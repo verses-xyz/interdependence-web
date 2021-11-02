@@ -39,7 +39,7 @@ export async function forkDeclaration(oldTxId, newText, authors) {
 
 export async function signDeclaration(txId, name, userProvidedHandle, declaration) {
   if (!window.ethereum) {
-    throw new Error("No crypto wallet found. Please install Metamask or another wallet provider.");
+    throw new Error("No wallet found. Please install Metamask or another Web3 wallet provider.");
   }
 
   // Sign the declarataion. Any errors here should be handled by the caller.
@@ -52,6 +52,7 @@ export async function signDeclaration(txId, name, userProvidedHandle, declaratio
   const formData = new URLSearchParams({
     name,
     address,
+    signature,
     handle: userProvidedHandle,
   });
 

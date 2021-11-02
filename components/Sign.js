@@ -104,9 +104,9 @@ export default function Sign({ txId, declaration }) {
                 <input className="font-mono rounded-b-lg border-b-2 border-l-2 border-r-2 border-gray-200 focus:outline-none w-full px-4 py-4" type="text"{...register("handle")} autoComplete="off" placeholder="Your Twitter handle (optional)"/>
               </div>
               <div className="mt-2 text-center">
-                <Button className="mt-5 px-6 py-2 rounded-full bg-truegray-800 hover:text-gray-100 text-white text-sm sm:text-base font-mono" primary>{loading ? <ScaleLoader color="white" height={12} width={3}/> : 'Sign with Metamask'}</Button>
+                <Button className={"mt-5 px-6 py-2 rounded-full bg-truegray-800 hover:text-gray-100 text-white text-sm sm:text-base font-mono" + (window.ethereum ? "" : " opacity-60")} primary>{loading ? <ScaleLoader color="white" height={12} width={3}/> : 'Sign with Metamask'}</Button>
               </div>
-              {displayedError && <div className="mt-7 text-center font-mono text-sm text-red-700">{displayedError}</div>}
+              {(displayedError || !window.ethereum) && <div className="mt-7 text-center font-mono text-sm text-red-700">{displayedError || <>No wallet found. Please install <a className="underline" target="_blank" href="https://metamask.io/download.html">Metamask</a> or another Web3 wallet provider.</>}</div>}
               {displayedSuccess && <div className="mt-7 text-center font-mono text-sm text-green-700">{displayedSuccess}</div>}
             </div>
           </form>
