@@ -37,7 +37,7 @@ export default function Modal({children, ...props}) {
       
       
       
-      <button className="ml-2.5 mt-5 px-6 py-2 rounded-full bg-gray-200 text-brown-120 hover:text-brown-20 text-sm sm:text-md font-mono" {...props}>
+      <button className="ml-2.5 mt-5 px-6 py-2 rounded-full bg-gray-200 text-gray-120 hover:text-gray-20 text-sm sm:text-md font-mono" {...props}>
         {children}
       </button>;
       )
