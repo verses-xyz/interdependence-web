@@ -176,7 +176,18 @@ export async function getDeclaration(txId) {
   };
 
   // fetch associated signatures
-  res.sigs = await fetchSignatures(txId);
+  const signaturesReq = await fetch(`${SERVER_URL}/`);
+  const signatures = await signaturesReq.json();
+  res.sigs = signatures.map(({ address, signature, name, handle }) => {
+    return {
+      SIG_ADDR: address || '',
+      SIG_SIGNATURE: signature || '',
+      SIG_NAME: name || '',
+      SIG_HANDLE: handle || '',
+      SIG_ISVERIFIED: false,
+    };
+  });
+  //res.sigs = await fetchSignatures(txId);
   res.status = 200;
   return res;
 }
