@@ -130,17 +130,24 @@ async function fetchSignatures(txId) {
   const json = await req.json();
 
   const unique_tx = new Set();
-  return json.data.transactions.edges.reverse().flatMap(nodeItem => {
+  const unique_verif_tx = new Set();
+  return json.data.transactions.edges.flatMap(nodeItem => {
     const n = nodeItem.node;
     const sig = n.tags.find(tag => tag.name === SIG_ADDR).value;
     const handle = n.tags.find(tag => tag.name === SIG_HANDLE).value;
     const verified = n.tags.find(tag => tag.name === SIG_ISVERIFIED).value === 'true'
 
-    if (unique_tx.has(sig) && !verified) {
-      return [];
+    if (verified) {
+      if (unique_verif_tx.has(sig)) {
+        return [];
+      }
+      unique_verif_tx.add(sig);
+    } else {
+      if (unique_tx.has(sig)) {
+        return [];
+      }
+      unique_tx.add(sig);
     }
-
-    unique_tx.add(sig);
 
     return [{
       SIG_ID: n.id,
