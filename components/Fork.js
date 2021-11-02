@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { forkDeclaration } from "../arweaveFns";
 import Button from "./core/Button";
 import Box from "./core/Box";
+import ScaleLoader from "react-spinners/ScaleLoader";
 
 Modal.setAppElement('#__next');
 Modal.defaultStyles.overlay.backgroundColor = '#555555aa';
@@ -32,6 +33,7 @@ export default function Fork({text, txId}) {
     }
   });
   const [modalIsOpen, setIsOpen] = React.useState(false);
+  const [loading, setIsLoading] = React.useState(false);
 
   function openModal() {
     setIsOpen(true);
@@ -40,9 +42,12 @@ export default function Fork({text, txId}) {
   function closeModal() {
     setIsOpen(false);
   }
-  const onSubmit = (data) =>
+  const onSubmit = (data) => {
+    setIsLoading(true)
     forkDeclaration(txId, data.declaration, [])
-      .then(data => window.location.href = `/declaration/${data.id}`);
+      .then(data => window.location.href = `/declaration/${data.id}`)
+      .finally(() => setIsLoading(false))
+  }
 
   return (<Box title="Fork the Declaration" content={
     <>
@@ -79,7 +84,7 @@ export default function Fork({text, txId}) {
               </div>
             </div>
             <div className="flex-0 align-start pb-0.5">
-              <Button className="mt-2 mb-4 px-6 py-2 rounded-full bg-brown-20 bg-brown-20 hover:text-gray-100 text-white text-sm sm:text-base font-mono" primary>Fork</Button>
+              <Button className="mt-2 mb-4 px-6 py-2 rounded-full bg-brown-20 bg-brown-20 hover:text-gray-100 text-white text-sm sm:text-base font-mono w-32" primary>{loading ? <ScaleLoader color="white" height={12} width={3}/> : 'Fork'}</Button>
             </div>
           </div>
         </form>

@@ -26,7 +26,7 @@ function Header({ show }) {
 
 function Body({ txId, data, sigs, status }) {
   const {declaration, authors, timestamp} = data
-  const parsedAuthors = Array.isArray(authors) ? authors : JSON.parse(authors)
+  const parsedAuthors = Array.isArray(authors) ? authors : JSON.parse(authors || "[]")
 
   if (status === 200) {
     return <>
@@ -47,7 +47,6 @@ function Body({ txId, data, sigs, status }) {
           <hr/>
           <div className="mt-20 max-w-3xl">
             <ul className="flex flex-wrap font-mono">
-              <p className="py-2 px-4 my-1 mx-2 border border-brown-120 rounded-3xl overflow-hidden">{timestamp}</p>
               {parsedAuthors.map(author => <li className="my-1 mx-2 overflow-hidden py-2 px-4 rounded-3xl text-brown-120 hover:text-brown-20 bg-gray-200" key={author.name}><a href={author.url}>{author.name}</a></li>)}
             </ul>
           </div>
@@ -57,7 +56,7 @@ function Body({ txId, data, sigs, status }) {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 flex w-full sm:w-4/5 md:w-1/2 lg:w-3/5">
           <div id="signatureForm" className="flex-1 mx-4 lg:mx-8">
-            <Sign txId={txId} content={declaration} />
+            <Sign txId={txId} />
           </div>
 
           <div className="mt-20 flex-1 mx-4 md:mx-8 lg:mt-0">

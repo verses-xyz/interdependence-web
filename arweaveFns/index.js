@@ -92,6 +92,7 @@ async function fetchSignatures(txId) {
   return json.data.transactions.edges.flatMap(nodeItem => {
     const n = nodeItem.node
     const sig = n.tags.find(tag => tag.name === SIG_ADDR).value
+    const handle = n.tags.find(tag => tag.name === SIG_HANDLE).value
 
     if (unique_tx.has(sig)) {
       return []
@@ -102,7 +103,7 @@ async function fetchSignatures(txId) {
       SIG_ID: n.id,
       SIG_ADDR: sig,
       SIG_NAME: n.tags.find(tag => tag.name === SIG_NAME).value,
-      SIG_HANDLE: n.tags.find(tag => tag.name === SIG_HANDLE).value,
+      SIG_HANDLE: handle === 'null' ? 'UNSIGNED' : handle,
       SIG_ISVERIFIED: n.tags.find(tag => tag.name === SIG_ISVERIFIED).value === 'true',
     }]
   })
