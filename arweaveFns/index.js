@@ -174,6 +174,16 @@ async function fetchSignatures(txId) {
   });
 }
 
+const TEAM = {
+  "0x29668d39c163f64a1c177c272a8e2D9ecc85F0dE": -8, // jasmine w
+  "0x35E61b11f1c05271B9369E324d6b4305f6aCB639": -7, // jacky
+  "0xbb806e75c7e71AD07dbEfd2B1B5DA2689A147340": -6, // daanish
+  "0x8416146b19e755B7Ad75914a57a2c77ca894B4DC": -5, // gareth
+  "0x6f9627aF4313508a4FB7E53577F7Fc55297A40A0": -4, // jasmine s
+  "0x34C3A5ea06a3A67229fb21a7043243B0eB3e853f": -3, // raymond
+  "0x99ed527BE6DF7a8196cECfE568ca03BC08863Ea5": -2, // nick
+}
+
 export async function getDeclaration(txId) {
   const res = {
     txId,
@@ -215,7 +225,18 @@ export async function getDeclaration(txId) {
 
   // fetch associated signatures
   try {
-    res.sigs = await fetchSignatures(txId);
+    const sigs = await fetchSignatures(txId);
+    const priority = sig => {
+      if (sig.SIG_ADDR in TEAM) {
+        return TEAM[sig.SIG_ADDR]
+      }
+      if (sig.SIG_ISVERIFIED) {
+        return -1
+      }
+      return 1
+    }
+
+    res.sigs = sigs.sort((a, b) => priority(a) - priority(b));
   } catch (err) {
     // couldn't fetch signatures
     console.error(err)
