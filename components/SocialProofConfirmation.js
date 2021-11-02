@@ -1,6 +1,7 @@
 import Box from "./core/Box";
 import Button from './core/Button';
 
+
 const generateTweet = () => {
   const str = `I just signed A Declaration for the Interdependence of Cyberspace! interdependence.online`;
   window.open(`https://twitter.com/intent/tweet?text=${encodeURI(str)}`);
@@ -15,7 +16,7 @@ export default function SocialProofConfirmation({ closeModal }) {
                 <p className="font-mono mx-6">
                     We're heartened you'll join us in the Pluriverse. If you have a moment, please share what this vision means to you.
                 </p>
-                <div className="mt-12 mb-5 text-center">
+                <div className="mt-12 mb-3 text-center">
                   <Button
                   primary
                   onClick={generateTweet}>

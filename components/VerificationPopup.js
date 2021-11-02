@@ -43,7 +43,7 @@ export default function VerificationPopUp({ setStage, formData, sign }) {
           <p className="font-mono mx-6">
             Once you've tweeted, click below to verify:
            </p>
-           <div className="mt-12 mb-5 text-center">
+           <div className="mt-12 mb-3 text-center">
             <Button
             primary
             onClick={verify}
