@@ -8,6 +8,7 @@
   "dependencies": {
     "arbundles": "^0.2.10",
     "arweave": "^1.10.18",
+    "ethers": "^5.5.1",
     "metamask-react": "^2.0.2",
     "next": "latest",
     "react": "^17.0.2",

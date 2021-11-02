@@ -1,4 +1,6 @@
+// Arweave and Ethereum signing utilities.
 import Arweave from 'arweave';
+import { ethers } from "ethers";
 
 function init() {
   return Arweave.init({
@@ -36,11 +38,22 @@ export async function forkDeclaration(oldTxId, newText, authors) {
   }).then(data => data.json());
 }
 
-export async function signDeclaration(txId, name, address, handle) {
+export async function signDeclaration(txId, name, userProvidedHandle, declaration) {
+  if (!window.ethereum) {
+    throw new Error("No crypto wallet found. Please install Metamask or another wallet provider.");
+  }
+
+  // Sign the declarataion. Any errors here should be handled by the caller.
+  await window.ethereum.send("eth_requestAccounts");
+  const provider = new ethers.providers.Web3Provider(window.ethereum);
+  const signer = provider.getSigner();
+  const signature = await signer.signMessage(declaration);
+  const address = await signer.getAddress();
+
   const formData = new URLSearchParams({
     name,
     address,
-    handle
+    handle: userProvidedHandle,
   });
 
   return fetch(`${SERVER_URL}/sign/${txId}`, {

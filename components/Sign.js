@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { signDeclaration } from "../arweaveFns";
 import Modal from "react-modal";
@@ -24,14 +24,17 @@ const customStyles = {
   },
 };
 
-export default function Sign({ txId }) {
+export default function Sign({ txId, declaration }) {
   const {
     register,
     handleSubmit,
+    reset,
   } = useForm();
   const [modalIsOpen, setIsOpen] = React.useState(false);
   const [loading, setIsLoading] = React.useState(false);
   const { status, connect, account } = useMetaMask();
+  const nameRef = useRef();
+  const handleRef = useRef();
 
   // TODO: switch on status and display appropriate error messages
   // cases:
@@ -50,15 +53,21 @@ export default function Sign({ txId }) {
   function closeModal() {
     setIsOpen(false);
     setIsLoading(false);
+    reset();
   }
 
   const onSubmit = (data) => {
     setIsLoading(true);
-    signDeclaration(txId, data.name, account, data.handle)
-      .finally(() => {
+    signDeclaration(txId, data.name, data.handle, declaration)
+      .then((signatureServerResponse) => {
+        console.log("Signature saved:", signatureServerResponse);
         setIsLoading(false);
         closeModal();
-        // TODO: other parts of flow idk
+      })
+      .catch((err) => {
+        alert(err.message);
+        setIsLoading(false);
+        throw new Error();
       });
   };
 
@@ -87,7 +96,7 @@ export default function Sign({ txId }) {
             <div className="pt-7 pb-4 px-8 bg-gray-50">
               <p className="font-mono text-brown-20">Enter your name to sign:</p>
               <div className="mt-6">
-                <input className="font-mono rounded-t-lg border-2 border-gray-200 focus:outline-none w-full px-4 py-4" type="text" {...register("name")} autoComplete="off" placeholder="Your name or alias" />
+                <input className="font-mono rounded-t-lg border-2 border-gray-200 focus:outline-none w-full px-4 py-4" type="text" {...register("name")} autoComplete="off" autoFocus placeholder="Your name or alias" />
                 <input className="font-mono rounded-b-lg border-b-2 border-l-2 border-r-2 border-gray-200 focus:outline-none w-full px-4 py-4" type="text"{...register("handle")} autoComplete="off" placeholder="Your Twitter handle (optional)"/>
               </div>
               <div className="mt-2 text-center">

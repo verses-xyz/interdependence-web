@@ -47,7 +47,7 @@ function Body({ txId, data, sigs, status }) {
         </>}
         <hr className="mt-20 mb-16" />
         <div id="signatureForm" className="mx-4 lg:mx-8 w-full sm:w-4/5 md:w-3/5 lg:w-1/2">
-          <Sign txId={txId} />
+          <Sign txId={txId} declaration={declaration} />
         </div>
         <div className="mt-4 mx-4 lg:mx-8 w-full sm:w-4/5 md:w-3/5 lg:w-1/2">
           <Signatures sigs={sigs}/>
