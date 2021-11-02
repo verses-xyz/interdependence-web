@@ -26,6 +26,14 @@ const SIG_SIG = "interdependence_sig_signature";
 
 const SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:8080";
 
+const jsonOrErrorHandler = response => {
+  if (response.ok) {
+    return response.json();
+  }
+
+  throw new Error('Internal server error');
+}
+
 export async function forkDeclaration(oldTxId, newText, authors) {
   const formData = new URLSearchParams({
     authors: JSON.stringify(authors),
@@ -35,7 +43,7 @@ export async function forkDeclaration(oldTxId, newText, authors) {
   return fetch(`${SERVER_URL}/fork/${oldTxId}`, {
     method: 'post',
     body: formData,
-  }).then(data => data.json());
+  }).then(jsonOrErrorHandler)
 }
 
 export async function generateSignature(declaration) {
@@ -73,9 +81,7 @@ export async function signDeclaration(txId, name, userProvidedHandle, declaratio
   await fetch(`${SERVER_URL}/sign/${txId}`, {
     method: 'post',
     body: formData,
-  }).then(data => data.json()).catch((err) => {
-    throw err;
-  });
+  }).then(jsonOrErrorHandler)
 }
 
 export async function verifyTwitter(sig, handle) {
@@ -86,7 +92,7 @@ export async function verifyTwitter(sig, handle) {
   return fetch(`${SERVER_URL}/verify/${cleanHandle(handle)}`, {
     method: 'post',
     body: formData,
-  }).then(data => data.json());
+  }).then(jsonOrErrorHandler)
 }
 
 async function fetchSignatures(txId) {
@@ -125,13 +131,11 @@ async function fetchSignatures(txId) {
       }
       `
     })
-  });
-
-  const json = await req.json();
+  }).then(jsonOrErrorHandler);
 
   const unique_tx = new Set();
   const unique_verif_tx = new Set();
-  return json.data.transactions.edges.flatMap(nodeItem => {
+  return req.data.transactions.edges.flatMap(nodeItem => {
     const n = nodeItem.node;
     const sig = n.tags.find(tag => tag.name === SIG_ADDR).value;
     const handle = n.tags.find(tag => tag.name === SIG_HANDLE).value;
@@ -201,14 +205,7 @@ export async function getDeclaration(txId) {
 
   // fetch associated signatures
   try {
-    const sigs = await fetchSignatures(txId);
-    const FIRST_SIGNER = '0x29668d39c163f64a1c177c272a8e2d9ecc85f0de'.toUpperCase(); // jasminewang.eth
-    sigs.sort((a, b) => {
-      if (a.SIG_ADDR === FIRST_SIGNER) return -1;
-      if (b.SIG_ADDR === FIRST_SIGNER) return 1;
-      return 0;
-    });
-    res.sigs = sigs;
+    res.sigs = await fetchSignatures(txId);
   } catch (err) {
     // couldn't fetch signatures
     console.error(err)
