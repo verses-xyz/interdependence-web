@@ -17,7 +17,7 @@ const customStyles = {
     bottom: 'auto',
     width: '80vw',
     marginRight: '-50%',
-    borderColor: '#e5e7eb',
+    borderColor: '#bbb',
     borderRadius: '0.75em',
     padding: '0',
   },
@@ -56,6 +56,7 @@ export default function Fork({text, txId}) {
           If you have a revision, addition, or challenge to this declaration, we strongly encourage you to articulate your own vision and values through a fork of this document.
         </p>
         <Button
+          primary
           onClick={openModal}>
           Fork
         </Button>
@@ -67,9 +68,9 @@ export default function Fork({text, txId}) {
         contentLabel="fork-editor"
       >
         <form onSubmit={handleSubmit(onSubmit)} className="w-full h-full font-body bg-gray-50 pb-2">
-          <div className="font-mono font-bold text-center py-3.5 bg-gray-100 text-gray-20 border-b border-gray-200">Fork the declaration</div>
+          <div className="font-mono font-bold text-center py-3.5 bg-gray-100 text-gray-20 border-b border-gray-detail">Fork the declaration</div>
           <div className="pt-4 pb-3 px-5 bg-gray-50">
-            <textarea {...register("declaration")} className="resize-none border border-gray-200 rounded-lg px-5 py-4 w-full max-h-80 outline-none font-mono text-sm" rows={24}/>
+            <textarea {...register("declaration")} className="resize-none border border-gray-detail rounded-lg px-5 py-4 w-full max-h-80 outline-none font-mono text-sm" rows={24}/>
           </div>
           <div className="flex px-6">
             <div className="flex-1 text-sm pr-4 pb-4 text-gray-800">
