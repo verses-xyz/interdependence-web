@@ -7,7 +7,6 @@ import Button from "../../components/core/Button";
 import {useAsync} from "react-async-hook";
 import BarLoader from "react-spinners/BarLoader";
 import { useRouter } from 'next/router';
-import ScaleLoader from "react-spinners/ScaleLoader";
 import React from "react";
 
 const CANONICAL = "e-bw-AGkYsZFYqmAe2771A6hi9ZMIkWrkBNtHIF1hF4";
@@ -41,10 +40,10 @@ function Body({ txId, data, status }) {
     const parsedAuthors = Array.isArray(authors) ? authors : JSON.parse(authors || "[]");
     return (<>
       <hr/>
-
-      <div className="mt-20 font-body text-gray-primary text-2xl text-left space-y-12 max-w-2xl whitespace-pre-wrap">
+      
+      <div className="mx-4 mt-20 font-body leading-9  text-gray-primary text-2xl text-left space-y-12 max-w-2xl whitespace-pre-wrap">
         {declaration}
-        <p className="font-bold text-left text-gray-primary max-w-2xl font-title text-2xl my-8">{timestamp}</p>
+        <p className="font-bold text-left text-gray-primary font-title text-2xl mt-8">{timestamp}</p>
         <p className="font-mono text-gray-detail text-base">This Declaration lives on ARWeave under transaction <a className="underline" href={`https://viewblock.io/arweave/tx/${txId}`}>{txId.slice(0,12)}</a>. The most recent ancestor of this document is <a className="underline" href={ancestorUrl}>{ancestorText}</a>.</p>
       </div>
 
@@ -65,16 +64,16 @@ function Body({ txId, data, status }) {
         {(maybeSigs.loading || maybeSigs.error) ?
           <div className="my-4">
             <p className="my-4 font-mono text-xl">Loading signatures</p>
-            <ScaleLoader color="#999" height={20} width={5} radius={2} margin={5} />
+            <BarLoader speedMultiplier=".75" height="2px" width ="300px" color="#bababa"/>
           </div> :
           <Signatures sigs={maybeSigs.result}/>
         }
-      </div>
+    </div>
 
       <hr className="my-20" />
-      <div className="mb-12 mx-4 lg:mx-8 w-full sm:w-4/5 md:w-3/5 lg:w-1/2">
-        <Fork text={declaration} txId={txId} />
-      </div>
+        <div className="mx-4 max-w-2xl">
+          <Fork text={declaration} txId={txId} />
+        </div>
     </>);
   } else if (status === 202) {
     return <div className="w-1/4 font-title">
@@ -95,7 +94,7 @@ export default function Declaration() {
   const maybeDeclaration = useAsync(getDeclaration, [txId]);
 
   return (
-    <div className="flex flex-col items-center justify-center py-8 bg-blue-20">
+    <div className="flex flex-col items-center bg-gray-bg justify-center pt-8 pb-24 bg-blue-20">
       <HeadComponent/>
       <main className="flex flex-col items-center min-h-screen w-full flex-1 px-2 sm:px-8 lg:px-8 xl:px-8 text-center">
         <Header show={!maybeDeclaration.loading} />

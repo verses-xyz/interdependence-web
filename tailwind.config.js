@@ -31,10 +31,12 @@ module.exports = {
           120: '#666666',
           primary:'#333333',
           secondary:'#666666',
-          detail: '#BBBBBB',
+          placeholder:'#a7a7a7',
+          detail: '#a7a7a7',
           wash: '#EBEBEB',
           hover: '#DBDBDB', 
           bg:'#FAFAFA',
+          special:'#0000FF',
         },
         truegray: {
           800: '#333333',

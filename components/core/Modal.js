@@ -1,10 +1,8 @@
 
 import Modal from 'react-modal';
 
-
-
 Modal.setAppElement('#__next');
-Modal.defaultStyles.overlay.backgroundColor = '#555555aa';
+Modal.defaultStyles.overlay.backgroundColor = '#000000aa';
 
 const customStyles = {
   content: {
@@ -15,8 +13,8 @@ const customStyles = {
     width: '80vw',
     paddingBottom: '1.5rem',
     marginRight: '-50%',
-    borderColor: '#e5e7eb',
     borderRadius: '0.75em',
+    borderColor: 'transparent',
     padding: '0',
     webkitFontSmoothing: 'subpixel-antialiased',
   },
@@ -24,22 +22,16 @@ const customStyles = {
 
 
 export default function Modal({children, ...props}) {
-      return (
-
-<Modal
-      isOpen={modalIsOpen}
-      onRequestClose={closeModal}
-      style={customStyles}
-      contentLabel="fork-editor"
-    >
-
-    <div className="w-full h-full font-body bg-gray-50"
-      
-      
-      
-      <button className="ml-2.5 mt-5 px-6 py-2 rounded-full bg-gray-200 text-gray-120 hover:text-gray-20 text-sm sm:text-md font-mono" {...props}>
-        {children}
-      </button>;
-      )
-    }
-  }
+  return (
+    <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="fork-editor"
+      >
+      <div className="w-full h-full font-body bg-gray-bg"></div>
+        <button primary className="ml-2.5 mt-5 px-6 py-2 rounded-full text-gray-wash hover:text-gray-20 text-sm sm:text-md font-mono" {...props}>
+          {children}
+        </button>;
+    </Modal>
+)}
