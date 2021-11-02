@@ -36,7 +36,7 @@ export default function About() {
         font-body 
         text-lg 
         text-left 
-        space-y-6
+        space-y-3
         text-opacity-75 
         max-w-4xl 
         px-10
@@ -44,7 +44,7 @@ export default function About() {
         md:px-10"
         >
 
-          <h2> 1. The Story </h2>
+          <h2 className="pt-10 font-bold text-2xl text-title"> 1. The Story </h2>
           <p>
           This project was pulled together over four days in an entirely grassroots fashion. 
 	        The original Declaration of the Independence of Cyberspace was published in 1996 and quickly became part of the internet’s canon. It was a response to a particular moment; the United States government had just passed into law the Telecommunications Act, which was the first time that the Internet was included in broadcasting and spectrum allotment. The declaration captures much of what originally drew people to the internet, but we found it insufficient for several reasons. The original highly emphasizes freedom of speech and individual choice; we believe that these freedoms are insufficient if not accompanied with the ability to build and own our own desired paths. The original takes a highly individualistic framing; we believe in the power of the individual along with the importance of mutualism, reciprocity, and collective ownership. The original rejects government; we believe that interdependence is possible between governments and technologists. The original rejects embodiment; we recognize our digital identities and commitments to be interwoven with existing communities, societies, and relationships in the physical and material world.
@@ -62,7 +62,7 @@ export default function About() {
           More to come in a follow-up essay, but for now, a reminder from Escobar that “it is not [merely] about ‘expanding the range of choices’ (liberal freedom) but is intended to transform the kinds of beings we desire to be”. 
           </p>
 
-          <h2> 2. The Pattern </h2>
+          <h2 className="pt-10 font-bold text-2xl text-title"> 2. The Pattern </h2>
 
           <p> The ontology of this object, and how other related objects can be generated related to it, reflects the ethos of our Declaration. </p>
 
@@ -80,7 +80,7 @@ export default function About() {
             There are also a few other hidden Easter eggs in the design decisions ✨
           </p>
         
-          <h2> 3. The Process </h2>
+          <h2 className="pt-10 font-bold text-2xl text-title"> 3. The Process </h2>
 
           <p>
           How we define who contributed to the project depends so heavily on how we conceptualize the borders of our selfhood and how we relate to each other, so we thought it was worth elaborating upon here          </p>
