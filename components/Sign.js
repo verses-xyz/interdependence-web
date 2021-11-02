@@ -14,7 +14,7 @@ const customStyles = {
     right: 'auto',
     bottom: 'auto',
     width: '80vw',
-    height: '36vh',
+    height: '38vh',
     marginRight: '-50%',
     paddingBottom: '1.5rem',
     borderColor: '#e5e7eb',
@@ -71,14 +71,21 @@ export default function Sign({ txId, walletKey }) {
                 <p className="pt-10">
                   <ul>
                     <li>
-                      1. Install the <a <a href="https://arconnect.io/"> Arweave wallet </a> extension
+                    1. Install the Arweave wallet extension
+                      {" "}
+                      <a className="underline" href="https://chrome.google.com/webstore/detail/arconnect/einnioafmpimabjcddiinlhmijaionap" target="_blank">here.</a>
+                      {" "}
                     </li>
 
                     <li>
-                      2. Get free $AR from the <a href="https://faucet.arweave.net/"> Arweave faucet </a>
+                      2. Secure some AR from the <a className="underline" href="https://faucet.arweave.net/" target="_blank"> Arweave faucet. </a>
                     </li>
 
-                    <li> 3. Sign below</li>
+                    <li>
+                      3. Verify with Twitter.
+                    </li>
+
+                    <li> 4. Sign below. </li>
                   </ul>
                   </p>
                 </p>
