@@ -28,21 +28,26 @@ export default function SocialProofPopup({ setStage, formData, sign }) {
 
   return (
     <Box
-      title="Post Proof"
+      title={<p className="text-center"> Post Proof </p>}
       content={
-        <div className="my-6">
-          <p className="font-mono">
+        <div className="mt-8 mb-6">
+          <p className="font-mono mx-6">
             If you like, you can tweet a message to prove you own this address and verify your signature:
            </p>
-          <Button
-          primary
-          onClick={() => {
-            generateTweet(formData.sig)
-            setStage(2)
-          }}>
-            Post Verification Tweet
-          </Button>
-          <Button onClick={wrappedSign}>{loading ? <ScaleLoader color="black" height={12} width={3}/> : 'Sign without verification'}</Button>
+
+           <div className="mt-12 mb-5 text-center">
+            <Button primary
+            onClick={() => {
+              generateTweet(formData.sig)
+              setStage(2)
+            }}>
+              Post Proof
+            </Button>
+          </div>
+          <div className="text-center">
+            <button className="font-mono underline font-light text-gray-400" onClick={wrappedSign}>{loading ? <ScaleLoader color="black" height={12} width={3}/> : 'Sign Without Verification'}
+            </button>
+          </div>
           <DisplayedError displayedError={displayedError}/>
         </div>}
     />
