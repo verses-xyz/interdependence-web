@@ -20,8 +20,7 @@ export default function VerificationPopUp({ setStage, formData, sign }) {
     verifyTwitter(sig, handle)
       .then((data) => {
         if ('message' in data) {
-          handleError(data)
-          return
+          throw new Error(data.message)
         }
 
         console.log(`Verified as ${handle}!`)

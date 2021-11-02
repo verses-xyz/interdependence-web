@@ -5,7 +5,7 @@ import ScaleLoader from "react-spinners/ScaleLoader";
 import {DisplayedError} from "./Sign";
 
 const generateTweet = (sig) => {
-  const str = `I am verifying for @verses_xyz: sig${sig}`;
+  const str = `I am verifying for @verses_xyz: sig:${sig}`;
   window.open(`https://twitter.com/intent/tweet?text=${encodeURI(str)}`);
 }
 
