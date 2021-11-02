@@ -50,7 +50,7 @@ export default function About() {
           </p>
 
           <p>
-          In short, we want independence, yes, but also <em> interdependence </em>. 
+          In short, we want independence, yes, but also <em> interdependence</em>. 
           </p>
 
           <p>
