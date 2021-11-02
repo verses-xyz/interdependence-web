@@ -37,21 +37,27 @@ export default function VerificationPopUp({ setStage, formData, sign }) {
 
   return (
     <Box
-      title="Verify Tweet"
+      title={<p className="text-center"> Verify Tweet </p>}
       content={
-        <div className="my-6">
-          <p className="font-mono">
+        <div className="mt-8 mb-6">
+          <p className="font-mono mx-6">
             Once you've tweeted, click below to verify:
            </p>
-          <Button
-          primary
-          onClick={verify}
-          >
-            {loading ? <ScaleLoader color="white" height={12} width={3}/> : 'Verify Tweet'}
-          </Button>
-          <button className="text-gray-400" onClick={() => setStage(1)}>
-              Back
-          </button>
+           <div className="mt-12 mb-3 text-center">
+            <Button
+            primary
+            onClick={verify}
+            >
+              {loading ? <ScaleLoader color="white" height={12} width={3}/> : 'Verify Tweet'}
+            </Button>
+          </div>
+          <div className="text-center">
+            <button 
+              className="font-mono underline font-light text-gray-400"
+              onClick={() => setStage(1)}>
+                Back
+            </button>
+          </div>
           <DisplayedError displayedError={displayedError} />
       </div>}
     />
