@@ -82,7 +82,7 @@ export async function verifyTwitter(sig, handle) {
   });
 
   const cleanedHandle = handle[0] === "@" ? handle.substring(1) : handle;
-  return fetch(`${SERVER_URL}/verify/${handle}`, {
+  return fetch(`${SERVER_URL}/verify/${cleanedHandle}`, {
     method: 'post',
     body: formData,
   }).then(data => data.json());
