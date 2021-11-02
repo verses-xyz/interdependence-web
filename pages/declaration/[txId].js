@@ -62,7 +62,7 @@ export default function Declaration({ data, sigs, txId, status }) {
           <hr/>
           <div className="mt-20 max-w-3xl">
             <ul className="flex flex-wrap font-mono">
-              <p className="py-2 px-4 my-1 mx-2 border border-brown-120 rounded-3xl overflow-hidden">{timestamp}</p>
+              <p className="py-2 px-4 my-1 mx-2 border border-brown-120 text-brown-20 rounded-3xl overflow-hidden">{timestamp}</p>
               {authors.map(author => <li className="my-1 mx-2 overflow-hidden py-2 px-4 rounded-3xl text-brown-120 hover:text-brown-20 bg-gray-200" key={author.name}><a href={author.url}>{author.name}</a></li>)}
             </ul>
           </div>
