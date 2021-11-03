@@ -50,8 +50,8 @@ export default function Fork({text, txId}) {
 
   return (<Box title="Fork the Declaration" content={
     <>
-      <div className="my-6">
-        <p className="font-mono mb-6">
+      <div className="my-4">
+        <p className="font-mono mb-6 text-left">
           If you have a revision, addition, or challenge to this declaration, we strongly encourage you to articulate your own vision and values through a fork of this document.
         </p>
         <Button

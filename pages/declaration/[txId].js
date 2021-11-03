@@ -14,7 +14,7 @@ export const ORIGINAL = "pB-rlYjCZJcLK7205sjHzeci6DEsX4PU0xG00GYpahE"
 function Header({ show }) {
   return (
   <div className="flex w-full">
-    <div className={(show ? 'opacity-100' : 'opacity-0') + " transition duration-500 flex-0 w-full space-x-4 flex justify-end"}>
+    <div className={(show ? 'opacity-100' : 'opacity-0') + " transition duration-500 flex-0 w-full space-x-2 lg:space-x-4 flex justify-end"}>
       <Button>
         <a className="font-mono" href="/about">About</a>
       </Button>

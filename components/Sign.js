@@ -124,8 +124,8 @@ export default function Sign({ txId, declaration }) {
   return (<Box title="Sign the Declaration" 
   content={
     <>
-      <div className="my-6">
-        <p className="font-mono mb-6">
+      <div className="my-4">
+        <p className="font-mono mb-6 text-left">
           If you'd like to endorse this declaration, you can sign it by clicking the button below. Signatures will become part of this document's permanent history on the Arweave blockchain.
         </p>
         <Button
