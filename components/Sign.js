@@ -121,7 +121,8 @@ export default function Sign({ txId, declaration }) {
 
 
 
-  return (<Box title="Sign the Declaration" content={
+  return (<Box title="Sign the Declaration" 
+  content={
     <>
       <div className="my-6">
         <p className="font-mono mb-6">
@@ -138,6 +139,7 @@ export default function Sign({ txId, declaration }) {
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         style={customStyles}
+        
         contentLabel="sign-modal"
       >
         {stage === 0 && <SignScreen {...{handleSubmit, onSubmit, register, displayedError, loading}} />}
