@@ -149,11 +149,6 @@ export default function About() {
             It means building with an ethos of interdependence. It means not building moats, including data moats, that restrict the freedom of “all peoples to choose, 
             individually or collectively, [any] relations”, but paving existing desire paths and tools that others can freely choose to traverse, shape, and use. 
           </p>
-
-          <p style={{'text-indent': '2rem'}}> 
-            There are also a few other hidden Easter Eggs in the design decisions ✨ 
-          </p>
-
         
           <h2 className="pt-10 font-bold text-2xl text-title"> 3. The Process </h2>
 
