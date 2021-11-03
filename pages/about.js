@@ -47,7 +47,7 @@ export default function About() {
           <h2 className="pt-10 font-bold text-2xl text-title"> 1. The Story </h2>
           
           <p>
-          The Declaration is a reaction and rebuttal to Facebook’s recent rebranding as Meta, 
+          Our Declaration is a reaction and rebuttal to Facebook’s recent rebranding as Meta, 
           and it directly “forks” John Perry Barlow’s 1996 
           <a href="https://www.eff.org/cyberspace-independence" className="underline"> 
             Declaration for the Independence of Cyberspace. 
