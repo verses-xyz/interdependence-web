@@ -6,6 +6,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "ab-react-diff-viewer": "*",
     "arbundles": "^0.2.10",
     "arweave": "^1.10.18",
     "ethers": "^5.5.1",

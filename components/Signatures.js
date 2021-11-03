@@ -28,15 +28,13 @@ export default function Signatures({sigs}) {
             target="_blank"
             className="invisible py-2 text-gray-detail hover:underline overflow-hidden lg:visible"
             href={`https://arweave.net/tx/${sig.SIG_ID}`}>tx:{sig.SIG_ID.slice(0, 6)}</a>}
-          
+
           <div className="flex-1"/>
 
-          <a href={`https://twitter.com/${sig.SIG_HANDLE}`} 
-            className="hover:bg-gray-hover transition duration-250 ease-in-out flex row items-center text-sm px-1 rounded-full sm:px-4 sm:rounded-3xl text-gray-secondary sm:bg-gray-wash overflow-hidden sm:visible">
-            <div className="mr-2">
-              {sig.SIG_ISVERIFIED && <Checkmark filled />}
-            </div>
-            <span className="hidden sm:visible md:flex">
+          <a target="_blank" href={sig.SIG_HANDLE ? `https://twitter.com/${sig.SIG_HANDLE}` : null}
+            className="sm:hover:bg-gray-hover transition duration-250 ease-in-out flex row items-center text-sm px-1 rounded-full sm:px-4 sm:rounded-3xl text-gray-secondary sm:bg-gray-wash overflow-hidden">
+            {sig.SIG_ISVERIFIED && <div className="mr-2"><Checkmark filled /></div>}
+            <span className="md:flex">
               {
                 sig.SIG_ISVERIFIED ?
                 cleanHandle(sig.SIG_HANDLE, sig.SIG_ADDR, sig.SIG_ISVERIFIED) :

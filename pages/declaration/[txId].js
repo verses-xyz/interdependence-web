@@ -9,8 +9,8 @@ import BarLoader from "react-spinners/BarLoader";
 import { useRouter } from 'next/router';
 import React from "react";
 
-const CANONICAL = "e-bw-AGkYsZFYqmAe2771A6hi9ZMIkWrkBNtHIF1hF4";
-const ORIGINAL = "pB-rlYjCZJcLK7205sjHzeci6DEsX4PU0xG00GYpahE"
+export const CANONICAL = "e-bw-AGkYsZFYqmAe2771A6hi9ZMIkWrkBNtHIF1hF4";
+export const ORIGINAL = "pB-rlYjCZJcLK7205sjHzeci6DEsX4PU0xG00GYpahE"
 function Header({ show }) {
   return (<div className="flex w-full">
     <div className="sm:block flex-1">
@@ -44,7 +44,7 @@ function Body({ txId, data, status }) {
       <div className="mx-4 mt-20 font-body leading-9  text-gray-primary text-2xl text-left space-y-12 max-w-2xl whitespace-pre-wrap">
         {declaration}
         <p className="font-bold text-left text-gray-primary font-title text-2xl mt-8">{timestamp}</p>
-        <p className="font-mono text-gray-detail text-base">This Declaration lives on ARWeave under transaction <a className="underline" href={`https://viewblock.io/arweave/tx/${txId}`}>{txId.slice(0,12)}</a>. The most recent ancestor of this document is <a className="underline" href={ancestorUrl}>{ancestorText}</a>.</p>
+        <p className="font-mono text-gray-detail text-base">This document lives on ARWeave under transaction <a className="underline" href={`https://viewblock.io/arweave/tx/${txId}`}>{txId.slice(0,12)}</a>. It was forked from <a className="underline" href={ancestorUrl}>{ancestorText}</a>.</p>
       </div>
 
       {parsedAuthors.length > 0 && <>

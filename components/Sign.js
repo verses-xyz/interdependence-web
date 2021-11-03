@@ -20,7 +20,7 @@ const customStyles = {
     bottom: 'auto',
     width: '80vw',
     marginRight: '-50%',
-    borderColor: '#bbb',
+    borderColor: 'transparent',
     borderRadius: '0.75em',
     padding: '0',
   },

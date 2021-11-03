@@ -22,8 +22,6 @@ export default function VerificationPopUp({ setStage, formData, sign }) {
         if ('message' in data) {
           throw new Error(data.message)
         }
-
-        console.log(`Verified as ${handle}!`)
       })
       .then(sign)
       .then(() => {
@@ -38,6 +36,7 @@ export default function VerificationPopUp({ setStage, formData, sign }) {
   return (
     <Box
       title={<p className="text-center"> Verify Tweet </p>}
+      includeBorder={false}
       content={
         <div className="mt-8 mb-6">
           <p className="font-mono mx-6">
