@@ -21,7 +21,7 @@ export default function Signatures({txId, sigs, setSigs}) {
   const [reachedEnd, setReachedEnd] = React.useState(false)
 
   React.useEffect(() => {
-    setCursor(sigs.at(-1)?.CURSOR)
+    setCursor(sigs[sigs.length-1] && sigs[sigs.length-1].CURSOR)
     setSortedSigs(sortSigs(sigs))
   }, [sigs])
 
