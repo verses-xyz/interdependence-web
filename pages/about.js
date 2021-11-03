@@ -143,7 +143,7 @@ export default function About() {
           We chose to leave the canonical text authorless because it is a gift, and authored in the spiritual sense by so many more people than we could feasibly name. Everyone who chooses to leave their name here is both offering their support and claiming a work that is in actuality already theirs.          </p>
          
          <p>
-           Thank you for reading this. This artifact represents a story, a pattern, and a process; it symbolizes for us the intentional practice of interdependence, and hopefully invites and enables you to join us.         </p>
+         Thank you for reading this. This artifact represents a story, a pattern, and a process; it symbolizes for us the intentional practice of interdependence, and hopefully invites and enables you to join us in co-creating a cyberspace that enables a web of relations that is more sustainable than the one enforced by the one we currently inhabit.           </p>
 
         </div>
       </div>
