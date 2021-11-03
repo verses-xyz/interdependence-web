@@ -76,8 +76,7 @@ export default function About() {
           The diff from Barlow’s Declaration is available <a className="underline" href="https://www.interdependence.online/diff/e-bw-AGkYsZFYqmAe2771A6hi9ZMIkWrkBNtHIF1hF4"> here </a>. 
           Barlow pits existing institutions against the internet; we see the key conflict not as old versus new, 
           but as monopoly versus pluralism. That is, while Barlow’s “you” refers to the government, our “you” refers to corporate and political hegemonies of all kinds. 
-          Barlow emphasizes freedom of speech; we believe that this freedom must be accompanied with the freedom to design, govern, a
-          nd own the environments that speech lives within. 
+          Barlow emphasizes freedom of speech; we believe that this freedom must be accompanied with the freedom to design, govern, and own the environments that speech lives within. 
           Barlow takes a highly individualistic framing; we believe in individual agency alongside mutualism, reciprocity, and collective creation. 
           Barlow rejects embodiment; we recognize our digital identities and commitments to be interwoven with communities, societies, and relationships in the physical and material world. 
           Finally, Barlow’s Declaration was authored individually; this text was collaboratively written with dozens of people contributing prose and feedback, 
