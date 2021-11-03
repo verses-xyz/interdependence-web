@@ -31,7 +31,7 @@ export default function Signatures({sigs}) {
 
           <div className="flex-1"/>
 
-          <a target="_blank" href={sig.SIG_HANDLE ? `https://twitter.com/${sig.SIG_HANDLE}` : 'javascript:'}
+          <a target="_blank" href={sig.SIG_HANDLE ? `https://twitter.com/${sig.SIG_HANDLE}` : null}
             className="sm:hover:bg-gray-hover transition duration-250 ease-in-out flex row items-center text-sm px-1 rounded-full sm:px-4 sm:rounded-3xl text-gray-secondary sm:bg-gray-wash overflow-hidden">
             {sig.SIG_ISVERIFIED && <div className="mr-2"><Checkmark filled /></div>}
             <span className="md:flex">
