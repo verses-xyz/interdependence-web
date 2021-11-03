@@ -49,12 +49,12 @@ export default function About() {
           <p>
           Our Declaration directly forks, or revises, John Perry Barlow’s 1996 {" "}
           <a href="https://www.eff.org/cyberspace-independence" className="underline"> 
-            Declaration for the Independence of Cyberspace.  
+            Declaration for the Independence of Cyberspace.</a>
             It is also a reaction to Facebook’s recent rebranding as Meta, 
             and to the dominance of large, centralized companies on today’s 
             Internet more generally: the “closed fiefdoms of the platform world” that we refer to in the document.
 
-          </a>
+
           </p>
 
         <p>
@@ -91,7 +91,7 @@ export default function About() {
             The text itself was collaboratively written, with dozens of people contributing prose and feedback. </p>
           
           <p>
-            The Declaration was entered into the permaweb on Oct 31, 2021 via <a className="underline" href="https://viewblock.io/arweave/tx/pB-rlYjCZJcLK7205sjHzeci6DEsX4PU0xG00GYpahE"> Arweave </a>, 
+            The Declaration was entered into the permaweb on Oct 31, 2021, via <a className="underline" href="https://viewblock.io/arweave/tx/pB-rlYjCZJcLK7205sjHzeci6DEsX4PU0xG00GYpahE"> Arweave </a>, 
             in honour of the anniversary of the publication of the Bitcoin whitepaper. 
             Unlike other blockchains,  Arweave does not require significant expenditure of electricity to maintain its integrity. 
             Instead, Arweave block verifiers are incentivized to store & maintain valuable data on the permaweb. 
@@ -134,15 +134,25 @@ export default function About() {
           People provided technical guidance; others implemented this site you’re currently visiting. 
           Some people came and simply expressed their care and encouragement. 
           </p>
+
+          <p>
+          We chose to leave the canonical text authorless because it is a gift, 
+          and authored in the spiritual sense by so many more people than we could 
+          feasibly name. Everyone who chooses to leave their name here is both offering 
+          their support and claiming a work that is in actuality already theirs.          </p>
           
           <p> 
           We also owe debts to communities that we are part of, mentors who have taught us, ancestors who have written important texts that have shaped our ways of viewing the world.          </p>
 
-          <p>
-          We chose to leave the canonical text authorless because it is a gift, and authored in the spiritual sense by so many more people than we could feasibly name. Everyone who chooses to leave their name here is both offering their support and claiming a work that is in actuality already theirs.          </p>
+
          
          <p>
-         Thank you for reading this. This artifact represents a story, a pattern, and a process; it symbolizes for us the intentional practice of interdependence, and hopefully invites and enables you to join us in co-creating a cyberspace that enables a web of relations that is more sustainable than the one enforced by the one we currently inhabit.           </p>
+         Thank you for reading this. 
+         This artifact represents a story, a pattern, and a process; 
+         it symbolizes for us the intentional practice of interdependence, 
+         and hopefully invites and enables you to join us in co-creating a 
+         cyberspace that enables a web of relations that is more sustainable 
+         than the one enforced by the one we currently inhabit.           </p>
 
         </div>
       </div>
