@@ -31,11 +31,12 @@ export default function Signatures({sigs}) {
           
           <div className="flex-1"/>
 
-          <a href={`https://twitter.com/${sig.SIG_HANDLE}`} className="hover:bg-gray-hover transition duration-250 ease-in-out invisible flex row items-center text-sm px-4 rounded-3xl text-gray-secondary bg-gray-wash overflow-hidden md:visible">
+          <a href={`https://twitter.com/${sig.SIG_HANDLE}`} 
+            className="hover:bg-gray-hover transition duration-250 ease-in-out flex row items-center text-sm px-1 rounded-full sm:px-4 sm:rounded-3xl text-gray-secondary sm:bg-gray-wash overflow-hidden sm:visible">
             <div className="mr-2">
               {sig.SIG_ISVERIFIED && <Checkmark filled />}
             </div>
-            <span>
+            <span className="hidden sm:visible md:flex">
               {
                 sig.SIG_ISVERIFIED ?
                 cleanHandle(sig.SIG_HANDLE, sig.SIG_ADDR, sig.SIG_ISVERIFIED) :
