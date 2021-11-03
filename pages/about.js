@@ -134,7 +134,8 @@ export default function About() {
           Contributions came in a multitude of ways. People wrote, edited, and gave feedback. 
           People provided technical guidance; others implemented this site you’re currently visiting. 
           Some people came and simply expressed their care and encouragement. 
-          It was too difficult to collapse all these things in an attempt to create some legible rank ordering of authorship, which we initially attempted, as you can see on our Arweave version <a href="https://viewblock.io/arweave/tx/pB-rlYjCZJcLK7205sjHzeci6DEsX4PU0xG00GYpahE"> here. </a>
+          It was too difficult to collapse all these things in an attempt to create some We attempted to create some legible ordering of authorship, which you can see on our original Arweave 
+         <a href="https://viewblock.io/arweave/tx/pB-rlYjCZJcLK7205sjHzeci6DEsX4PU0xG00GYpahE"> block. </a>
           </p>
           
           <p> 
