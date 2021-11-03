@@ -33,7 +33,7 @@ export default function SocialProofPopup({ setStage, formData, sign }) {
       content={
         <div className="mt-8 mb-6">
           <p className="font-mono mx-6">
-            If you like, you can tweet a message to prove you own this address and verify your signature:
+            If you like, you can tweet a message to prove that you own this address. Return to this page afterwards to complete the verification. 
            </p>
 
            <div className="mt-12 mb-5 text-center">
