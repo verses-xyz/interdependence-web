@@ -1,4 +1,4 @@
-import {getDeclaration, getSigs} from "../../arweaveFns";
+import {getDeclaration, fetchSignatures} from "../../arweaveFns";
 import Sign from "../../components/Sign";
 import Fork from "../../components/Fork";
 import Signatures from "../../components/Signatures";
@@ -12,17 +12,14 @@ import React from "react";
 export const CANONICAL = "e-bw-AGkYsZFYqmAe2771A6hi9ZMIkWrkBNtHIF1hF4";
 export const ORIGINAL = "pB-rlYjCZJcLK7205sjHzeci6DEsX4PU0xG00GYpahE"
 function Header({ show }) {
-  return (<div className="flex w-full">
-    <div className="sm:block flex-1">
-    </div>
-    <div className={(show ? 'opacity-100' : 'opacity-0') + " transition duration-500 flex-0 w-full flex justify-end"}>
-      <div className="hidden sm:inline-block">
-        <Button text="Sign" primary onClick={() => { document.getElementById('signatureForm').scrollIntoView(); }}>
-          <p className="font-mono">Sign</p>
-        </Button>
-      </div>
+  return (
+  <div className="flex w-full">
+    <div className={(show ? 'opacity-100' : 'opacity-0') + " transition duration-500 flex-0 w-full space-x-2 lg:space-x-4 flex justify-end"}>
       <Button>
         <a className="font-mono" href="/about">About</a>
+      </Button>
+      <Button text="Sign" primary onClick={() => { document.getElementById('signatureForm').scrollIntoView(); }}>
+        <p className="font-mono">Sign</p>
       </Button>
     </div>
   </div>);
@@ -30,7 +27,15 @@ function Header({ show }) {
 
 function Body({ txId, data, status }) {
   if (status === 200) {
-    const maybeSigs = useAsync(getSigs, [txId]);
+    const maybeSigs = useAsync(fetchSignatures, [txId]);
+    const [clientSigList, setClientSigList] = React.useState([])
+
+    React.useEffect(() => {
+      if (maybeSigs.result) {
+        setClientSigList(maybeSigs.result)
+      }
+    }, [maybeSigs.result])
+
     const {declaration, authors, timestamp, ancestor} = data;
 
     const isOriginal = ancestor === ""
@@ -41,10 +46,10 @@ function Body({ txId, data, status }) {
     return (<>
       <hr/>
       
-      <div className="mx-4 mt-20 font-body leading-9  text-gray-primary text-2xl text-left space-y-12 max-w-2xl whitespace-pre-wrap">
+      <div className="md:mx-4 mt-16 md:mt-20 font-body leading-9 text-gray-primary text-2xl text-left max-w-2xl whitespace-pre-wrap">
         {declaration}
         <p className="font-bold text-left text-gray-primary font-title text-2xl mt-8">{timestamp}</p>
-        <p className="font-mono text-gray-detail text-base">This document lives on ARWeave under transaction <a className="underline" href={`https://viewblock.io/arweave/tx/${txId}`}>{txId.slice(0,12)}</a>. It was forked from <a className="underline" href={ancestorUrl}>{ancestorText}</a>.</p>
+        <p className="font-mono text-gray-placeholder text-base mt-8">This document lives on Arweave at transaction <a className="underline" href={`https://viewblock.io/arweave/tx/${txId}`}>{txId.slice(0,12)}</a>. It was forked from <a className="underline" href={ancestorUrl}>{ancestorText}</a>.</p>
       </div>
 
       {parsedAuthors.length > 0 && <>
@@ -57,21 +62,21 @@ function Body({ txId, data, status }) {
       </>}
 
       <hr className="my-20" />
-      <div id="signatureForm" className="mx-4 lg:mx-8 w-full sm:w-4/5 md:w-3/5 lg:w-1/2">
+      <div id="signatureForm" className="mx-4 w-full max-w-2xl">
         <Sign txId={txId} declaration={declaration} />
       </div>
-      <div className="mt-8 mx-4 lg:mx-8 w-full sm:w-4/5 md:w-3/5 lg:w-1/2">
+      <div className="mt-8 mx-4 max-w-2xl w-full">
         {(maybeSigs.loading || maybeSigs.error) ?
           <div className="my-4">
             <p className="my-4 font-mono text-xl">Loading signatures</p>
             <BarLoader speedMultiplier=".75" height="2px" width ="300px" color="#bababa"/>
           </div> :
-          <Signatures sigs={maybeSigs.result}/>
+          <Signatures txId={txId} sigs={clientSigList} setSigs={setClientSigList} />
         }
     </div>
 
       <hr className="my-20" />
-        <div className="mx-4 max-w-2xl">
+        <div className="mx-4 w-full max-w-2xl">
           <Fork text={declaration} txId={txId} />
         </div>
     </>);
@@ -97,31 +102,26 @@ export default function Declaration() {
     <>
     <div className="flex flex-col items-center bg-gray-bg justify-center pt-8 pb-24 bg-blue-20">
       <HeadComponent/>
-      <main className="flex flex-col items-center min-h-screen w-full flex-1 px-2 sm:px-8 lg:px-8 xl:px-8 text-center">
+      <main className="flex flex-col items-center min-h-screen w-full flex-1 px-4 lg:px-8 text-center">
         <Header show={!maybeDeclaration.loading} />
         <div className="w-full">
-          <h1 className="text-4xl font-title my-10 sm:my-10 lg:my-20 sm:text-4xl md:text-5xl lg:text-7xl font-semibold text-gray-primary">
+          <h1 className="text-4xl font-title mt-16 mb-16 md:mb-20 md:text-7xl font-semibold text-gray-primary">
             A Declaration
-            <span className="text-2xl block font-light italic -mb-5 sm:-mb-4 md:-mb-1.5 lg:-mb-1 mt-1 sm:mt-2 md:mt-4 lg:mt-4 text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-primary">of the</span>
+            <span className="text-2xl block font-light italic -mb-5 md:-mb-1 mt-1 md:mt-4 text-xl md:text-4xl text-gray-primary">of the</span>
             {/* Two responsive elements to fix line breaking on xs viewports. */}
-            <div className="hidden sm:block max-w-2xl m-auto text-gray-primary" style={{ lineHeight: "5.25rem" }}>Interdependence of Cyberspace</div>
-            <div className="sm:hidden max-w-2xl m-auto mt-5 text-gray-primary" style={{ lineHeight: "2.5rem" }}>Interdependence of Cyberspace</div>
+            <div className="hidden md:block max-w-2xl m-auto text-gray-primary" style={{ lineHeight: "5.25rem" }}>Interdependence of Cyberspace</div>
+            <div className="md:hidden max-w-2xl m-auto mt-5 text-gray-primary" style={{ lineHeight: "2.5rem" }}>Interdependence of Cyberspace</div>
           </h1>
         </div>
         {maybeDeclaration.loading ? <BarLoader speedMultiplier=".75" height="2px" width ="300px" color="#bababa"/> : <Body txId={txId} {...maybeDeclaration.result} />}
       </main>
       
     </div>      
-    <footer className="sticky bottom-0 bg-truegray-800 w-full px-10 py-3 mt-2 mb-2 text-bold text-md font-mono text-center justify-center text-white"> 
+    <footer className="text-center sticky bottom-0 bg-gray-primary w-full p-6 mt-2 mb-2 text-sm leading-6 font-mono text-left text-white flex flex-col items-center"> 
 
-        <p>
-        You were trusted to steward this link -
-        </p>
-        <p>
-        if you're seeing this banner, we are still in soft launch mode.
-        </p>
-        <p>
-        Please do not share this link on social media.
+        <p className="font-light sm:max-w-2xl">
+        You are trusted to steward this link. If you're seeing this banner, we are still in soft launch mode.&nbsp; 
+        <u>Please do not share this link on social media.</u>
         </p>
     </footer>
       </>

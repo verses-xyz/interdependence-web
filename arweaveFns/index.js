@@ -34,7 +34,8 @@ const jsonOrErrorHandler = async response => {
   }
 
   if (resp) {
-    throw new Error((await resp).message)
+    const error = await resp
+    throw new Error(error.message ?? error.errors[0].message)
   } else {
     throw new Error('Internal server error')
   }
@@ -105,7 +106,7 @@ export async function verifyTwitter(sig, handle) {
 Transactions are mined into Arweave blocks in 60 mins
 So signature query order is roughly buckets by that
 */}
-async function fetchSignatures(txId) {
+export async function fetchSignatures(txId, prevTx) {
   const req = await fetch('https://arweave.net/graphql', {
     method: 'POST',
     headers: {
@@ -116,7 +117,9 @@ async function fetchSignatures(txId) {
       query: `
       query {
         transactions(
-          first: 100,
+          first: 50,
+          sort: HEIGHT_ASC,
+          ${prevTx ? `after: "${prevTx}",` : ''}
           tags: [
             {
               name: "${DOC_TYPE}",
@@ -130,6 +133,7 @@ async function fetchSignatures(txId) {
           owners: ["${ADMIN_ACCT}"],
         ) {
           edges {
+            cursor
             node {
               id
               tags {
@@ -157,6 +161,7 @@ async function fetchSignatures(txId) {
   const unique_tx = new Set();
   const unique_verif_tx = new Set();
   return req.data.transactions.edges.flatMap(nodeItem => {
+    const cursor = nodeItem.cursor;
     const n = nodeItem.node;
     const sig = safeTag(n, SIG_ADDR, "UNKWN");
     const handle = safeTag(n, SIG_HANDLE, "UNSIGNED");
@@ -175,6 +180,7 @@ async function fetchSignatures(txId) {
     }
 
     return [{
+      CURSOR: cursor,
       SIG_ID: n.id,
       SIG_ADDR: sig,
       SIG_NAME: safeTag(n, SIG_NAME, "Anonymous"),
@@ -185,7 +191,8 @@ async function fetchSignatures(txId) {
   });
 }
 
-export async function getSigs(txId) {
+
+export function sortSigs(sigs) {
   const TEAM = {
     "0x29668d39c163f64a1c177c272a8e2D9ecc85F0dE": -10,
     "0x35E61b11f1c05271B9369E324d6b4305f6aCB639": -9,
@@ -198,7 +205,6 @@ export async function getSigs(txId) {
     "0xBBA0A1e1bE58f5e03425890ae121f3BaA2F95a77": -2,
   }
 
-  const sigs = await fetchSignatures(txId);
   const priority = sig => {
     if (sig.SIG_ADDR in TEAM) {
       return TEAM[sig.SIG_ADDR]
