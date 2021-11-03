@@ -11,6 +11,7 @@ export default function SocialProofConfirmation({ closeModal }) {
     return (
       <Box
         title={<p className="text-center"> Thank you for signing! </p>}
+        includeBorder={false}
         content={
             <div className="mt-8 mb-6">
                 <p className="font-mono mx-6">

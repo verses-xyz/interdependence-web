@@ -29,6 +29,7 @@ export default function SocialProofPopup({ setStage, formData, sign }) {
   return (
     <Box
       title={<p className="text-center"> Post Proof </p>}
+      includeBorder={false}
       content={
         <div className="mt-8 mb-6">
           <p className="font-mono mx-6">
@@ -38,6 +39,10 @@ export default function SocialProofPopup({ setStage, formData, sign }) {
            <div className="mt-12 mb-5 text-center">
             <Button primary
             onClick={() => {
+              if (formData.handle === "") {
+                setDisplayedError("Please add a handle to verify on Twitter. Click outside this modal to go back.")
+                return
+              }
               generateTweet(formData.sig)
               setStage(2)
             }}>

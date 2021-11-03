@@ -1,6 +1,7 @@
 // Arweave and Ethereum signing utilities.
 import Arweave from 'arweave';
 import {ethers} from "ethers";
+import og from "./og";
 
 function init() {
   return Arweave.init({
@@ -212,6 +213,10 @@ export async function getSigs(txId) {
 }
 
 export async function getDeclaration(txId) {
+  if (!txId) {
+    return og
+  }
+
   const res = {
     txId,
     data: {},
