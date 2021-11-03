@@ -40,6 +40,10 @@ module.exports = {
         },
         truegray: {
           800: '#333333',
+        },
+        purple: {
+          2004: "#DEADFB",
+          2021: "#FFE"
         }
       }
 
