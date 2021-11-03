@@ -85,16 +85,6 @@ export default function Sign({ txId, declaration }) {
   const sign = () => signDeclaration(txId, formData.name, formData.handle, declaration, formData.sig)
     .then(() => setSignSuccess(true))
 
-  const wrappedSign = () => sign()
-    .then((signatureServerResponse) => {
-      setStage(3)
-      setIsLoading(false);
-    })
-    .catch((err) => {
-      setDisplayedError(err.message);
-      setIsLoading(false);
-    })
-
   const onSubmit = (data) => {
     if (data.name === "") {
       setDisplayedError("Cannot sign with an empty name");
