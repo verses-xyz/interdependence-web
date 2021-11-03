@@ -30,7 +30,7 @@ export default function Modal({children, ...props}) {
         contentLabel="fork-editor"
       >
       <div className="w-full h-full font-body bg-gray-bg"></div>
-        <button primary className="ml-2.5 mt-5 px-6 py-2 rounded-full text-gray-wash hover:text-gray-20 text-sm sm:text-md font-mono" {...props}>
+        <button primary className="ml-2.5 mt-5 px-6 py-2 rounded-full text-gray-secondary bg-gray-wash hover:text-gray-20 text-sm sm:text-md font-mono" {...props}>
           {children}
         </button>;
     </Modal>

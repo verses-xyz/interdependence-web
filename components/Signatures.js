@@ -43,7 +43,7 @@ export default function Signatures({txId, sigs, setSigs}) {
       content={<>
         {sortedSigs.map((sig, index) => <div className="font-mono w-full" key={sig.SIG_ADDR}>
           <div
-            className={"space-x-0 flex py-4 md:space-x-4 sm:py-2 w-auto md:py-4 overflow-hidden" + ((index === sigs.length - 1 && reachedEnd) ? "" : " border-b border-gray-wash")}>
+            className={"space-x-0 flex py-4 sm:space-x-4 sm:py-2 w-auto sm:py-4 overflow-hidden" + ((index === sigs.length - 1 && reachedEnd) ? "" : " border-b border-gray-wash")}>
             <h3 className="py-2 text-left">
               {sig.SIG_HANDLE ?
                 <a target="_blank" className="hover:underline"
@@ -52,7 +52,7 @@ export default function Signatures({txId, sigs, setSigs}) {
             </h3>
             {sig.SIG_ID && <a
               target="_blank"
-              className="hidden py-2 text-gray-detail hover:underline overflow-hidden lg:block"
+              className="hidden py-2 text-gray-detail hover:underline overflow-hidden sm:inline-block"
               href={`https://arweave.net/tx/${sig.SIG_ID}`}>tx:{sig.SIG_ID.slice(0, 6)}</a>}
 
             <div className="flex-1"/>

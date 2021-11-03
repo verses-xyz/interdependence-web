@@ -35,7 +35,7 @@ export function DisplayedError({displayedError}) {
 function SignScreen({handleSubmit, onSubmit, register, displayedError, loading}) {
   return <div className="w-full h-full bg-gray-50">
     <form onSubmit={handleSubmit(onSubmit)} className="w-full font-body pb-4">
-      <div className="w-full font-mono font-bold text-center py-3.5 bg-gray-primary text-gray-wash">Sign the Declaration</div>
+      <div className="w-full font-mono font-bold text-center py-3.5 bg-gray-wash text-gray-secondary border-b border-gray-detail font-bold">Sign the Declaration</div>
       <div className="pt-7 pb-4 px-8 bg-gray-50">
         <p className="font-mono text-brown-20">Enter your name to sign:</p>
         <div className="mt-6">
@@ -111,10 +111,11 @@ export default function Sign({ txId, declaration }) {
 
 
 
-  return (<Box title="Sign the Declaration" content={
+  return (<Box title="Sign the Declaration" 
+  content={
     <>
-      <div className="my-6">
-        <p className="font-mono mb-6">
+      <div className="my-4">
+        <p className="font-mono mb-6 text-left">
           If you'd like to endorse this declaration, you can sign it by clicking the button below. Signatures will become part of this document's permanent history on the Arweave blockchain.
         </p>
         <Button
@@ -128,6 +129,7 @@ export default function Sign({ txId, declaration }) {
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         style={customStyles}
+        
         contentLabel="sign-modal"
       >
         {stage === 0 && <SignScreen {...{handleSubmit, onSubmit, register, displayedError, loading}} />}
