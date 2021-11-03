@@ -107,6 +107,7 @@ function Body({ txId, data, status }) {
 
 export default function Declaration() {
   const router = useRouter();
+  console.log(router.query)
   const txId = router.query.txId || CANONICAL;
   const maybeDeclaration = useAsync(getDeclaration, [txId]);
 
