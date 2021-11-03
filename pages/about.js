@@ -74,7 +74,7 @@ export default function About() {
           
           <p> The text itself was collaboratively written, with dozens of people contributing prose and feedback. </p>
           <p>
-          The Declaration was entered into the permaweb on Oct 31, 2021 via <a href="https://arweave.org"> Arweave </a>, in honour of the anniversary of the publication of the Bitcoin whitepaper. 
+          The Declaration was entered into the permaweb on Oct 31, 2021 via <a className="underline" href="https://arweave.org"> Arweave </a>, in honour of the anniversary of the publication of the Bitcoin whitepaper. 
           The document, its signatures, and its forks are committed to a permanent, immutable, and decentralized historical archive that anyone is able to view. </p>
           
           <p> The Arweave network does not require expenditure of electricity to maintain its integrity. Instead, miners are incentivized to persist valuable information on the network. In this context, block verifiers are more like  librarians. Stewards of a sustainable and transparent storage system for our pluriverse.
@@ -92,7 +92,7 @@ export default function About() {
 
           <p> The Pluriverse is built upon the coexistence of many worlds and value systems; as such, all forks will be linked below the Declaration on our site. Forks of the Declaration are automatically uploaded to Arweave upon creation; thus, our site is only one way among many possible ways to interface with that data. </p>
 
-          <p> The diff from the original Declaration is available here. </p>
+          <p> The diff from the original Declaration is available <a className="underline" href="/diff/e-bw-AGkYsZFYqmAe2771A6hi9ZMIkWrkBNtHIF1"> here. </a> </p>
 
           <p> There are also a few other hidden Easter Eggs in the design decisions ✨ </p>
 
