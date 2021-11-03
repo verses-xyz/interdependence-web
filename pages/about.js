@@ -45,54 +45,82 @@ export default function About() {
         >
 
           <h2 className="pt-10 font-bold text-2xl text-title"> 1. The Story </h2>
+          
           <p>
-          The Declaration is a reaction and rebuttal to Facebook’s recent rebranding as Meta, and it directly “forks” John Perry Barlow’s 1996 Declaration for the Independence of Cyberspace. 
-          While these pronouncements emphasize technological freedom within corporate bounds (like the former) or which transcend the material realm (like the latter), our Declaration celebrates the interrelationships, mutuality, and interdependence between people and nations, the digital and physical, and diverse communities. 
+          Our Declaration is a reaction and rebuttal to Facebook’s recent rebranding as Meta, 
+          and it directly “forks” John Perry Barlow’s 1996 {" "}
+          <a href="https://www.eff.org/cyberspace-independence" className="underline"> 
+            Declaration for the Independence of Cyberspace. 
+          </a>
           </p>
 
           <p>
-          The original Declaration quickly became part of the internet’s canon. 
-          It was a response to a particular moment; the United States government had just passed into law the Telecommunications Act of 1996, 
-          which was the first time that the Internet was included in broadcasting and spectrum allotment. The declaration captures much of what originally drew people to the internet, but we found it insufficient for several reasons. The original highly emphasizes freedom of speech; we believe that these freedoms are insufficient if not accompanied with the ability to build and own our own desired paths. The original takes a highly individualistic framing; we believe in the power of the individual along with the importance of mutualism, reciprocity, and collective ownership. The original rejects government; we believe that interdependence is possible between governments and technologists. The original rejects embodiment; we recognize our digital identities and commitments to be interwoven with existing communities, societies, and relationships in the physical and material world. The original was authored individually; this text was collaboratively written with dozens of people contributing prose and feedback, and will always be open for signing. 
+            The original Declaration quickly became part of the internet’s canon. 
+            It was a response to a particular moment; the United States government had just passed into law the Telecommunications Act of 1996, 
+            which was the first time that the internet was included in broadcasting and spectrum allotment. 
+            The declaration captures much of what originally drew people to the internet, but we found it insufficient for several reasons.
+          </p> 
+          
+          <p>The original highly emphasizes freedom of speech; we believe that these freedoms are insufficient if not accompanied with the ability 
+            to build and own our own desired paths. The original takes a highly individualistic framing; we believe in the power of the individual 
+            along with the importance of mutualism, reciprocity, and collective ownership. 
+            The original rejects embodiment; we recognize our digital identities and commitments to be interwoven with existing communities, societies, and relationships in the physical and material world. 
+            The original was authored individually; this text was collaboratively written with dozens of people contributing prose and feedback, and will always be open for signing. 
           </p>
           
           <p>
-          In short, we want independence, yes, but also <em> interdependence</em>. 
+            In short, we want independence, yes, but also <em> interdependence</em>. 
           </p>
 
           <p>
-          A note on the term pluriverse: the last thing we hope to do is to dishonour the spirit of the word “pluriverse” in the way that Facebook has dishonoured the spirit of the word “metaverse.”  We intend to acknowledge the history of this term more fully in a subsequent work, but want to acknowledge here at least a portion of it, and why we have chosen to use it here. The term “pluriverse” has been employed by various disciplines. From literary studies, the pluriverse was posed as a counternarrative to a singular, hegemonic universalization of Western values: it stood in favour of a multiplicity of possible worlds. From physics, the pluriverse describes a world as a plural collection of things, somewhat connected and somewhat not. The shared kernel between these different fields is that the term 'pluriverse' signifies a world that allows for the expression of different value systems. For Arturo Escobar, however, “it is not [merely] about ‘expanding the range of choices’ (liberal freedom) but is intended to transform the kinds of beings we desire to be”.
+          We’d like to honor the history of the term “pluriverse,” which substantially inspired and informed this vision. 
+          Postcolonial thinkers and activists have conceived of the pluriverse as a counternarrative to the hegemonic universalization of Western values. 
+          Citing anthropologist Arturo Escobar, the pluriverse is “not [merely] about ‘expanding the range of choices’ (liberal freedom) but is intended to transform the kinds of beings we desire to be.”  
+          In physics, meanwhile, the pluriverse describes a world as a plural collection of things, somewhat connected and somewhat not. 
+          The shared kernel among these definitions is that the 'pluriverse' stands in favour of a multiplicity of worlds and cultures 
+          -- an ethic that we hope to extend, but not limit, to the expanding digital realm. 
           </p>
 
+          {/* CHANGE */}
           <p>
           Similar to the original document, our document is situated in a particular time. We are responding to a particular moment of potentially devastating collective action problems, increasing atomization, and an inflection point in the future history of a more interoperable, open internet. We recognize that this document is limited in many ways, even as a collectively written document, and have built infrastructure  with this project that we hope is useful for alternative verses to be authored now and into the future.
           </p>
 
           <h2 className="pt-10 font-bold text-2xl text-title"> 2. The Pattern </h2>
 
-          <p> The ontology of this object, and how other related objects can be generated related to it, reflects the ethos of our Declaration. </p>
+          <p> The ontology of this object, and how other related objects can be generated related to it, reflects the ethos of our Declaration.
+            The text itself was collaboratively written, with dozens of people contributing prose and feedback. </p>
           
-          <p> The text itself was collaboratively written, with dozens of people contributing prose and feedback. </p>
           <p>
-          The Declaration was entered into the permaweb on Oct 31, 2021 via <a className="underline" href="https://arweave.org"> Arweave </a>, in honour of the anniversary of the publication of the Bitcoin whitepaper. 
-          The document, its signatures, and its forks are committed to a permanent, immutable, and decentralized historical archive that anyone is able to view. </p>
-          
-          <p> The Arweave network does not require expenditure of electricity to maintain its integrity. Instead, miners are incentivized to persist valuable information on the network. In this context, block verifiers are more like  librarians. Stewards of a sustainable and transparent storage system for our pluriverse.
-          In each hour-long block, signature transactions are entered into the permaweb. Referencing the block height lets us see the temporal order of signatures. 
+            The Declaration was entered into the permaweb on Oct 31, 2021 via <a className="underline" href="https://viewblock.io/arweave/tx/pB-rlYjCZJcLK7205sjHzeci6DEsX4PU0xG00GYpahE"> Arweave </a>, 
+            in honour of the anniversary of the publication of the Bitcoin whitepaper. 
+            Unlike other blockchains,  Arweave does not require significant expenditure of electricity to maintain its integrity. 
+            Instead, Arweave block verifiers are incentivized to store & maintain valuable data on the permaweb. 
+            In this context, block verifiers are more like librarians, stewards of a sustainable and transparent storage system for our pluriverse.
           </p>
 
           <p>
-          Anyone can show their support for our Declaration by signing with their Web3 wallet. 
-          Signing is free; it was important to us that backing this document did not require ownership of a cryptocurrency. 
-          We did not want to require the download of Arweave wallet & purchase of Arweave tokens to be able to commit a fork, so we chose to handle the hosting and gas fees on the behalf of the 
-          <em> readers, signers & writers of the declaration </em>.  </p>
-          
-          <p> If readers have revisions, additions, or challenges to the declaration, they are encouraged to articulate their own revisions by creating a fork. For example, we recognize that the language in the declaration employs the terms you and yours in conflict with us and ours; a fork of this Declaration to change the pronouns and language has already been suggested and is an example of rhetorical work and contestation that we want to support with the forking feature. 
-          We included an option to verify with Twitter, so that we can preserve the integrity of the signers and future authors of the forks of the Declaration. </p>
+            Anyone can show their support for our Declaration by signing with their cryptographic wallet, a completely free transaction. 
+            We chose to handle the hosting and blockweave transaction fees on behalf of the readers, signers, and writers of the Declaration. 
+            While we wish we could have implemented this with complete decentralization, 
+            we realized that a much the more complicated onboarding process would have precluded many from participating as signers & writers. 
+          </p>
 
-          <p> The Pluriverse is built upon the coexistence of many worlds and value systems; as such, all forks will be linked below the Declaration on our site. Forks of the Declaration are automatically uploaded to Arweave upon creation; thus, our site is only one way among many possible ways to interface with that data. </p>
+          <p>
+            If readers have revisions, additions, or challenges to the declaration, they are encouraged to articulate their own revisions 
+            by <a href="https://scribehow.com/shared/How-to-Fork__vnAD_3nRSuuH-63evHL24w"> creating a fork </a>. 
+            For example, the language in the declaration employs the terms you and yours in conflict with us and ours; 
+            a fork of this Declaration to change the pronouns and language has already been suggested and is an example of the type 
+            of rhetorical work and contestation that we want to support with the forking feature. 
+          </p>
 
-          <p> The diff from the original Declaration is available <a className="underline" href="/diff/e-bw-AGkYsZFYqmAe2771A6hi9ZMIkWrkBNtHIF1"> here. </a> </p>
+          <p>
+          The Pluriverse is one that allows the coexistence of many worlds and value systems; in the same spirit, all forks will be linked below the Declaration on our site. 
+          Forks of the Declaration are automatically uploaded to Arweave upon creation; thus, our site is only one way among many possible ways to interface with that data. 
+          Each document, its signatures, and its forks are committed to a permanent, immutable, and decentralized historical archive that anyone is able to view.
+          </p>
+
+          <p> The diff from the original Declaration is available <a className="underline" href="https://www.interdependence.online/diff/e-bw-AGkYsZFYqmAe2771A6hi9ZMIkWrkBNtHIF1hF4"> here. </a> </p>
 
           <p> There are also a few other hidden Easter Eggs in the design decisions ✨ </p>
 
@@ -106,7 +134,6 @@ export default function About() {
           Contributions came in a multitude of ways. People wrote, edited, and gave feedback. 
           People provided technical guidance; others implemented this site you’re currently visiting. 
           Some people came and simply expressed their care and encouragement. 
-          It was too difficult to collapse all these things in an attempt to create some legible rank ordering of authorship, which we initially attempted, as you can see on our Arweave version <a href="https://viewblock.io/arweave/tx/pB-rlYjCZJcLK7205sjHzeci6DEsX4PU0xG00GYpahE"> here. </a>
           </p>
           
           <p> 
@@ -116,7 +143,7 @@ export default function About() {
           We chose to leave the canonical text authorless because it is a gift, and authored in the spiritual sense by so many more people than we could feasibly name. Everyone who chooses to leave their name here is both offering their support and claiming a work that is in actuality already theirs.          </p>
          
          <p>
-           Thank you for reading this. This artifact represents a story, a pattern, and a process; it symbolizes for us the intentional practice of interdependence, and hopefully invites and enables you to join us.         </p>
+         Thank you for reading this. This artifact represents a story, a pattern, and a process; it symbolizes for us the intentional practice of interdependence, and hopefully invites and enables you to join us in co-creating a cyberspace that enables a web of relations that is more sustainable than the one enforced by the one we currently inhabit.           </p>
 
         </div>
       </div>
