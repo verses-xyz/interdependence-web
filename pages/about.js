@@ -15,7 +15,7 @@ export default function About() {
                       lg:px-40
                       py-20 
                       text-center 
-                      md:px-20 sm:px-5 xs:px-5"
+                      sm:px-5 xs:px-5"
       >
         <div className="flex w-full mb-8 sm:mb-0">
             <div className="hidden sm:block flex-1">
@@ -47,26 +47,27 @@ export default function About() {
           <h2 className="pt-10 font-bold text-2xl text-title"> 1. The Story </h2>
           
           <p>
-          Our Declaration is a reaction and rebuttal to Facebook’s recent rebranding as Meta, 
-          and it directly “forks” John Perry Barlow’s 1996 {" "}
+          Our Declaration directly forks, or revises, John Perry Barlow’s 1996 {" "}
           <a href="https://www.eff.org/cyberspace-independence" className="underline"> 
-            Declaration for the Independence of Cyberspace. 
+            Declaration for the Independence of Cyberspace.  
+            It is also a reaction to Facebook’s recent rebranding as Meta, 
+            and to the dominance of large, centralized companies on today’s 
+            Internet more generally: the “closed fiefdoms of the platform world” that we refer to in the document.
+
           </a>
           </p>
 
-          <p>
-            The original Declaration quickly became part of the internet’s canon. 
-            It was a response to a particular moment; the United States government had just passed into law the Telecommunications Act of 1996, 
-            which was the first time that the internet was included in broadcasting and spectrum allotment. 
-            The declaration captures much of what originally drew people to the internet, but we found it insufficient for several reasons.
-          </p> 
+        <p>
+          Barlow’s Declaration quickly became part of the internet’s canon. He was responding to a particular historical moment: the United States passing the Telecommunications Act of 1996, which was the first telecommunications law to include the internet, and which censored the broadcasting of “indecent” and “offensive” speech. The same day the Declaration was published, the Electronic Frontier Foundation launched the successful “Great Web Blackout” protest against online censorship.
+        </p>
+
+        <p>
+          Today, we sit at another inflection point in the future history of a more interoperable, open internet. Facebook’s rebranding has made clear that they aim to control the contours of the online world. While Barlow’s Declaration captured similar dreams for a freer cyberspace, we found his document insufficient. 
+        </p>
           
-          <p>The original highly emphasizes freedom of speech; we believe that these freedoms are insufficient if not accompanied with the ability 
-            to build and own our own desired paths. The original takes a highly individualistic framing; we believe in the power of the individual 
-            along with the importance of mutualism, reciprocity, and collective ownership. 
-            The original rejects embodiment; we recognize our digital identities and commitments to be interwoven with existing communities, societies, and relationships in the physical and material world. 
-            The original was authored individually; this text was collaboratively written with dozens of people contributing prose and feedback, and will always be open for signing. 
-          </p>
+        <p>
+        Barlow’s original Declaration emphasizes freedom of speech; we believe that this freedom must be accompanied with the freedom to design, govern, and own the environments that speech lives within. The original takes a highly individualistic framing; we believe in the power of the individual alongside mutualism, reciprocity, and collective ownership. The original rejects embodiment; we recognize our digital identities and commitments to be interwoven with existing communities, societies, and relationships in the physical and material world. The original was authored individually; this text was collaboratively written with dozens of people contributing prose and feedback, and will always be open for signing. 
+        </p>
           
           <p>
             In short, we want independence, yes, but also <em> interdependence</em>. 
@@ -81,10 +82,8 @@ export default function About() {
           -- an ethic that we hope to extend, but not limit, to the expanding digital realm. 
           </p>
 
-          {/* CHANGE */}
           <p>
-          Similar to the original document, our document is situated in a particular time. We are responding to a particular moment of potentially devastating collective action problems, increasing atomization, and an inflection point in the future history of a more interoperable, open internet. We recognize that this document is limited in many ways, even as a collectively written document, and have built infrastructure  with this project that we hope is useful for alternative verses to be authored now and into the future.
-          </p>
+          In the spirit of the pluriverse, we recognize that our document represents a singular vision, even as a collectively written artifact. As such, we’ve built the infrastructure for others to author alternative verses now and into the future.          </p>
 
           <h2 className="pt-10 font-bold text-2xl text-title"> 2. The Pattern </h2>
 
