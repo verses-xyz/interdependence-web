@@ -52,7 +52,7 @@ export default function Signatures({txId, sigs, setSigs}) {
             </h3>
             {sig.SIG_ID && <a
               target="_blank"
-              className="invisible py-2 text-gray-detail hover:underline overflow-hidden lg:visible"
+              className="hidden py-2 text-gray-detail hover:underline overflow-hidden lg:block"
               href={`https://arweave.net/tx/${sig.SIG_ID}`}>tx:{sig.SIG_ID.slice(0, 6)}</a>}
 
             <div className="flex-1"/>
