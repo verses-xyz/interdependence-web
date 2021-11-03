@@ -67,7 +67,7 @@ export default function Fork({text, txId}) {
         contentLabel="fork-editor"
       >
         <form onSubmit={handleSubmit(onSubmit)} className="w-full h-full font-body bg-gray-50 pb-2">
-          <div className="font-mono font-bold text-center py-3.5 bg-gray-100 text-gray-20 border-b border-gray-detail">Fork the declaration</div>
+          <div className="font-mono font-bold text-center py-3.5 bg-gray-wash text-gray-secondary border-b border-gray-detail">Fork the Declaration</div>
           <div className="pt-4 pb-3 px-5 bg-gray-50">
             <textarea {...register("declaration")} className="resize-none border border-gray-detail rounded-lg px-5 py-4 w-full max-h-80 outline-none font-mono text-sm" rows={24}/>
           </div>

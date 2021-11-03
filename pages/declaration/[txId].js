@@ -109,9 +109,9 @@ export default function Declaration() {
       </main>
       
     </div>      
-    <footer className="sticky bottom-0 bg-gray-primary w-full p-6 mt-2 mb-2 text-sm leading-6 font-mono text-left text-white"> 
+    <footer className="text-center sticky bottom-0 bg-gray-primary w-full p-6 mt-2 mb-2 text-sm leading-6 font-mono text-left text-white flex flex-col items-center"> 
 
-        <p className="font-light">
+        <p className="font-light sm:max-w-2xl">
         You are trusted to steward this link. If you're seeing this banner, we are still in soft launch mode.&nbsp; 
         <u>Please do not share this link on social media.</u>
         </p>
