@@ -94,6 +94,7 @@ export default function Declaration() {
   const maybeDeclaration = useAsync(getDeclaration, [txId]);
 
   return (
+    <>
     <div className="flex flex-col items-center bg-gray-bg justify-center pt-8 pb-24 bg-blue-20">
       <HeadComponent/>
       <main className="flex flex-col items-center min-h-screen w-full flex-1 px-2 sm:px-8 lg:px-8 xl:px-8 text-center">
@@ -109,6 +110,21 @@ export default function Declaration() {
         </div>
         {maybeDeclaration.loading ? <BarLoader speedMultiplier=".75" height="2px" width ="300px" color="#bababa"/> : <Body txId={txId} {...maybeDeclaration.result} />}
       </main>
-    </div>
+      
+    </div>      
+    <footer className="sticky bottom-0 bg-truegray-800 w-full px-10 py-3 mt-2 mb-2 text-bold text-md font-mono text-center justify-center text-white"> 
+
+        <p>
+        You were trusted to steward this link -
+        </p>
+        <p>
+        if you're seeing this banner, we are still in soft launch mode.
+        </p>
+        <p>
+        Please do not share this link on social media.
+        </p>
+    </footer>
+      </>
+    
   );
 }
