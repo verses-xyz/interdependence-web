@@ -15,12 +15,12 @@ function Header({ show }) {
   return (<div className="flex w-full">
     <div className="sm:block flex-1">
     </div>
-    <div className={(show ? 'opacity-100' : 'opacity-0') + " transition duration-500 flex-0 w-full flex justify-end"}>
-      <Button text="Sign" primary onClick={() => { document.getElementById('signatureForm').scrollIntoView(); }}>
-        <p className="font-mono">Sign</p>
-      </Button>
+    <div className={(show ? 'opacity-100' : 'opacity-0') + " transition duration-500 flex-0 w-full space-x-4 flex justify-end"}>
       <Button>
         <a className="font-mono" href="/about">About</a>
+      </Button>
+      <Button text="Sign" primary onClick={() => { document.getElementById('signatureForm').scrollIntoView(); }}>
+        <p className="font-mono">Sign</p>
       </Button>
     </div>
   </div>);
