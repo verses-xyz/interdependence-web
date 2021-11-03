@@ -23,7 +23,7 @@ export default function About() {
             <div className="flex-0 w-full flex justify-center sm:justify-start">
               <Button>
                 <a className="font-mono"
-                  href="/softlaunch"
+                  href="/"
                   >
                     ← Declaration</a>
               </Button>
