@@ -187,7 +187,7 @@ export default function About() {
        <a 
         href={"/declaration"}
         className="px-2 border-purple-2004 border-b-2 rounded-xl"> 
-          (Planted on the Permaweb. Oct 31, 2021. )
+          (Planted on the Permaweb. ☘️. Oct 31, 2021.)
        </a>
       </footer>
     </>
