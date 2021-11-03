@@ -17,15 +17,15 @@ export default function About() {
                       text-center 
                       sm:px-5 xs:px-5"
       >
-        <div className="flex w-full mb-8 sm:mb-0">
+        <div className="flex w-full mb-8 sm:mb-0 ">
             <div className="hidden sm:block flex-1">
             </div>
-            <div className="flex-0 w-full flex justify-center sm:justify-start">
+            <div className="flex-0 w-full flex justify-center sm:justify-end">
               <Button>
                 <a className="font-mono"
-                  href="/"
+                  href="/declaration"
                   >
-                    ← Declaration</a>
+                    Declaration →</a>
               </Button>
             </div>
           </div>
@@ -44,25 +44,27 @@ export default function About() {
             md:px-10"
         >
 
-          <h2 className="pt-10 font-bold text-2xl text-title"> 1. The Story </h2>
+        <h2 className="pt-10 font-bold text-2xl text-title"> 1. The Story </h2>
           
-          <p>
-          Our Declaration directly forks, or revises, John Perry Barlow’s 1996 {" "}
-          <a href="https://www.eff.org/cyberspace-independence" className="underline"> 
-            Declaration for the Independence of Cyberspace.</a>
-            It is also a reaction to Facebook’s recent rebranding as Meta, 
-            and to the dominance of large, centralized companies on today’s 
-            Internet more generally: the “closed fiefdoms of the platform world” that we refer to in the document.
-
-
-          </p>
-
         <p>
-          Barlow’s Declaration quickly became part of the internet’s canon. He was responding to a particular historical moment: the United States passing the Telecommunications Act of 1996, which was the first telecommunications law to include the internet, and which censored the broadcasting of “indecent” and “offensive” speech. The same day the Declaration was published, the Electronic Frontier Foundation launched the successful “Great Web Blackout” protest against online censorship.
+          Our Declaration directly forks, or revises, John Perry Barlow’s 1996 {" "}
+        <a href="https://www.eff.org/cyberspace-independence" className="underline"> 
+          Declaration for the Independence of Cyberspace.</a>
+          It is also a reaction to Facebook’s recent rebranding as Meta, 
+          and to the dominance of large, centralized companies on today’s 
+          Internet more generally: the “closed fiefdoms of the platform world” that we refer to in the document.
         </p>
 
         <p>
-          Today, we sit at another inflection point in the future history of a more interoperable, open internet. Facebook’s rebranding has made clear that they aim to control the contours of the online world. While Barlow’s Declaration captured similar dreams for a freer cyberspace, we found his document insufficient. 
+          Barlow’s Declaration quickly became part of the internet’s canon. 
+          He was responding to a particular historical moment: the United States passing the Telecommunications Act of 1996, which was the first telecommunications law to include the internet, 
+          and which censored the broadcasting of “indecent” and “offensive” speech. 
+          The same day the Declaration was published, the Electronic Frontier Foundation launched the successful “Great Web Blackout” protest against online censorship.
+        </p>
+
+        <p>
+          Today, we sit at another inflection point in the future history of a more interoperable, open internet. 
+          Facebook’s rebranding has made clear that they aim to control the contours of the online world. While Barlow’s Declaration captured similar dreams for a freer cyberspace, we found his document insufficient. 
         </p>
           
         <p>
@@ -161,7 +163,7 @@ export default function About() {
     <footer className="hideen py-10 font-mono text-center text-small text-gray-600"> 
        <a 
         href={"/declaration"}
-        className="px-2 border-purple-2004 border-2 rounded-xl"> 
+        className="px-2 border-purple-2004 border-b-2 rounded-xl"> 
           Planted on the Permaweb. Oct 31, 2021. 
        </a>
       </footer>
