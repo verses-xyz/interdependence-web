@@ -16,11 +16,9 @@ function Header({ show }) {
     <div className="sm:block flex-1">
     </div>
     <div className={(show ? 'opacity-100' : 'opacity-0') + " transition duration-500 flex-0 w-full flex justify-end"}>
-      <div className="hidden sm:inline-block">
-        <Button text="Sign" primary onClick={() => { document.getElementById('signatureForm').scrollIntoView(); }}>
-          <p className="font-mono">Sign</p>
-        </Button>
-      </div>
+      <Button text="Sign" primary onClick={() => { document.getElementById('signatureForm').scrollIntoView(); }}>
+        <p className="font-mono">Sign</p>
+      </Button>
       <Button>
         <a className="font-mono" href="/about">About</a>
       </Button>
@@ -112,16 +110,11 @@ export default function Declaration() {
       </main>
       
     </div>      
-    <footer className="sticky bottom-0 bg-truegray-800 w-full px-10 py-3 mt-2 mb-2 text-bold text-md font-mono text-center justify-center text-white"> 
+    <footer className="sticky bottom-0 bg-gray-primary w-full p-6 mt-2 mb-2 text-sm leading-6 font-mono text-left text-white"> 
 
-        <p>
-        You were trusted to steward this link -
-        </p>
-        <p>
-        if you're seeing this banner, we are still in soft launch mode.
-        </p>
-        <p>
-        Please do not share this link on social media.
+        <p className="font-light">
+        You are trusted to steward this link. If you're seeing this banner, we are still in soft launch mode.&nbsp; 
+        <u>Please do not share this link on social media.</u>
         </p>
     </footer>
       </>
