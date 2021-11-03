@@ -112,7 +112,7 @@ export default function Declaration() {
       </main>
       
     </div>      
-    <footer className="bg-truegray w-full px-10 py-3 mt-2 mb-2 text-bold text-md font-mono text-center justify-center text-black"> 
+    <footer className="sticky bottom-0 bg-truegray-800 w-full px-10 py-3 mt-2 mb-2 text-bold text-md font-mono text-center justify-center text-white"> 
 
         <p>
         You were trusted to steward this link -
