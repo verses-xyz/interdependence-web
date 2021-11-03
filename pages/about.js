@@ -108,7 +108,7 @@ export default function About() {
 
           <p>
             If readers have revisions, additions, or challenges to the declaration, they are encouraged to articulate their own revisions 
-            by creating a fork. 
+            by <a href="https://scribehow.com/shared/How-to-Fork__vnAD_3nRSuuH-63evHL24w"> creating a fork </a>. 
             For example, the language in the declaration employs the terms you and yours in conflict with us and ours; 
             a fork of this Declaration to change the pronouns and language has already been suggested and is an example of the type 
             of rhetorical work and contestation that we want to support with the forking feature. 
