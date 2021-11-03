@@ -118,8 +118,7 @@ export default function About() {
             The Declaration was entered into the permaweb on Oct 31, 2021, via <a className="underline" href="https://viewblock.io/arweave/tx/pB-rlYjCZJcLK7205sjHzeci6DEsX2PU0xG00GYpahE"> Arweave </a>, 
             in honour of the anniversary of the publication of the Bitcoin whitepaper. 
             Unlike other blockchains,  Arweave does not require significant expenditure of electricity to maintain its integrity. 
-            Instead, Arweave block verifiers are incentivized to store & maintain valuable data on the permaweb. 
-            In this case, block verifiers are more like librarians, stewards of a sustainable and transparent storage system for our pluriverse.
+            On the Arweave, block verifiers are akin to librarians, stewards of a sustainable and transparent storage system for our pluriverse.
           </p>
 
           <p style={{'text-indent': '2rem'}}>
@@ -184,11 +183,11 @@ export default function About() {
       </div>
     
     </div>
-    <footer className="py-10 font-mono text-center text-small text-gray-600"> 
+    <footer className="py-10 font-mono text-center text-xs text-gray-600"> 
        <a 
         href={"/declaration"}
         className="px-2 border-purple-2004 border-b-2 rounded-xl"> 
-          Planted on the Permaweb. Oct 31, 2021. 
+          (Planted on the Permaweb. Oct 31, 2021. )
        </a>
       </footer>
     </>
