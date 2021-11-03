@@ -23,7 +23,7 @@ export default function About() {
             <div className="flex-0 w-full flex justify-center sm:justify-start">
               <Button>
                 <a className="font-mono"
-                  href="/"
+                  href="/softlaunch"
                   >
                     ← Declaration</a>
               </Button>
@@ -64,7 +64,6 @@ export default function About() {
           <p>The original highly emphasizes freedom of speech; we believe that these freedoms are insufficient if not accompanied with the ability 
             to build and own our own desired paths. The original takes a highly individualistic framing; we believe in the power of the individual 
             along with the importance of mutualism, reciprocity, and collective ownership. 
-            The original rejects government; we believe that interdependence is possible between governments and technologists. 
             The original rejects embodiment; we recognize our digital identities and commitments to be interwoven with existing communities, societies, and relationships in the physical and material world. 
             The original was authored individually; this text was collaboratively written with dozens of people contributing prose and feedback, and will always be open for signing. 
           </p>
@@ -89,18 +88,12 @@ export default function About() {
 
           <h2 className="pt-10 font-bold text-2xl text-title"> 2. The Pattern </h2>
 
-          <p> The ontology of this object, and how other related objects can be generated related to it, reflects the ethos of our Declaration. </p>
-          
-          <p> The text itself was collaboratively written, with dozens of people contributing prose and feedback. </p>
+          <p> The ontology of this object, and how other related objects can be generated related to it, reflects the ethos of our Declaration.
+            The text itself was collaboratively written, with dozens of people contributing prose and feedback. </p>
           
           <p>
             The Declaration was entered into the permaweb on Oct 31, 2021 via <a className="underline" href="https://viewblock.io/arweave/tx/pB-rlYjCZJcLK7205sjHzeci6DEsX4PU0xG00GYpahE"> Arweave </a>, 
             in honour of the anniversary of the publication of the Bitcoin whitepaper. 
-
-          </p>
-          
-          <p> 
-            The Arweave network does not require expenditure of electricity to maintain its integrity.
             Unlike other blockchains,  Arweave does not require significant expenditure of electricity to maintain its integrity. 
             Instead, Arweave block verifiers are incentivized to store & maintain valuable data on the permaweb. 
             In this context, block verifiers are more like librarians, stewards of a sustainable and transparent storage system for our pluriverse.
@@ -108,7 +101,7 @@ export default function About() {
 
           <p>
             Anyone can show their support for our Declaration by signing with their cryptographic wallet, a completely free transaction. 
-            We chose to handle the  hosting and Arweave gas fees on behalf of the readers, signers, and writers of the Declaration. 
+            We chose to handle the hosting and blockweave transaction fees on behalf of the readers, signers, and writers of the Declaration. 
             While we wish we could have implemented this with complete decentralization, 
             we realized that a much the more complicated onboarding process would have precluded many from participating as signers & writers. 
           </p>
@@ -119,10 +112,6 @@ export default function About() {
             For example, the language in the declaration employs the terms you and yours in conflict with us and ours; 
             a fork of this Declaration to change the pronouns and language has already been suggested and is an example of the type 
             of rhetorical work and contestation that we want to support with the forking feature. 
-          </p>
-
-          <p>
-            We included an option to verify with Twitter, so that we can preserve the integrity of the signers and future authors of the forks of the Declaration. 
           </p>
 
           <p>
