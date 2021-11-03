@@ -16,6 +16,11 @@ module.exports = {
         destination: '/about',
         permanent: true,
       },
+        {
+          source: '/softlaunch',
+          destination: '/declaration/e-bw-AGkYsZFYqmAe2771A6hi9ZMIkWrkBNtHIF1hF4',
+          permanent: true,
+        },
     ];
   },
 }
