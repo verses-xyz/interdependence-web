@@ -116,7 +116,7 @@ async function fetchSignatures(txId) {
       query: `
       query {
         transactions(
-          sort: HEIGHT_ASC,
+          first: 100,
           tags: [
             {
               name: "${DOC_TYPE}",
