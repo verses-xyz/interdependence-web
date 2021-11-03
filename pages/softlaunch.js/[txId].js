@@ -12,7 +12,22 @@ import React from "react";
 export const CANONICAL = "e-bw-AGkYsZFYqmAe2771A6hi9ZMIkWrkBNtHIF1hF4";
 export const ORIGINAL = "pB-rlYjCZJcLK7205sjHzeci6DEsX4PU0xG00GYpahE"
 function Header({ show }) {
-  return (<div className="flex w-full">
+  return (
+  <>
+ <div class="relative bg-brown-600">
+  <div class="max-w-7xl mx-auto py-3 px-3 sm:px-6 lg:px-8">
+    <div class="pr-16 sm:text-center sm:px-16">
+      <p class="font-medium text-white">
+
+        <span class="hidden md:inline">
+          Soft Launch. Please share among close friends only
+        </span>
+
+      </p>
+    </div>
+  </div>
+</div>
+  <div className="flex w-full">
     <div className="sm:block flex-1">
     </div>
     <div className={(show ? 'opacity-100' : 'opacity-0') + " transition duration-500 flex-0 w-full flex justify-end"}>
@@ -25,7 +40,9 @@ function Header({ show }) {
         <a className="font-mono" href="/about">About</a>
       </Button>
     </div>
-  </div>);
+
+  </div>
+  </>);
 }
 
 function Body({ txId, data, status }) {
@@ -94,6 +111,7 @@ export default function Declaration() {
   const maybeDeclaration = useAsync(getDeclaration, [txId]);
 
   return (
+    <>
     <div className="flex flex-col items-center bg-gray-bg justify-center pt-8 pb-24 bg-blue-20">
       <HeadComponent/>
       <main className="flex flex-col items-center min-h-screen w-full flex-1 px-2 sm:px-8 lg:px-8 xl:px-8 text-center">
@@ -110,5 +128,11 @@ export default function Declaration() {
         {maybeDeclaration.loading ? <BarLoader speedMultiplier=".75" height="2px" width ="300px" color="#bababa"/> : <Body txId={txId} {...maybeDeclaration.result} />}
       </main>
     </div>
+      <footer className="bg-gray-wash w-full h-10 mb-2 font-mono text-center text-small text-black border-t border-gray-wash"> 
+          <p className="mt-2 ext-bold text-lg">
+            Soft Launch. Steward this link honorably
+          </p>
+      </footer>
+         </>
   );
 }
