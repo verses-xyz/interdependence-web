@@ -1,4 +1,4 @@
-import {getDeclaration, getSigs} from "../../arweaveFns";
+import {getDeclaration, fetchSignatures} from "../../arweaveFns";
 import Sign from "../../components/Sign";
 import Fork from "../../components/Fork";
 import Signatures from "../../components/Signatures";
@@ -30,7 +30,15 @@ function Header({ show }) {
 
 function Body({ txId, data, status }) {
   if (status === 200) {
-    const maybeSigs = useAsync(getSigs, [txId]);
+    const maybeSigs = useAsync(fetchSignatures, [txId]);
+    const [clientSigList, setClientSigList] = React.useState([])
+
+    React.useEffect(() => {
+      if (maybeSigs.result) {
+        setClientSigList(maybeSigs.result)
+      }
+    }, [maybeSigs.result])
+
     const {declaration, authors, timestamp, ancestor} = data;
 
     const isOriginal = ancestor === ""
@@ -66,7 +74,7 @@ function Body({ txId, data, status }) {
             <p className="my-4 font-mono text-xl">Loading signatures</p>
             <BarLoader speedMultiplier=".75" height="2px" width ="300px" color="#bababa"/>
           </div> :
-          <Signatures sigs={maybeSigs.result}/>
+          <Signatures txId={txId} sigs={clientSigList} setSigs={setClientSigList} />
         }
     </div>
 
