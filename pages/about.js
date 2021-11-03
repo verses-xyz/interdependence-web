@@ -48,7 +48,7 @@ export default function About() {
           
           <p>
           Our Declaration is a reaction and rebuttal to Facebook’s recent rebranding as Meta, 
-          and it directly “forks” John Perry Barlow’s 1996 
+          and it directly “forks” John Perry Barlow’s 1996 {" "}
           <a href="https://www.eff.org/cyberspace-independence" className="underline"> 
             Declaration for the Independence of Cyberspace. 
           </a>
