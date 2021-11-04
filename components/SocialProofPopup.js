@@ -3,6 +3,7 @@ import Button from './core/Button';
 import React from "react";
 import ScaleLoader from "react-spinners/ScaleLoader";
 import {DisplayedError} from "./Sign";
+import TwitterIconBlack from "./core/icons/TwitterIconBlack";
 
 const generateTweet = (sig) => {
   const str = `I am verifying for @verses_xyz: sig:${sig}`;
@@ -46,6 +47,7 @@ export default function SocialProofPopup({ setStage, formData, sign }) {
               generateTweet(formData.sig)
               setStage(2)
             }}>
+              <TwitterIconBlack/>
               Post proof
             </Button>
           </div>

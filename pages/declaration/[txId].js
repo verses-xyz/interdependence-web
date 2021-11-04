@@ -49,7 +49,10 @@ function Body({ txId, data, status }) {
       <div className="md:mx-4 mt-16 md:mt-20 font-body leading-9 text-gray-primary text-2xl text-left max-w-2xl whitespace-pre-wrap">
         {declaration}
         <p className="font-bold text-left text-gray-primary font-title text-2xl mt-8">{timestamp}</p>
-        <p className="font-mono text-gray-placeholder text-base mt-8">This document lives on Arweave at transaction <a className="underline" href={`https://viewblock.io/arweave/tx/${txId}`}>{txId.slice(0,12)}</a>. It was forked from <a className="underline" href={ancestorUrl}>{ancestorText}</a>.</p>
+        <p className="font-mono text-gray-placeholder text-base mt-8">
+          This document lives on Arweave at transaction <a className="underline" href={`https://viewblock.io/arweave/tx/${txId}`}>{txId.slice(0,12)}</a>.
+          It was forked from <a className="underline" href={ancestorUrl}>{ancestorText}</a>. View the <a className="underline" href={`/diff/${txId}/${ancestor}`}>difference</a>.
+        </p>
       </div>
 
       {parsedAuthors.length > 0 && <>

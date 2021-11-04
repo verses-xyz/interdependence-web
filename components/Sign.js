@@ -8,6 +8,7 @@ import ScaleLoader from "react-spinners/ScaleLoader";
 import VerificationPopUp from "./VerificationPopup";
 import SocialProofPopup from "./SocialProofPopup";
 import SocialProofConfirmation from "./SocialProofConfirmation";
+import MetaMaskIcon from "./core/icons/MetaMaskIcon";
 
 Modal.setAppElement('#__next');
 Modal.defaultStyles.overlay.backgroundColor = '#555555aa';
@@ -126,6 +127,7 @@ export default function Sign({ txId, declaration }) {
         <Button
           primary
           onClick={openModal}>
+          <MetaMaskIcon/>
           Sign 
         </Button>
         </div>
