@@ -133,7 +133,7 @@ export default function About() {
           </p>
 
           <p style={{'text-indent': '2rem'}}>
-            If readers have revisions, additions, or challenges to the declaration, they are encouraged to articulate their own revisions 
+            If you have additions or challenges to the declaration, you are encouraged to articulate your own revisions 
             by <a href="https://scribehow.com/shared/How-to-Fork__vnAD_3nRSuuH-63evHL22w"> creating a fork </a>. 
             For example, the language in the declaration employs the terms <em> you </em> and <em> yours </em> in conflict with us and ours; 
             a fork of this Declaration to change the pronouns and language has already been suggested and is an example of the type 
@@ -166,6 +166,11 @@ export default function About() {
           </p>
 
           <p style={{'text-indent': '2rem'}}>
+            The canonical text is authorless, because it is authored in the spiritual sense by so many more people than we could feasibly name. 
+            This work is a gift from many to many<sup> 6 </sup>.  
+            Everyone who chooses to leave their name here is both offering their support and claiming a work that is in actuality already theirs.
+
+
             We chose to leave the canonical text authorless because it is a gift, 
             and authored in the spiritual sense by so many more people than we could 
             feasibly name. Everyone who chooses to leave their name here is both offering 
@@ -178,8 +183,9 @@ export default function About() {
           </p>
 
           <p style={{'text-indent': '2rem'}}>
-            Thank you for reading this. 
-            This work is a story, a pattern, and a process of interdependence. We hope that it invites you to join the broader effort to co-create a more sustainable web of relations online.     
+            This work is a story, a pattern, and a process of interdependence. 
+            By choosing to sign this document, you offer your support for the spirit of this work, and become part of the ongoing process of interdependence. 
+            We hope that this invites you to join the broader effort to co-create a more sustainable web of relations online.
           </p>
 
         </div>
@@ -217,6 +223,14 @@ export default function About() {
             <p className="text-left"> 
             <sup> 5 </sup> We hope to reimplement this with complete decentralization.
             </p>
+            <p>
+            <sup> 6 </sup> 
+            How contribution is defined depends heavily on where you draw the borders of the self.
+              Those of us who consciously contributed to this project through writing, coding, 
+              feedback or support are created and influenced by many others: the communities that we are part of, 
+              people who have taught us, and all the texts and stories that have shaped our worldviews. 
+            </p>
+
           </div>
         </div>
       </footer>
