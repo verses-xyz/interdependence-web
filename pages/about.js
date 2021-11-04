@@ -9,12 +9,13 @@ export default function About() {
     <div>
       <HeadComponent/>
       <div
-        className="flex flex-col items-center flex-1
-                      px-10
+        className="flex flex-col items-center flex-1                
+                      px-4
+                      sm:px-5
+                      md:px10 
                       lg:px-40
                       py-20 
-                      text-center 
-                      sm:px-5 xs:px-5"
+                      text-center"
       >
         <div className="flex w-full mb-8 sm:mb-0 ">
             <div className="hidden sm:block flex-1">
@@ -28,13 +29,13 @@ export default function About() {
               </Button>
             </div>
           </div>
-        <h2 className="mt-20 text-2xl font-title w-full font-bold px-20 text-center">
+        <h2 className="mt-20 text-3xl font-title w-full font-bold px-20 text-center">
           About
         </h2>
         <div
           className="mt-10 
             font-body 
-            text-lg 
+            text-2xl
             text-left 
             text-opacity-75 
             space-y-2
