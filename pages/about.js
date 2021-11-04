@@ -128,9 +128,7 @@ export default function About() {
 
           <p style={{'text-indent': '2rem'}}>
             Anyone can show their support for our Declaration by signing with their cryptographic wallet, a completely free transaction. 
-            We chose to handle the hosting and blockweave transaction fees on behalf of the readers, signers, and writers of the Declaration. 
-            While we wish we could have implemented this with complete decentralization, 
-            we realized that a much the more complicated onboarding process would have precluded many from participating as signers & writers. 
+            A volunteer-run server is used to handle the hosting and forking transaction costs on behalf of the readers, signers, and writers of the Declaration<sup>5</sup>.
           </p>
 
           <p style={{'text-indent': '2rem'}}>
@@ -145,11 +143,11 @@ export default function About() {
             The Pluriverse allows for the coexistence of many worlds and value systems; in the same spirit, all forks will be linked below the Declaration on our site. 
             Each document, its signatures, and its forks are committed to a permanent, immutable, and decentralized historical archive that anyone can view. 
             Forks of the Declaration are automatically uploaded to Arweave upon creation; thus, our site is only one way among many possible ways to interface with that data. 
-            Upon our public launch, we will be open-sourcing our software, which will mean that the entirety of the work will be open.
+            Upon our public launch, we will be open-sourcing the software for this website.
           </p>
 
           <p style={{'text-indent': '2rem'}}> 
-            We believe that to build towards the pluriverse, you’re building in a way that is open, interoperable, and supports the commons. 
+            We believe that to build towards the pluriverse means building in a way that is open, interoperable, and supports the commons. 
             It means building with an ethos of interdependence. It means not building moats, including data moats, that restrict the freedom of “all peoples to choose, 
             individually or collectively, [any] relations”, but paving existing desire paths and tools that others can freely choose to traverse, shape, and use. 
           </p>
@@ -214,6 +212,9 @@ export default function About() {
             </p>
             <p className="text-left">
               <sup> 4 </sup> In urban studies, desire paths are described as “[...] tracks made over time by the feet of walkers, especially those paths that run contrary to existing design or planning”.
+            </p>
+            <p> 
+            <sup> 5 </sup> While we wish we could have implemented this with complete decentralization, we realized that a much the more complicated onboarding process would have precluded many from participating as signers & writers.
             </p>
           </div>
         </div>
