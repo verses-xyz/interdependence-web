@@ -224,9 +224,9 @@ export default function About() {
             <sup> 5 </sup> We hope to reimplement this with complete decentralization.
             </p>
             <p>
-            <sup> 6 </sup> 
-            How contribution is defined depends heavily on where you draw the borders of the self.
-              Those of us who consciously contributed to this project through writing, coding, 
+            <sup> 6 </sup>               
+              The meaning of authorship shifts heavily depending on where the borders of the self are drawn.
+              Those who of us who consciously contributed to this project through writing, coding, 
               feedback or support are created and influenced by many others: the communities that we are part of, 
               people who have taught us, and all the texts and stories that have shaped our worldviews. 
             </p>
