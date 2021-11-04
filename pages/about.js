@@ -49,7 +49,7 @@ export default function About() {
           <p style={{'text-indent': '2rem'}}>
             Our Declaration directly forks, or revises, John Perry Barlow’s 1996 {" "}
           <a href="https://www.eff.org/cyberspace-independence" className="underline"> 
-            Declaration for the Independence of Cyberspace.</a> {" "} (view the diff <a className="underline" href="https://www.interdependence.online/diff/e-bw-AGkYsZFYqmAe2771A6hi9ZMIkWrkBNtHIF1hF4"> here </a>). 
+            Declaration for the Independence of Cyberspace.</a> (diff explorer <a className="underline" href="https://www.interdependence.online/diff/e-bw-AGkYsZFYqmAe2771A6hi9ZMIkWrkBNtHIF1hF4"> here</a>).
             It is also a reaction to Facebook’s recent rebranding as Meta, and to the dominance of large, centralized companies on today’s Internet,
             those we refer to in the document as the "Closed Fiefdoms of the platform world".
           </p>
@@ -66,8 +66,8 @@ export default function About() {
           <p style={{'text-indent': '2rem'}}>
           
             Today, we sit at another inflection point in the future history of a more interoperable, open internet. 
-            Facebook’s rebranding has made clear that they aim to control the contours of the online world. While Barlow’s 
-            Declaration captured similar dreams for a freer cyberspace, we found his document insufficient. 
+            Facebook’s rebranding has made clear that they aim to control the contours of the online world. Barlow’s 
+            Declaration captured similar dreams for a freer cyberspace, but today we find his document insufficient. 
 
           </p>
 
@@ -83,19 +83,7 @@ export default function About() {
           </p>
 
             
-          <p style={{'text-indent': '2rem'}}>
-
-            The diff from Barlow’s Declaration is available <a className="underline" href="https://www.interdependence.online/diff/e-bw-AGkYsZFYqmAe2771A6hi9ZMIkWrkBNtHIF1hF4"> here </a>. 
-            Barlow pits existing institutions against the internet; we see the key conflict not as old versus new, 
-            but as monopoly versus pluralism. That is, while Barlow’s “you” refers to the government, our “you” refers to corporate and political hegemonies of all kinds. 
-            Barlow emphasizes freedom of speech; we believe that this freedom must be accompanied with the freedom to design, govern, and own the environments that speech lives within. 
-            Barlow takes a highly individualistic framing; we believe in individual agency alongside mutualism, reciprocity, and collective creation. 
-            Barlow rejects embodiment; we recognize our digital identities and commitments to be interwoven with communities, societies, and relationships in the physical and material world. 
-            Finally, Barlow’s Declaration was authored individually; this text was collaboratively written with dozens of people contributing prose and feedback, 
-            and will always be open for signing. 
-          </p>
-            
-          <p className="pt-10" style={{'text-indent': '2rem'}}>
+          <p className="py-3" style={{'text-indent': '2rem'}}>
             In short, we want independence, yes, but also <em> interdependence</em>. 
           </p>
         
@@ -104,7 +92,6 @@ export default function About() {
            After substantial research and consideration, we felt that the pluriverse better captured the expansiveness of our spirit than Neal Stephenson’s 
            virtual-first “metaverse.” 
            Postcolonial thinkers and activists have conceived of the pluriverse as a counternarrative to the Western tendency to universalize values. 
-           In physics, the pluriverse or multiverse theory hypothesizes that there are many universes out there, not just the one we currently see. 
            The shared kernel among these definitions is that the pluriverse stands in favour of a multiplicity of worlds and cultures: an ethic that we hope to extend, 
            but not limit, to the expanding digital realm.
           </p> 
@@ -121,18 +108,16 @@ export default function About() {
           </p>
 
           <p style={{'text-indent': '2rem'}}>
-           The text itself was collaboratively written, with dozens of people contributing prose and feedback.
-            The Declaration was entered into the permaweb on Oct 31, 2021, via <a className="underline" href="https://viewblock.io/arweave/tx/pB-rlYjCZJcLK7205sjHzeci6DEsX2PU0xG00GYpahE"> Arweave </a> <sup> 2 </sup>,
-            in honour of the anniversary of the publication of the Bitcoin whitepaper.   
+           The text itself was collaboratively written, and entered into the permaweb on Oct 31, 2021, via <a className="underline" href="https://viewblock.io/arweave/tx/pB-rlYjCZJcLK7205sjHzeci6DEsX2PU0xG00GYpahE"> Arweave</a>. <sup> 2 </sup>
            </p>
 
           <p style={{'text-indent': '2rem'}}>
            The Pluriverse allows for the coexistence of many worlds and value systems; in the same spirit, 
-           all forks will be linked below the Declaration on our site. 
+           all forks of the Declaration will be linked below the text on our site. 
            Each document, its signatures, and its forks are committed to a permanent, 
            immutable, and decentralized historical archive that anyone can explore. 
-           Our site is one way among many possible ways to interface with these texts created here.
-           Upon our public launch, we will be open-sourcing the code for this site. 
+           Our site is one among many possible ways to interface with the texts created here.
+           Upon our public launch, we will be open-sourcing the code for this website. 
           </p>
           
           <p style={{'text-indent': '2rem'}}>
@@ -173,7 +158,6 @@ export default function About() {
 
           <p style={{'text-indent': '2rem'}}>
             How we define who contributed to the project depends so heavily on how we conceptualize the borders of our selfhood and how we relate to each other.
-
           </p>
 
           <p style={{'text-indent': '2rem'}}>
@@ -228,8 +212,9 @@ export default function About() {
               <sup> 3 </sup> Some have already suggested a fork of this Declaration to change this confrontational language, which would be a valuable addition to the conversation. 
               For example, the language in the declaration employs the terms you and yours as in conflict with us and ours. A fork focused on the economic implications is also underway. 
             </p>
-              <p className="text-left">
+            <p className="text-left">
               <sup> 4 </sup> In urban studies, desire paths are described as “[...] tracks made over time by the feet of walkers, especially those paths that run contrary to existing design or planning”.
+            </p>
           </div>
         </div>
       </footer>
