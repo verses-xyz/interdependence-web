@@ -90,7 +90,7 @@ export default function About() {
             In short, we want independence, yes, but also <em> interdependence</em>. 
           </p>
 
-{/*   TODO: Leave this in footnote, and also 
+        {/*   TODO: Leave this in footnote, and also 
           <p style={{'text-indent': '2rem'}}>
             We’d like to honor the history of the term “pluriverse,” which inspired and informed our vision. 
             After substantial research and consideration, we felt that the pluriverse better captured the expansiveness of our spirit than Neal Stephenson’s virtual-first “metaverse.” 
@@ -102,7 +102,8 @@ export default function About() {
           </p> */}
 
           <p style={{'text-indent': '2rem'}}>
-           In the spirit of the pluriverse, we recognize that our document represents a singular vision, even as a collectively written artifact. As such, we’ve built the infrastructure for others to author alternative verses now and into the future.         
+           In the spirit of the pluriverse, we recognize that our document represents a singular vision, even as a collectively written artifact. 
+           As such, we’ve built the infrastructure for others to author alternative verses now and into the future.         
           </p>
 
           <h2 className="pt-10 font-bold text-2xl text-title"> 2. The Pattern </h2>
@@ -184,12 +185,34 @@ export default function About() {
       </div>
     
     </div>
-    <footer className="py-10 font-mono text-center text-xs text-gray-600"> 
+    <footer className="py-10 font-mono text-center text-xs text-gray-600 items-center"> 
        <a 
         href={"/declaration"}
         className="px-2 border-purple-2004 border-b-2 rounded-xl"> 
           (Planted on the Permaweb. ☘️. Oct 31, 2021.)
        </a>
+      <div className="mt-10 
+        px-20
+        flex flex-col items-center 
+        font-body text-sm text-gray-600 content-center">
+
+        <div className="md:max-w-3xl">
+              ------------ 
+              <p className="text-left">
+               <sup> 1 </sup> 
+                In a subsequent work, we plan elaborate more fully on the term pluriverse, its history, and what future it proposes.
+               </p>
+              <p className="text-left"> 
+                <sup> 2 </sup> Unlike other blockchains,  Arweave does not require a significant expenditure of electricity to maintain its integrity, 
+                and is focused on preserving information. On the Arweave, block verifiers are akin to librarians, 
+                stewards of a sustainable and transparent storage system for our pluriverse.
+              </p>
+              <p className="text-left">
+              <sup> 3 </sup> Some have already suggested a fork of this Declaration to change this confrontational language, which would be a valuable addition to the conversation. 
+              For example, the language in the declaration employs the terms you and yours as in conflict with us and ours. A fork focused on the economic implications is also underway. 
+            </p>
+          </div>
+        </div>
       </footer>
     </>
   );
