@@ -35,7 +35,7 @@ export default function VerificationPopUp({ setStage, formData, sign }) {
 
   return (
     <Box
-      title={<p className="text-center"> Verify Tweet </p>}
+      title={<p className="text-center"> Verify tweet </p>}
       includeBorder={false}
       content={
         <div className="mt-8 mb-6">

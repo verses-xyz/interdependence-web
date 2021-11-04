@@ -28,12 +28,12 @@ export default function SocialProofPopup({ setStage, formData, sign }) {
 
   return (
     <Box
-      title={<p className="text-center"> Post Proof </p>}
+      title={<p className="text-center"> Post proof </p>}
       includeBorder={false}
       content={
         <div className="mt-8 mb-6">
           <p className="font-mono mx-6">
-            If you like, you can tweet a message to prove that you own this address. Return to this page afterwards to complete the verification. 
+            You can tweet a message to prove that you own this address. Return to this page afterwards to complete the verification. 
            </p>
 
            <div className="mt-12 mb-5 text-center">
@@ -46,11 +46,11 @@ export default function SocialProofPopup({ setStage, formData, sign }) {
               generateTweet(formData.sig)
               setStage(2)
             }}>
-              Post Proof
+              Post proof
             </Button>
           </div>
           <div className="text-center">
-            <button className="font-mono underline font-light text-gray-400" onClick={wrappedSign}>{loading ? <ScaleLoader color="black" height={12} width={3}/> : 'Sign Without Verification'}
+            <button className="font-mono underline font-light text-gray-400" onClick={wrappedSign}>{loading ? <ScaleLoader color="black" height={12} width={3}/> : 'Sign without verification'}
             </button>
           </div>
           <DisplayedError displayedError={displayedError}/>
