@@ -35,19 +35,19 @@ export default function VerificationPopUp({ setStage, formData, sign }) {
 
   return (
     <Box
-      title={<p className="text-center"> Verify tweet </p>}
+      title={<p className="text-center"> Complete verification </p>}
       includeBorder={false}
       content={
         <div className="mt-8 mb-6">
           <p className="font-mono mx-6">
-            Once you've tweeted, click below to verify:
+            After sending your tweet, click the button below to complete verification:
            </p>
            <div className="mt-12 mb-3 text-center">
             <Button
             primary
             onClick={verify}
             >
-              {loading ? <ScaleLoader color="white" height={12} width={3}/> : 'Verify Tweet'}
+              {loading ? <ScaleLoader color="white" height={12} width={3}/> : 'Verify tweet'}
             </Button>
           </div>
           <div className="text-center">
