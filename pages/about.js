@@ -216,7 +216,7 @@ export default function About() {
             </p>
             <p>
             <sup> 6 </sup>          
-              The meaning of authorship shifts heavily depending on how we draw the borders of our selfhood.
+              The meaning of authorship shifts heavily depending on how you draw the borders of your selfhood.
               Those of us who consciously contributed to this project through writing, coding, 
               feedback or support are created and influenced by many others: the communities that we are part of, 
               people who have taught us, and all the texts and stories that have shaped our worldviews. 
