@@ -49,7 +49,7 @@ export default function About() {
           <p style={{'text-indent': '2rem'}}>
             Our Declaration directly forks, or revises, John Perry Barlow’s 1996 {" "}
           <a href="https://www.eff.org/cyberspace-independence" className="underline"> 
-            Declaration for the Independence of Cyberspace.</a> (diff explorer <a className="underline" href="https://www.interdependence.online/diff/e-bw-AGkYsZFYqmAe2771A6hi9ZMIkWrkBNtHIF1hF4"> here</a>).
+            Declaration for the Independence of Cyberspace</a> (view the diff <a className="underline" href="https://www.interdependence.online/diff/e-bw-AGkYsZFYqmAe2771A6hi9ZMIkWrkBNtHIF1hF4"> here</a>).
             It is also a reaction to Facebook’s recent rebranding as Meta, and to the dominance of large, centralized companies on today’s Internet,
             those we refer to in the document as the "Closed Fiefdoms of the platform world".
           </p>
