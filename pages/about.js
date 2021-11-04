@@ -156,10 +156,6 @@ export default function About() {
           <h2 className="pt-10 font-bold text-2xl text-title"> 3. The Process </h2>
 
           <p style={{'text-indent': '2rem'}}>
-            How we define who contributed to the project depends so heavily on how we conceptualize the borders of our selfhood and how we relate to each other.
-          </p>
-
-          <p style={{'text-indent': '2rem'}}>
             Contributions came in a multitude of ways. People wrote, edited, and gave feedback. 
             People provided technical guidance; others implemented this site you’re currently visiting. 
             Some people came and simply expressed their care and encouragement. 
@@ -177,11 +173,6 @@ export default function About() {
             their support and claiming a work that is in actuality already theirs.          
           </p>
           
-          <p style={{'text-indent': '2rem'}}> 
-            We also owe debts to communities that we are part of, mentors who have taught us, ancestors who have written important texts that have shaped our ways of 
-            viewing the world.         
-          </p>
-
           <p style={{'text-indent': '2rem'}}>
             This work is a story, a pattern, and a process of interdependence. 
             By choosing to sign this document, you offer your support for the spirit of this work, and become part of the ongoing process of interdependence. 
@@ -224,13 +215,12 @@ export default function About() {
             <sup> 5 </sup> We hope to reimplement this with complete decentralization.
             </p>
             <p>
-            <sup> 6 </sup>               
-              The meaning of authorship shifts heavily depending on where the borders of the self are drawn.
-              Those who of us who consciously contributed to this project through writing, coding, 
+            <sup> 6 </sup>          
+              The meaning of authorship shifts depending on where the boundaries of the self are drawn.
+              Those of us who consciously contributed to this project through writing, coding, 
               feedback or support are created and influenced by many others: the communities that we are part of, 
               people who have taught us, and all the texts and stories that have shaped our worldviews. 
             </p>
-
           </div>
         </div>
       </footer>
