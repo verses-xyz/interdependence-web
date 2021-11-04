@@ -21,8 +21,9 @@ export default function About() {
             <div className="hidden sm:block flex-1">
             </div>
             <div className="flex-0 w-full flex justify-center sm:justify-end">
+              {/* unhide before launch */}
               <Button>
-                <a className="font-mono"
+                <a className="hidden font-mono"
                   href="/declaration"
                   >
                     Declaration →</a>
