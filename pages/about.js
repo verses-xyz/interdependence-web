@@ -90,6 +90,7 @@ export default function About() {
             In short, we want independence, yes, but also <em> interdependence</em>. 
           </p>
 
+{/*   TODO: Leave this in footnote, and also 
           <p style={{'text-indent': '2rem'}}>
             We’d like to honor the history of the term “pluriverse,” which inspired and informed our vision. 
             After substantial research and consideration, we felt that the pluriverse better captured the expansiveness of our spirit than Neal Stephenson’s virtual-first “metaverse.” 
@@ -98,7 +99,7 @@ export default function About() {
             In physics, meanwhile, the pluriverse describes a world as a plural collection of things, somewhat connected and somewhat not. 
             The shared kernel among these definitions is that the pluriverse stands in favour of a multiplicity of worlds and cultures: an ethic that we hope to extend, but not limit, to the expanding digital realm. 
             We plan to elaborate more fully on this language and its history in a subsequent work.
-          </p>
+          </p> */}
 
           <p style={{'text-indent': '2rem'}}>
            In the spirit of the pluriverse, we recognize that our document represents a singular vision, even as a collectively written artifact. As such, we’ve built the infrastructure for others to author alternative verses now and into the future.         
