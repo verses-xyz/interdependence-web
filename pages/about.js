@@ -46,60 +46,68 @@ export default function About() {
 
         <h2 className="pt-10 font-bold text-2xl text-title"> 1. The Story </h2>
           
-        <p style={{'text-indent': '2rem'}}>
-          Our Declaration directly forks, or revises, John Perry Barlow’s 1996 {" "}
-        <a href="https://www.eff.org/cyberspace-independence" className="underline"> 
-          Declaration for the Independence of Cyberspace.</a> {" "}
-          It is also a reaction to Facebook’s recent rebranding as Meta, 
-          and to the dominance of large, centralized companies on today’s 
-          Internet more generally: the “closed fiefdoms of the platform world” that we refer to in the document.
-        </p>
-
-        <p style={{'text-indent': '2rem'}}>
-        
-          Barlow’s Declaration quickly became part of the internet’s canon. 
-          He was responding to a particular historical moment: the United States passing the Telecommunications Act of 1996, which was the first telecommunications law to include the internet, 
-          and which censored the broadcasting of “indecent” and “offensive” speech. 
-          The same day the Declaration was published, the Electronic Frontier Foundation launched the successful “Great Web Blackout” protest against online censorship.
-        
-        </p>
-
-        <p style={{'text-indent': '2rem'}}>
-         
-          Today, we sit at another inflection point in the future history of a more interoperable, open internet. 
-          Facebook’s rebranding has made clear that they aim to control the contours of the online world. While Barlow’s 
-          Declaration captured similar dreams for a freer cyberspace, we found his document insufficient. 
-
-        </p>
-          
-        <p style={{'text-indent': '2rem'}}>
-
-          The diff from Barlow’s Declaration is available <a className="underline" href="https://www.interdependence.online/diff/e-bw-AGkYsZFYqmAe2771A6hi9ZMIkWrkBNtHIF1hF4"> here </a>. 
-          Barlow pits existing institutions against the internet; we see the key conflict not as old versus new, 
-          but as monopoly versus pluralism. That is, while Barlow’s “you” refers to the government, our “you” refers to corporate and political hegemonies of all kinds. 
-          Barlow emphasizes freedom of speech; we believe that this freedom must be accompanied with the freedom to design, govern, and own the environments that speech lives within. 
-          Barlow takes a highly individualistic framing; we believe in individual agency alongside mutualism, reciprocity, and collective creation. 
-          Barlow rejects embodiment; we recognize our digital identities and commitments to be interwoven with communities, societies, and relationships in the physical and material world. 
-          Finally, Barlow’s Declaration was authored individually; this text was collaboratively written with dozens of people contributing prose and feedback, 
-          and will always be open for signing. 
-
-
-        </p>
-          
           <p style={{'text-indent': '2rem'}}>
-            In short, we want independence, yes, but also <em> interdependence</em>. 
+            Our Declaration directly forks, or revises, John Perry Barlow’s 1996 {" "}
+          <a href="https://www.eff.org/cyberspace-independence" className="underline"> 
+            Declaration for the Independence of Cyberspace.</a> {" "} (view the diff <a className="underline" href="https://www.interdependence.online/diff/e-bw-AGkYsZFYqmAe2771A6hi9ZMIkWrkBNtHIF1hF4"> here </a>). 
+            It is also a reaction to Facebook’s recent rebranding as Meta, and to the dominance of large, centralized companies on today’s Internet,
+            those we refer to in the document as the "Closed Fiefdoms of the platform world".
           </p>
 
-        {/*   TODO: Leave this in footnote, and also 
           <p style={{'text-indent': '2rem'}}>
-            We’d like to honor the history of the term “pluriverse,” which inspired and informed our vision. 
-            After substantial research and consideration, we felt that the pluriverse better captured the expansiveness of our spirit than Neal Stephenson’s virtual-first “metaverse.” 
-            Postcolonial thinkers and activists have conceived of the pluriverse as a counternarrative to the hegemonic universalization of Western values. 
-            Citing anthropologist Arturo Escobar, the pluriverse is “not [merely] about ‘expanding the range of choices’ (liberal freedom) but is intended to transform the kinds of beings we desire to be.” 
-            In physics, meanwhile, the pluriverse describes a world as a plural collection of things, somewhat connected and somewhat not. 
-            The shared kernel among these definitions is that the pluriverse stands in favour of a multiplicity of worlds and cultures: an ethic that we hope to extend, but not limit, to the expanding digital realm. 
-            We plan to elaborate more fully on this language and its history in a subsequent work.
-          </p> */}
+          
+            Barlow’s Declaration quickly became part of the internet’s canon. 
+            He was responding to a particular historical moment: the United States passing the Telecommunications Act of 1996, which was the first telecommunications law to include the internet, 
+            and which censored the broadcasting of “indecent” and “offensive” speech. 
+            The same day the Declaration was published, the Electronic Frontier Foundation launched the successful “Great Web Blackout” protest against online censorship.
+          
+          </p>
+
+          <p style={{'text-indent': '2rem'}}>
+          
+            Today, we sit at another inflection point in the future history of a more interoperable, open internet. 
+            Facebook’s rebranding has made clear that they aim to control the contours of the online world. While Barlow’s 
+            Declaration captured similar dreams for a freer cyberspace, we found his document insufficient. 
+
+          </p>
+
+          <p style={{'text-indent': '2rem'}}>
+            Barlow pits existing institutions against the internet; we see the key conflict not as old versus new, but as monopoly versus pluralism. 
+            That is, while Barlow’s “you” refers to the government, our “you” refers to corporate and political hegemonies of all kinds. 
+            Barlow emphasizes freedom of speech; we believe that this freedom must be accompanied with the freedom to design, govern, and own the environments that speech lives within. 
+            Barlow takes a highly individualistic framing; we believe in individual agency alongside mutualism, reciprocity, and collective creation. 
+            Barlow rejects embodiment; we recognize our digital identities and commitments to be interwoven with communities, societies, 
+            and relationships in the material world. 
+            Finally, Barlow’s Declaration was authored individually; this text was collaboratively written with dozens of people contributing prose and feedback, 
+            and will always be open for signing. 
+          </p>
+
+            
+          <p style={{'text-indent': '2rem'}}>
+
+            The diff from Barlow’s Declaration is available <a className="underline" href="https://www.interdependence.online/diff/e-bw-AGkYsZFYqmAe2771A6hi9ZMIkWrkBNtHIF1hF4"> here </a>. 
+            Barlow pits existing institutions against the internet; we see the key conflict not as old versus new, 
+            but as monopoly versus pluralism. That is, while Barlow’s “you” refers to the government, our “you” refers to corporate and political hegemonies of all kinds. 
+            Barlow emphasizes freedom of speech; we believe that this freedom must be accompanied with the freedom to design, govern, and own the environments that speech lives within. 
+            Barlow takes a highly individualistic framing; we believe in individual agency alongside mutualism, reciprocity, and collective creation. 
+            Barlow rejects embodiment; we recognize our digital identities and commitments to be interwoven with communities, societies, and relationships in the physical and material world. 
+            Finally, Barlow’s Declaration was authored individually; this text was collaboratively written with dozens of people contributing prose and feedback, 
+            and will always be open for signing. 
+          </p>
+            
+          <p className="pt-10" style={{'text-indent': '2rem'}}>
+            In short, we want independence, yes, but also <em> interdependence</em>. 
+          </p>
+        
+          <p style={{'text-indent': '2rem'}}>
+           We’d like to honor the history of the term “pluriverse,” which inspired and informed our vision <sup> 1 </sup>. 
+           After substantial research and consideration, we felt that the pluriverse better captured the expansiveness of our spirit than Neal Stephenson’s 
+           virtual-first “metaverse.” 
+           Postcolonial thinkers and activists have conceived of the pluriverse as a counternarrative to the Western tendency to universalize values. 
+           In physics, the pluriverse or multiverse theory hypothesizes that there are many universes out there, not just the one we currently see. 
+           The shared kernel among these definitions is that the pluriverse stands in favour of a multiplicity of worlds and cultures: an ethic that we hope to extend, 
+           but not limit, to the expanding digital realm.
+          </p> 
 
           <p style={{'text-indent': '2rem'}}>
            In the spirit of the pluriverse, we recognize that our document represents a singular vision, even as a collectively written artifact. 
@@ -109,18 +117,28 @@ export default function About() {
           <h2 className="pt-10 font-bold text-2xl text-title"> 2. The Pattern </h2>
 
           <p style={{'text-indent': '2rem'}}> 
-            The ontology of this object, and how other related objects can be generated related to it, reflects the ethos of our Declaration. 
+             The ontology of this object, and how other related objects can be generated related to it, reflects the ethos of our Declaration.
           </p>
 
           <p style={{'text-indent': '2rem'}}>
-           The text itself was collaboratively written, with dozens of people contributing prose and feedback. 
+           The text itself was collaboratively written, with dozens of people contributing prose and feedback.
+            The Declaration was entered into the permaweb on Oct 31, 2021, via <a className="underline" href="https://viewblock.io/arweave/tx/pB-rlYjCZJcLK7205sjHzeci6DEsX2PU0xG00GYpahE"> Arweave </a> <sup> 2 </sup>,
+            in honour of the anniversary of the publication of the Bitcoin whitepaper.   
+           </p>
+
+          <p style={{'text-indent': '2rem'}}>
+           The Pluriverse allows for the coexistence of many worlds and value systems; in the same spirit, 
+           all forks will be linked below the Declaration on our site. 
+           Each document, its signatures, and its forks are committed to a permanent, 
+           immutable, and decentralized historical archive that anyone can explore. 
+           Our site is one way among many possible ways to interface with these texts created here.
+           Upon our public launch, we will be open-sourcing the code for this site. 
           </p>
           
           <p style={{'text-indent': '2rem'}}>
-            The Declaration was entered into the permaweb on Oct 31, 2021, via <a className="underline" href="https://viewblock.io/arweave/tx/pB-rlYjCZJcLK7205sjHzeci6DEsX2PU0xG00GYpahE"> Arweave </a>, 
-            in honour of the anniversary of the publication of the Bitcoin whitepaper. 
-            Unlike other blockchains,  Arweave does not require significant expenditure of electricity to maintain its integrity. 
-            On the Arweave, block verifiers are akin to librarians, stewards of a sustainable and transparent storage system for our pluriverse.
+            Building towards the pluriverse means building with an ethos of interdependence, in a way that is open, interoperable, and supports the commons. 
+           It means not reifying moats, including data moats, that restrict the freedom of all peoples to choose, individually or collectively, any web of relations, 
+           but paving existing desire paths <sup>4</sup> that others can freely choose to traverse, shape, and use.
           </p>
 
           <p style={{'text-indent': '2rem'}}>
@@ -154,8 +172,8 @@ export default function About() {
           <h2 className="pt-10 font-bold text-2xl text-title"> 3. The Process </h2>
 
           <p style={{'text-indent': '2rem'}}>
-            How we define who contributed to the project depends so heavily on how we conceptualize the borders of our selfhood and how we relate to each other, 
-            so we thought it was worth elaborating upon here. 
+            How we define who contributed to the project depends so heavily on how we conceptualize the borders of our selfhood and how we relate to each other.
+
           </p>
 
           <p style={{'text-indent': '2rem'}}>
@@ -178,7 +196,7 @@ export default function About() {
 
           <p style={{'text-indent': '2rem'}}>
             Thank you for reading this. 
-            This work is a story, a pattern, and a process of interdependence. We hope that it invites you to join us in co-creating a more sustainable web of relations online.     
+            This work is a story, a pattern, and a process of interdependence. We hope that it invites you to join the broader effort to co-create a more sustainable web of relations online.     
           </p>
 
         </div>
@@ -197,7 +215,6 @@ export default function About() {
         font-body text-sm text-gray-600 content-center">
 
         <div className="md:max-w-3xl">
-              ------------ 
               <p className="text-left">
                <sup> 1 </sup> 
                 In a subsequent work, we plan elaborate more fully on the term pluriverse, its history, and what future it proposes.
@@ -211,6 +228,8 @@ export default function About() {
               <sup> 3 </sup> Some have already suggested a fork of this Declaration to change this confrontational language, which would be a valuable addition to the conversation. 
               For example, the language in the declaration employs the terms you and yours as in conflict with us and ours. A fork focused on the economic implications is also underway. 
             </p>
+              <p className="text-left">
+              <sup> 4 </sup> In urban studies, desire paths are described as “[...] tracks made over time by the feet of walkers, especially those paths that run contrary to existing design or planning”.
           </div>
         </div>
       </footer>
