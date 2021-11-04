@@ -48,7 +48,7 @@ export default function About() {
         <h2 className="pt-10 font-bold text-2xl text-title"> 1. The Story </h2>
           
           <p style={{'text-indent': '2rem'}}>
-            Our Declaration directly forks, or revises, John Perry Barlow’s 1996 {" "}
+            Our Declaration is a revision of John Perry Barlow’s 1996 {" "}
           <a href="https://www.eff.org/cyberspace-independence" className="underline"> 
             Declaration for the Independence of Cyberspace</a> (view the diff <a className="underline" href="https://www.interdependence.online/diff/e-bw-AGkYsZFYqmAe2771A6hi9ZMIkWrkBNtHIF1hF4"> here</a>).
             It is also a reaction to Facebook’s recent rebranding as Meta, and to the dominance of large, centralized companies on today’s Internet,
@@ -57,7 +57,7 @@ export default function About() {
 
           <p style={{'text-indent': '2rem'}}>
           
-            Barlow’s Declaration quickly became part of the internet’s canon. 
+            Barlow’s Declaration quickly became part of the cyberpunk canon. 
             He was responding to a particular historical moment: the United States passing the Telecommunications Act of 1996, which was the first telecommunications law to include the internet, 
             and which censored the broadcasting of “indecent” and “offensive” speech. 
             The same day the Declaration was published, the Electronic Frontier Foundation launched the successful “Great Web Blackout” protest against online censorship.
@@ -214,8 +214,8 @@ export default function About() {
             <p className="text-left">
               <sup> 4 </sup> In urban studies, desire paths are described as “[...] tracks made over time by the feet of walkers, especially those paths that run contrary to existing design or planning”.
             </p>
-            <p> 
-            <sup> 5 </sup> While we wish we could have implemented this with complete decentralization, we realized that a much the more complicated onboarding process would have precluded many from participating as signers & writers.
+            <p className="text-left"> 
+            <sup> 5 </sup> We hope to reimplement this with complete decentralization.
             </p>
           </div>
         </div>
