@@ -123,7 +123,7 @@ export default function About() {
           <p style={{'text-indent': '2rem'}}>
             Building towards the pluriverse means building with an ethos of interdependence, in a way that is open, interoperable, and supports the commons. 
            It means not reifying moats, including data moats, that restrict the freedom of all peoples to choose, individually or collectively, any web of relations, 
-           but paving existing desire paths <sup>4</sup> that others can freely choose to traverse, shape, and use.
+           but paving existing desire paths<sup>4</sup> that others can freely choose to traverse, shape, and use.
           </p>
 
           <p style={{'text-indent': '2rem'}}>
