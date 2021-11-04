@@ -34,12 +34,11 @@ export default function Signatures({txId, sigs, setSigs}) {
     }
   }, [cursor])
 
-  const sigString = `${sortedSigs.length} Signature${sortedSigs.length !== 1 ? 's' : ''}`
-  const title = reachedEnd ? sigString : `Showing First ${sigString}`
+  // const sigString = `${sortedSigs.length} Signature${sortedSigs.length !== 1 ? 's' : ''}`
 
   return (
     <Box
-      title={title}
+      title={'Signatures'}
       content={<>
         {sortedSigs.map((sig, index) => <div className="font-mono w-full" key={sig.SIG_ADDR}>
           <div
