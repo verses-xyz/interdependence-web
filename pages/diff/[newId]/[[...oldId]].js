@@ -24,7 +24,7 @@ export default function Diff() {
           </h1>
           {!loading && <p className="font-body">
             Showing the difference between the{' '}
-            <a className="underline" href={oldDec.result.data.ancestor ? `/declaration/${oldDec.result.txId}` : 'https://www.eff.org/cyberspace-independence'}>original</a>{' '}
+            <a className="underline" href={oldDec.result.txId ? `/declaration/${oldDec.result.txId}` : 'https://www.eff.org/cyberspace-independence'}>original</a>{' '}
             which was written on{' '}
             {oldDec.result.data.timestamp}{' '}
             and the{' '}
