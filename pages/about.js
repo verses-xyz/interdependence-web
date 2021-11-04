@@ -162,15 +162,9 @@ export default function About() {
           </p>
 
           <p style={{'text-indent': '2rem'}}>
-            The canonical text is authorless, because it is authored in the spiritual sense by so many more people than we could feasibly name. 
-            This work is a gift from many to many<sup> 6 </sup>.  
-            Everyone who chooses to leave their name here is both offering their support and claiming a work that is in actuality already theirs.
-
-
-            We chose to leave the canonical text authorless because it is a gift, 
-            and authored in the spiritual sense by so many more people than we could 
-            feasibly name. Everyone who chooses to leave their name here is both offering 
-            their support and claiming a work that is in actuality already theirs.          
+            This work is authorless because it is authored in the spiritual sense by so many more people than we could feasibly name. 
+            We owe debts to communities that we are part of, teachers who have guided us, and ancestors in various lineages that we now steward. 
+            This work is thus a gift from many to many.         
           </p>
           
           <p style={{'text-indent': '2rem'}}>
@@ -213,13 +207,6 @@ export default function About() {
             </p>
             <p className="text-left"> 
             <sup> 5 </sup> We hope to reimplement this with complete decentralization.
-            </p>
-            <p>
-            <sup> 6 </sup>          
-              The meaning of authorship shifts heavily depending on how you draw the borders of your selfhood.
-              Those of us who consciously contributed to this project through writing, coding, 
-              feedback or support are created and influenced by many others: the communities that we are part of, 
-              people who have taught us, and all the texts and stories that have shaped our worldviews. 
             </p>
           </div>
         </div>
