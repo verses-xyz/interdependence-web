@@ -126,7 +126,7 @@ export default function About() {
             The Pluriverse allows for the coexistence of many worlds and value systems; in the same spirit, all forks will be linked below the Declaration on our site. 
             Each document, its signatures, and its forks are committed to a permanent, immutable, and decentralized historical archive that anyone can view. 
             Forks of the Declaration are automatically uploaded to Arweave upon creation; thus, our site is only one way among many possible ways to interface with that data. 
-            Upon our public launch, we will be open-sourcing the software for this website.
+            Upon our public launch, we will be open-sourcing the software for this website.<sup>6</sup>
           </p>
 
           <p style={{'text-indent': '2rem'}}> 
@@ -144,7 +144,7 @@ export default function About() {
           </p>
 
           <p style={{'text-indent': '2rem'}}>
-            This work is authorless because it is authored in the spiritual sense by so many more people than we could feasibly name. 
+            This work is authorless because it is authored in the spiritual sense by so many more people than we could feasibly name.<sup>7</sup> 
             We owe debts to communities that we are part of, teachers who have guided us, and ancestors in various lineages that we now steward. 
             This work is thus a gift from many to many.         
           </p>
