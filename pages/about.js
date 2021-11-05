@@ -208,6 +208,13 @@ export default function About() {
             <p className="text-left"> 
             <sup> 5 </sup> We hope to reimplement this with complete decentralization.
             </p>
+
+           <p>
+            <sup> 6 </sup> 
+            Those of us who consciously contributed to this project through writing, coding, 
+              feedback or support are created and influenced by many others: the communities that we are part of, 
+              people who have taught us, and all the texts and stories that have shaped our worldviews.  Therefore, the meaning of authorship shifts heavily depending on where the boundaries of our selfhood are drawn.
+            </p>
           </div>
         </div>
       </footer>
