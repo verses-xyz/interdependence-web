@@ -213,7 +213,8 @@ export default function About() {
             <sup> 6 </sup> 
             Those of us who consciously contributed to this project through writing, coding, 
               feedback or support are created and influenced by many others: the communities that we are part of, 
-              people who have taught us, and all the texts and stories that have shaped our worldviews.  Therefore, the meaning of authorship shifts heavily depending on where the boundaries of our selfhood are drawn.
+              people who have taught us, and all the texts and stories that have shaped our worldviews.  
+              The meaning of authorship depends heavily on how we draw the boundaries of our selfhood.
             </p>
           </div>
         </div>
