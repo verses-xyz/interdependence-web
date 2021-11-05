@@ -21,13 +21,12 @@ export default function About() {
             <div className="hidden sm:block flex-1">
             </div>
             <div className="flex-0 w-full flex justify-center sm:justify-end">
-              {/* unhide before launch */}
-              <Button>
-                <a className="hidden font-mono"
+              {/* <Button>
+                <a className="font-mono"
                   href="/declaration"
                   >
                     Declaration →</a>
-              </Button>
+              </Button> */}
             </div>
           </div>
         <h2 className="mt-20 text-3xl font-title w-full font-bold px-20 text-center">
@@ -55,20 +54,12 @@ export default function About() {
             those we refer to in the document as the "Closed Fiefdoms of the platform world".
           </p>
 
-          <p style={{'text-indent': '2rem'}}>
-          
-            Barlow’s Declaration quickly became part of the cyberpunk canon. 
-            He was responding to a particular historical moment: the United States passing the Telecommunications Act of 1996, which was the first telecommunications law to include the internet, 
-            and which censored the broadcasting of “indecent” and “offensive” speech. 
-            The same day the Declaration was published, the Electronic Frontier Foundation launched the successful “Great Web Blackout” protest against online censorship.
-          
-          </p>
 
           <p style={{'text-indent': '2rem'}}>
-          
+            Barlow’s Declaration quickly became part of the cyberpunk canon <sup> 1 </sup>. 
             Today, we sit at another inflection point in the future history of a more interoperable, open internet. 
             Facebook’s rebranding has made clear that they aim to control the contours of the online world. Barlow’s 
-            Declaration captured similar dreams for a freer cyberspace, but today we find his document insufficient. 
+            Declaration once captured similar dreams for a freer cyberspace, but today we find his document insufficient. 
 
           </p>
 
@@ -87,29 +78,20 @@ export default function About() {
           <p className="py-3" style={{'text-indent': '2rem'}}>
             In short, we want independence, yes, but also <em> interdependence</em>. 
           </p>
-        
-          <p style={{'text-indent': '2rem'}}>
-           We’d like to honor the history of the term “pluriverse,” which inspired and informed our vision <sup> 1 </sup>. 
-           After substantial research and consideration, we felt that the pluriverse better captured the expansiveness of our spirit than Neal Stephenson’s 
-           virtual-first “metaverse.” 
-           Postcolonial thinkers and activists have conceived of the pluriverse as a counternarrative to the Western tendency to universalize values. 
-           The shared kernel among these definitions is that the pluriverse stands in favour of a multiplicity of worlds and cultures: an ethic that we hope to extend, 
-           but not limit, to the expanding digital realm.
-          </p> 
 
           <p style={{'text-indent': '2rem'}}>
-           In the spirit of the pluriverse, we recognize that our document represents a singular vision, even as a collectively written artifact. 
+           In the spirit of the pluriverse,<sup> 2 </sup> we recognize that our document represents a singular vision, even as a collectively written artifact. 
            As such, we’ve built the infrastructure for others to author alternative verses now and into the future.         
           </p>
 
           <h2 className="pt-10 font-bold text-2xl text-title"> 2. The Pattern </h2>
 
           <p style={{'text-indent': '2rem'}}> 
-             The ontology of this object, and how other related objects can be generated related to it, reflects the ethos of our Declaration.
+             The ontology of this object, and how other related objects can be generated related to it, also reflects the ethos of our Declaration.
           </p>
 
           <p style={{'text-indent': '2rem'}}>
-           The text itself was collaboratively written, and entered into the permaweb on Oct 31, 2021, via <a className="underline" href="https://viewblock.io/arweave/tx/pB-rlYjCZJcLK7205sjHzeci6DEsX2PU0xG00GYpahE"> Arweave</a>. <sup> 2 </sup>
+           The text itself was collaboratively written, and entered into the permaweb on Oct 31, 2021, via <a className="underline" href="https://viewblock.io/arweave/tx/pB-rlYjCZJcLK7205sjHzeci6DEsX4PU0xG00GYpahE"> Arweave</a>.<sup>2</sup>
            </p>
 
           <p style={{'text-indent': '2rem'}}>
@@ -129,7 +111,7 @@ export default function About() {
 
           <p style={{'text-indent': '2rem'}}>
             Anyone can show their support for our Declaration by signing with their cryptographic wallet, a completely free transaction. 
-            A volunteer-run server is used to handle the hosting and forking transaction costs on behalf of the readers, signers, and writers of the Declaration<sup>5</sup>.
+            A volunteer-run server is used to handle the hosting and forking transaction costs on behalf of the readers, signers, and writers of the Declaration.<sup>5</sup>
           </p>
 
           <p style={{'text-indent': '2rem'}}>
@@ -177,7 +159,7 @@ export default function About() {
       </div>
     
     </div>
-    <footer className="py-10 font-mono text-center text-xs text-gray-600 items-center"> 
+    <footer className="py-10 font-mono text-center text-sm text-gray-600 items-center"> 
        <a 
         href={"/declaration"}
         className="px-2 border-purple-2004 border-b-2 rounded-xl"> 
@@ -188,29 +170,41 @@ export default function About() {
         flex flex-col items-center 
         font-body text-sm text-gray-600 content-center">
 
-        <div className="md:max-w-3xl">
+        <div className="md:max-w-3xl space-y-3">
               <p className="text-left">
-               <sup> 1 </sup> 
-                In a subsequent work, we plan elaborate more fully on the term pluriverse, its history, and what future it proposes.
+                <sup> 1 </sup>
+                  Barlow was responding to a particular historical moment: the United States passing the Telecommunications Act of 1996, which was the first telecommunications 
+                  law to include the internet, 
+                  and which censored the broadcasting of “indecent” and “offensive” speech. 
+                  The same day the Declaration was published, the Electronic Frontier Foundation launched the successful “Great Web Blackout” protest against online censorship.
+              </p>
+              <p className="text-left">
+               <sup> 2 </sup> 
+                We’d like to honor the history of the term “pluriverse,” which inspired and informed our vision <sup> 1 </sup>. 
+                After substantial research and consideration, we felt that the pluriverse better captured the expansiveness of our spirit than Neal Stephenson’s 
+                virtual-first “metaverse.” 
+                Postcolonial thinkers and activists have conceived of the pluriverse as a counternarrative to the Western tendency to universalize values. 
+                The shared kernel among these definitions is that the pluriverse stands in favour of a multiplicity of worlds and cultures: an ethic that we hope to extend, 
+                but not limit, to the expanding digital realm. In a subsequent work, we plan elaborate more fully on the term pluriverse, its history, and what future it proposes.
                </p>
               <p className="text-left"> 
-                <sup> 2 </sup> Unlike other blockchains,  Arweave does not require a significant expenditure of electricity to maintain its integrity, 
+                <sup> 3 </sup> Unlike other blockchains,  Arweave does not require a significant expenditure of electricity to maintain its integrity, 
                 and is focused on preserving information. On the Arweave, block verifiers are akin to librarians, 
                 stewards of a sustainable and transparent storage system for our pluriverse.
               </p>
               <p className="text-left">
-              <sup> 3 </sup> Some have already suggested a fork of this Declaration to change this confrontational language, which would be a valuable addition to the conversation. 
+              <sup> 4</sup> Some have already suggested a fork of this Declaration to change this confrontational language, which would be a valuable addition to the conversation. 
               For example, the language in the declaration employs the terms you and yours as in conflict with us and ours. A fork focused on the economic implications is also underway. 
             </p>
             <p className="text-left">
-              <sup> 4 </sup> In urban studies, desire paths are described as “[...] tracks made over time by the feet of walkers, especially those paths that run contrary to existing design or planning”.
+              <sup> 5 </sup> In urban studies, desire paths are described as “[...] tracks made over time by the feet of walkers, especially those paths that run contrary to existing design or planning”.
             </p>
             <p className="text-left"> 
-            <sup> 5 </sup> We hope to reimplement this with complete decentralization.
+            <sup> 6 </sup> We hope to reimplement this with complete decentralization.
             </p>
 
-           <p>
-            <sup> 6 </sup> 
+           <p className="text-left">
+            <sup> 7 </sup> 
             Those of us who consciously contributed to this project through writing, coding, 
               feedback or support are created and influenced by many others: the communities that we are part of, 
               people who have taught us, and all the texts and stories that have shaped our worldviews.  
