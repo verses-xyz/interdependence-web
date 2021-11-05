@@ -57,9 +57,9 @@ export default function About() {
 
           <p style={{'text-indent': '2rem'}}>
             Barlow’s Declaration quickly became part of the cyberpunk canon <sup> 1 </sup>. 
-            Today, we sit at another inflection point in the future history of a more interoperable, open internet. 
+            Today we sit at another inflection point in the trajectory of the internet. 
             Facebook’s rebranding has made clear that they aim to control the contours of the online world. Barlow’s 
-            Declaration once captured similar dreams for a freer cyberspace, but today we find his document insufficient. 
+            Declaration once captured dreams for a freer cyberspace, but today we find his document insufficient. 
 
           </p>
 
@@ -80,7 +80,7 @@ export default function About() {
           </p>
 
           <p style={{'text-indent': '2rem'}}>
-           In the spirit of the pluriverse,<sup> 2 </sup> we recognize that our document represents a singular vision, even as a collectively written artifact. 
+           In the spirit of the pluriverse<sup> 2 </sup>,we recognize that our document represents a singular vision, even as a collectively written artifact. 
            As such, we’ve built the infrastructure for others to author alternative verses now and into the future.         
           </p>
 
