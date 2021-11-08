@@ -201,7 +201,7 @@ export default function About() {
               <sup> 5 </sup> In urban studies, desire paths are described as “[...] tracks made over time by the feet of walkers, especially those paths that run contrary to existing design or planning”.
             </p>
             <p className="text-left"> 
-            <sup> 6 </sup> We hope to reimplement this with complete decentralization.
+            <sup> 6 </sup> We hope to reimplement this with complete decentralization. If you'd like to help, join the Discord server <a href="https://discord.gg/FPqr9JDA"> here</a>.
             </p>
 
            <p className="text-left">
