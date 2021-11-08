@@ -8,10 +8,10 @@ module.exports = {
       // },
       { // TODO: remove after we get all signatures
         source: '/declaration',
-        destination: '/about',
+        destination: '/declaration/e-bw-AGkYsZFYqmAe2771A6hi9ZMIkWrkBNtHIF1hF4',
         permanent: true,
       },
-      { // TODO: remove after we get all signatures
+      {
         source: '/',
         destination: '/about',
         permanent: true,

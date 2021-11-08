@@ -21,12 +21,12 @@ export default function About() {
             <div className="hidden sm:block flex-1">
             </div>
             <div className="flex-0 w-full flex justify-center sm:justify-end">
-              {/* <Button>
+              <Button>
                 <a className="font-mono"
                   href="/declaration"
                   >
                     Declaration →</a>
-              </Button> */}
+              </Button>
             </div>
           </div>
         <h2 className="mt-20 text-3xl font-title w-full font-bold px-20 text-center">
@@ -80,7 +80,7 @@ export default function About() {
           </p>
 
           <p style={{'text-indent': '2rem'}}>
-           In the spirit of the pluriverse<sup> 2 </sup>,we recognize that our document represents a singular vision, even as a collectively written artifact. 
+           In the spirit of the pluriverse<sup>2</sup>,we recognize that our document represents a singular vision, even as a collectively written artifact. 
            As such, we’ve built the infrastructure for others to author alternative verses now and into the future.         
           </p>
 
@@ -144,7 +144,8 @@ export default function About() {
           </p>
 
           <p style={{'text-indent': '2rem'}}>
-            This work is authorless because it is authored in the spiritual sense by so many more people than we could feasibly name.<sup>7</sup> 
+            This work is authorless because it is authored in the spiritual sense by so many more people than we could feasibly name.<sup>7 </sup> 
+            
             We owe debts to communities that we are part of, teachers who have guided us, and ancestors in various lineages that we now steward. 
             This work is thus a gift from many to many.         
           </p>
@@ -180,7 +181,7 @@ export default function About() {
               </p>
               <p className="text-left">
                <sup> 2 </sup> 
-                We’d like to honor the history of the term “pluriverse,” which inspired and informed our vision <sup> 1 </sup>. 
+                We’d like to honor the history of the term “pluriverse,” which inspired and informed our vision. 
                 After substantial research and consideration, we felt that the pluriverse better captured the expansiveness of our spirit than Neal Stephenson’s 
                 virtual-first “metaverse.” 
                 Postcolonial thinkers and activists have conceived of the pluriverse as a counternarrative to the Western tendency to universalize values. 
