@@ -56,7 +56,7 @@ export default function About() {
 
 
           <p style={{'text-indent': '2rem'}}>
-            Barlow’s Declaration quickly became part of the cyberpunk canon <sup> 1 </sup>. 
+            Barlow’s Declaration quickly became part of the cyberpunk canon.<sup>1 </sup> 
             Today we sit at another inflection point in the trajectory of the internet. 
             Facebook’s rebranding has made clear that they aim to control the contours of the online world. Barlow’s 
             Declaration once captured dreams for a freer cyberspace, but today we find his document insufficient. 
@@ -80,8 +80,8 @@ export default function About() {
           </p>
 
           <p style={{'text-indent': '2rem'}}>
-           In the spirit of the pluriverse<sup>2</sup>,we recognize that our document represents a singular vision, even as a collectively written artifact. 
-           As such, we’ve built the infrastructure for others to author alternative verses now and into the future.         
+           In the spirit of the pluriverse, we recognize that our document represents a singular vision, even as a collectively written artifact. 
+           As such, we’ve built the infrastructure for others to author alternative verses now and into the future.<sup>2</sup>         
           </p>
 
           <h2 className="pt-10 font-bold text-2xl text-title"> 2. The Pattern </h2>
@@ -91,22 +91,22 @@ export default function About() {
           </p>
 
           <p style={{'text-indent': '2rem'}}>
-           The text itself was collaboratively written, and entered into the permaweb on Oct 31, 2021, via <a className="underline" href="https://viewblock.io/arweave/tx/pB-rlYjCZJcLK7205sjHzeci6DEsX4PU0xG00GYpahE"> Arweave</a>.<sup>2</sup>
+           The text itself was collaboratively written, and entered into the permaweb on Oct 31, 2021, via <a className="underline" href="https://viewblock.io/arweave/tx/pB-rlYjCZJcLK7205sjHzeci6DEsX4PU0xG00GYpahE"> Arweave</a>.<sup>3</sup>
            </p>
 
           <p style={{'text-indent': '2rem'}}>
            The Pluriverse allows for the coexistence of many worlds and value systems; in the same spirit, 
            all forks of the Declaration will be linked below the text on our site. 
-           Each document, its signatures, and its forks are committed to a permanent, 
+           Each document, its signatures, and its forks are committed to an
            immutable, and decentralized historical archive that anyone can explore. 
            Our site is one among many possible ways to interface with the texts created here.
-           Upon our public launch, we will be open-sourcing the code for this website. 
+           Soon after our public launch, we will be open-sourcing the code for this website. 
           </p>
           
           <p style={{'text-indent': '2rem'}}>
             Building towards the pluriverse means building with an ethos of interdependence, in a way that is open, interoperable, and supports the commons. 
            It means not reifying moats, including data moats, that restrict the freedom of all peoples to choose, individually or collectively, any web of relations, 
-           but paving existing desire paths<sup>4</sup> that others can freely choose to traverse, shape, and use.
+           but paving existing desire paths that others can freely choose to traverse, shape, and use.<sup>4</sup>
           </p>
 
           <p style={{'text-indent': '2rem'}}>
@@ -145,7 +145,8 @@ export default function About() {
 
           <p style={{'text-indent': '2rem'}}>
             This work is authorless because it is authored in the spiritual sense by so many more people than we could feasibly name.<sup>7 </sup> 
-            
+          </p>
+          <p style={{'text-indent': '2rem'}}>
             We owe debts to communities that we are part of, teachers who have guided us, and ancestors in various lineages that we now steward. 
             This work is thus a gift from many to many.         
           </p>
@@ -201,7 +202,7 @@ export default function About() {
               <sup> 5 </sup> In urban studies, desire paths are described as “[...] tracks made over time by the feet of walkers, especially those paths that run contrary to existing design or planning”.
             </p>
             <p className="text-left"> 
-            <sup> 6 </sup> We hope to reimplement this with complete decentralization. If you'd like to help, join the Discord server <a href="https://discord.gg/FPqr9JDA"> here</a>.
+            <sup> 6 </sup> We hope to reimplement this with complete decentralization. If you'd like to help, join the Discord server <a href="https://discord.gg/FPqr9JDA" className="underline"> here</a>. If you'd like to support in other ways, here's our <a href="https://etherscan.io/address/0x938A59F111FcB46E7534B01FE53dD774480594Bc"> multisig </a>.
             </p>
 
            <p className="text-left">
