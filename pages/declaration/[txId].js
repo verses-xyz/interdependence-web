@@ -10,7 +10,6 @@ import { useRouter } from 'next/router';
 import React from "react";
 
 export const CANONICAL = "e-bw-AGkYsZFYqmAe2771A6hi9ZMIkWrkBNtHIF1hF4";
-export const ORIGINAL = "pB-rlYjCZJcLK7205sjHzeci6DEsX4PU0xG00GYpahE"
 function Header({ show }) {
   return (
   <div className="flex w-full">

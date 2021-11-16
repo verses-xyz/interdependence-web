@@ -158,26 +158,12 @@ export async function fetchSignatures(txId, prevTx) {
     return tag ? tag.value : defaultValue;
   }
 
-  const unique_tx = new Set();
-  const unique_verif_tx = new Set();
   return req.data.transactions.edges.flatMap(nodeItem => {
     const cursor = nodeItem.cursor;
     const n = nodeItem.node;
     const sig = safeTag(n, SIG_ADDR, "UNKWN");
     const handle = safeTag(n, SIG_HANDLE, "UNSIGNED");
     const verified = safeTag(n, SIG_ISVERIFIED, 'false') === 'true'
-
-    if (verified) {
-      if (unique_verif_tx.has(sig)) {
-        return [];
-      }
-      unique_verif_tx.add(sig);
-    } else {
-      if (unique_tx.has(sig)) {
-        return [];
-      }
-      unique_tx.add(sig);
-    }
 
     return [{
       CURSOR: cursor,
@@ -191,6 +177,22 @@ export async function fetchSignatures(txId, prevTx) {
   });
 }
 
+export function dedupe(sigs) {
+  const unique_set = sigs.reduce((total, cur) => {
+    if (!total.hasOwnProperty(cur.SIG_ADDR)) {
+      // unique addr
+      total[cur.SIG_ADDR] = cur
+    } else {
+      const old = total[cur.SIG_ADDR]
+      // dupe, can overwrite it current one is verified or old one is not verified
+      if (cur.SIG_ISVERIFIED || !old.SIG_ISVERIFIED) {
+        total[cur.SIG_ADDR] = cur
+      }
+    }
+    return total
+  }, {})
+  return Object.values(unique_set)
+}
 
 export function sortSigs(sigs) {
   const TEAM = {
@@ -208,9 +210,6 @@ export function sortSigs(sigs) {
   const priority = sig => {
     if (sig.SIG_ADDR in TEAM) {
       return TEAM[sig.SIG_ADDR]
-    }
-    if (sig.SIG_ISVERIFIED) {
-      return -1
     }
     return 1
   }

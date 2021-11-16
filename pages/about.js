@@ -1,6 +1,6 @@
 import Head from "next/head";
 import HeadComponent from "../components/Head";
-
+import ReactMarkdown from 'react-markdown'
 import Button from '../components/core/Button';
 
 export default function About() {

@@ -1,7 +1,7 @@
 import Box from "./core/Box";
 import Checkmark from './core/icons/Checkmark';
 import React from "react";
-import {fetchSignatures, sortSigs} from "../arweaveFns";
+import {dedupe, fetchSignatures, sortSigs} from "../arweaveFns";
 
 const cleanHandle = (handle, address, verified) => {
   if (verified) {
@@ -22,7 +22,7 @@ export default function Signatures({txId, sigs, setSigs}) {
 
   React.useEffect(() => {
     setCursor(sigs[sigs.length-1] && sigs[sigs.length-1].CURSOR)
-    setSortedSigs(sortSigs(sigs))
+    setSortedSigs(sortSigs(dedupe(sigs)))
   }, [sigs])
 
   const fetchMore = React.useCallback(async () => {
@@ -33,9 +33,7 @@ export default function Signatures({txId, sigs, setSigs}) {
       setSigs(oldSigs => [...oldSigs, ...newSigs])
     }
   }, [cursor])
-
-  // const sigString = `${sortedSigs.length} Signature${sortedSigs.length !== 1 ? 's' : ''}`
-
+  
   return (
     <Box
       title={'Signatures'}
