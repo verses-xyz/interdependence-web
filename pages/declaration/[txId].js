@@ -8,6 +8,7 @@ import {useAsync} from "react-async-hook";
 import BarLoader from "react-spinners/BarLoader";
 import { useRouter } from 'next/router';
 import React from "react";
+import ReactMarkdown from 'react-markdown'
 
 export const CANONICAL = "e-bw-AGkYsZFYqmAe2771A6hi9ZMIkWrkBNtHIF1hF4";
 function Header({ show }) {
@@ -35,7 +36,7 @@ function Body({ txId, data, status }) {
       }
     }, [maybeSigs.result])
 
-    const {declaration, authors, timestamp, ancestor} = data;
+    const {declaration, title, authors, timestamp, ancestor} = data;
 
     const isOriginal = ancestor === ""
     const ancestorText = isOriginal ? "A Declaration of the Independence of Cyberspace" : ancestor.slice(0, 12)
@@ -46,7 +47,8 @@ function Body({ txId, data, status }) {
       <hr/>
       
       <div className="md:mx-4 mt-16 md:mt-20 font-body leading-9 text-gray-primary text-2xl text-left max-w-2xl whitespace-pre-wrap">
-        {declaration}
+        {title && <h2>{title}</h2>}
+        <ReactMarkdown>{declaration}</ReactMarkdown>
         <p className="font-bold text-left text-gray-primary font-title text-2xl mt-8">{timestamp}</p>
         <p className="font-mono text-gray-placeholder text-base mt-8">
           This document lives on Arweave at transaction <a className="underline" href={`https://viewblock.io/arweave/tx/${txId}`}>{txId.slice(0,12)}</a>.
@@ -106,7 +108,7 @@ export default function Declaration() {
       <HeadComponent/>
       <main className="flex flex-col items-center min-h-screen w-full flex-1 px-4 lg:px-8 text-center">
         <Header show={!maybeDeclaration.loading} />
-        <div className="w-full">
+        <div className="w-3/5">
           <h1 className="text-4xl font-title mt-16 mb-16 md:mb-20 md:text-7xl font-semibold text-gray-primary">
             A Declaration
             <span className="text-2xl block font-light italic -mb-5 md:-mb-1 mt-1 md:mt-4 text-xl md:text-4xl text-gray-primary">of the</span>

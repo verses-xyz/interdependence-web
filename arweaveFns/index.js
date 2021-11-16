@@ -41,10 +41,11 @@ const jsonOrErrorHandler = async response => {
   }
 }
 
-export async function forkDeclaration(oldTxId, newText, authors) {
+export async function forkDeclaration(oldTxId, title, text, authors) {
   const formData = new URLSearchParams({
     authors: JSON.stringify(authors),
-    newText,
+    title,
+    text,
   });
 
   return fetch(`${SERVER_URL}/fork/${oldTxId}`, {

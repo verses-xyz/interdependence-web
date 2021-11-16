@@ -43,7 +43,7 @@ export default function Fork({text, txId}) {
   }
   const onSubmit = (data) => {
     setIsLoading(true)
-    forkDeclaration(txId, data.declaration, [])
+    forkDeclaration(txId, data.title, data.declaration, [])
       .then(data => window.location.href = `/declaration/${data.id}`)
       .finally(() => setIsLoading(false))
   }
@@ -69,6 +69,7 @@ export default function Fork({text, txId}) {
         <form onSubmit={handleSubmit(onSubmit)} className="w-full h-full font-body bg-gray-50 pb-2">
           <div className="font-mono font-bold text-center py-3.5 bg-gray-wash text-gray-secondary border-b border-gray-detail">Fork the Declaration</div>
           <div className="pt-4 pb-3 px-5 bg-gray-50">
+            <input {...register("title")} type="text" placeholder="A Declaration of the Interdependence of Cyberspace" className="border border-gray-detail rounded-lg px-5 py-2 mb-4 w-full max-h-80 outline-none font-mono text-sm" />
             <textarea {...register("declaration")} className="resize-none border border-gray-detail rounded-lg px-5 py-4 w-full max-h-80 outline-none font-mono text-sm" rows={24}/>
           </div>
           <div className="flex px-6">

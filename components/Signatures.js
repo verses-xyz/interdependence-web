@@ -33,7 +33,7 @@ export default function Signatures({txId, sigs, setSigs}) {
       setSigs(oldSigs => [...oldSigs, ...newSigs])
     }
   }, [cursor])
-  
+
   return (
     <Box
       title={'Signatures'}
