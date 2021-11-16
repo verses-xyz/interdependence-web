@@ -39,8 +39,8 @@ export default function Diff() {
             compareMethod="diffWords"
             leftTitle="Original"
             rightTitle="Fork"
-            oldValue={oldDec.result.data.declaration}
-            newValue={newDec.result.data.declaration}
+            oldValue={oldDec.result.data.body}
+            newValue={newDec.result.data.body}
             splitView={true}
             styles={{
               contentText: {

@@ -36,7 +36,7 @@ function Body({ txId, data, status }) {
       }
     }, [maybeSigs.result])
 
-    const {declaration, title, authors, timestamp, ancestor} = data;
+    const {body, title, authors, timestamp, ancestor} = data;
 
     const isOriginal = ancestor === ""
     const ancestorText = isOriginal ? "A Declaration of the Independence of Cyberspace" : ancestor.slice(0, 12)
@@ -45,10 +45,9 @@ function Body({ txId, data, status }) {
     const parsedAuthors = Array.isArray(authors) ? authors : JSON.parse(authors || "[]");
     return (<>
       <hr/>
-      
-      <div className="md:mx-4 mt-16 md:mt-20 font-body leading-9 text-gray-primary text-2xl text-left max-w-2xl whitespace-pre-wrap">
-        {title && <h2>{title}</h2>}
-        <ReactMarkdown>{declaration}</ReactMarkdown>
+      <div className="md:mx-4 mt-16 md:mt-20 font-body text-gray-primary text-left max-w-2xl">
+        {title && <h2 className="text-4xl my-16 font-bold text-center">{title}</h2>}
+        <ReactMarkdown className="prose prose-2xl">{body}</ReactMarkdown>
         <p className="font-bold text-left text-gray-primary font-title text-2xl mt-8">{timestamp}</p>
         <p className="font-mono text-gray-placeholder text-base mt-8">
           This document lives on Arweave at transaction <a className="underline" href={`https://viewblock.io/arweave/tx/${txId}`}>{txId.slice(0,12)}</a>.
@@ -67,7 +66,7 @@ function Body({ txId, data, status }) {
 
       <hr className="my-20" />
       <div id="signatureForm" className="mx-4 w-full max-w-2xl">
-        <Sign txId={txId} declaration={declaration} />
+        <Sign txId={txId} declaration={body} />
       </div>
       <div className="mt-8 mx-4 max-w-2xl w-full">
         {(maybeSigs.loading || maybeSigs.error) ?
@@ -81,7 +80,7 @@ function Body({ txId, data, status }) {
 
       <hr className="my-20" />
         <div className="mx-4 w-full max-w-2xl">
-          <Fork text={declaration} txId={txId} />
+          <Fork text={body} txId={txId} />
         </div>
     </>);
   } else if (status === 202) {

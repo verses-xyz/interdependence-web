@@ -14,6 +14,13 @@ module.exports = {
     }),
 
     extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            color: '#000',
+          }
+        }
+      },
       outline: {
         blue: '4px solid #ECECEC',
       },
@@ -54,5 +61,6 @@ module.exports = {
     },
   },
   plugins: [
+    require('@tailwindcss/typography'),
   ],
 };

@@ -243,7 +243,7 @@ export async function getDeclaration(txId) {
   }, {});
 
   // ensure correct type, return undefined otherwise
-  if (!(DOC_TYPE in tags) || tags[DOC_TYPE] !== 'declaration') {
+  if (!(DOC_TYPE in tags) || !['document', 'declaration'].includes(tags[DOC_TYPE])) {
     return res;
   }
 
@@ -252,12 +252,14 @@ export async function getDeclaration(txId) {
   const blockMeta = await arweave.blocks.get(blockId);
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
   const time = new Date(blockMeta.timestamp * 1000);
-  const data = await arweave.transactions.getData(txId, {
+  const data = JSON.parse(await arweave.transactions.getData(txId, {
     decode: true,
     string: true,
-  });
+  }));
+  data.body = data.document || data.declaration // backwards compatability
+
   res.data = {
-    ...JSON.parse(data),
+    ...data,
     timestamp: time.toLocaleDateString('en-US', options),
     ancestor: tags[DOC_ORIGIN],
   };

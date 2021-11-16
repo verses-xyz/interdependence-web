@@ -6,6 +6,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@tailwindcss/typography": "^0.4.1",
     "ab-react-diff-viewer": "*",
     "arbundles": "^0.2.10",
     "arweave": "^1.10.18",
