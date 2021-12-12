@@ -1,4 +1,4 @@
-# Declaration of Interdependence of Cyberspace
+# interdependence-web
 
 Running the application locally:
 
