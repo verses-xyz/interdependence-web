@@ -14,16 +14,6 @@ function init() {
 
 const arweave = init();
 
-// const ADMIN_ACCT = "aek33fcNH1qbb-SsDEqBF1KDWb8R1mxX6u4QGoo3tAs";
-// const DOC_TYPE = "interdependence_doc_type";
-// const DOC_ORIGIN = "interdependence_doc_origin";
-// const DOC_REF = "interdependence_doc_ref";
-// const SIG_NAME = "interdependence_sig_name";
-// const SIG_HANDLE = "interdependence_sig_handle";
-// const SIG_ADDR = "interdependence_sig_addr";
-// const SIG_ISVERIFIED = "interdependence_sig_verified";
-// const SIG_SIG = "interdependence_sig_signature";
-
 const ADMIN_ACCT = "7PJVjPh9DJ0OOYtdb6bkVXEnBx2tebKb7VlrqPxdwbc";
 const DOC_TYPE = "charter_doc_type";
 const DOC_REF = "charter_doc_ref";
@@ -32,7 +22,6 @@ const SIG_HANDLE = "charter_sig_handle";
 const SIG_ADDR = "charter_sig_addr";
 const SIG_ISVERIFIED = "charter_sig_verified";
 const SIG_SIG = "charter_sig_signature";
-
 
 const SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:8080";
 
