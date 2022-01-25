@@ -3,19 +3,19 @@ import Button from './core/Button';
 
 
 const generateTweet = () => {
-  const str = `I just signed A Declaration for the Interdependence of Cyberspace! interdependence.online`;
+  const str = `I just signed the KONG Land Charter. kong.land`;
   window.open(`https://twitter.com/intent/tweet?text=${encodeURI(str)}`);
 }
 
 export default function SocialProofConfirmation({ closeModal }) {
     return (
       <Box
-        title={<p className="text-center"> Thank you for signing! </p>}
+        title={<p className="text-center"> Your signature on the KONG Land Charter has been recorded. </p>}
         includeBorder={false}
         content={
             <div className="mt-8 mb-6">
                 <p className="font-mono mx-6 mb-6">
-                  We're heartened you'll join us in the Pluriverse. {/* If you have a moment, please share what this vision means to you.*/}
+                  Support KONG Land, Support the $CITIZENs.
                 </p>
                 
                 <div className="mt-12 mb-3 text-center">

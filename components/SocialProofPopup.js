@@ -6,7 +6,7 @@ import {DisplayedError} from "./Sign";
 import TwitterIconBlack from "./core/icons/TwitterIconBlack";
 
 const generateTweet = (sig) => {
-  const str = `I am verifying for @verses_xyz: sig:${sig}`;
+  const str = `I am verifying for @kongiscash: sig:${sig}`;
   window.open(`https://twitter.com/intent/tweet?text=${encodeURI(str)}`);
 }
 

@@ -1,7 +1,6 @@
 // Arweave and Ethereum signing utilities.
 import Arweave from 'arweave';
 import {ethers} from "ethers";
-import og from "./og";
 
 function init() {
   return Arweave.init({
@@ -15,15 +14,25 @@ function init() {
 
 const arweave = init();
 
-const ADMIN_ACCT = "aek33fcNH1qbb-SsDEqBF1KDWb8R1mxX6u4QGoo3tAs";
-const DOC_TYPE = "interdependence_doc_type";
-const DOC_ORIGIN = "interdependence_doc_origin";
-const DOC_REF = "interdependence_doc_ref";
-const SIG_NAME = "interdependence_sig_name";
-const SIG_HANDLE = "interdependence_sig_handle";
-const SIG_ADDR = "interdependence_sig_addr";
-const SIG_ISVERIFIED = "interdependence_sig_verified";
-const SIG_SIG = "interdependence_sig_signature";
+// const ADMIN_ACCT = "aek33fcNH1qbb-SsDEqBF1KDWb8R1mxX6u4QGoo3tAs";
+// const DOC_TYPE = "interdependence_doc_type";
+// const DOC_ORIGIN = "interdependence_doc_origin";
+// const DOC_REF = "interdependence_doc_ref";
+// const SIG_NAME = "interdependence_sig_name";
+// const SIG_HANDLE = "interdependence_sig_handle";
+// const SIG_ADDR = "interdependence_sig_addr";
+// const SIG_ISVERIFIED = "interdependence_sig_verified";
+// const SIG_SIG = "interdependence_sig_signature";
+
+const ADMIN_ACCT = "7PJVjPh9DJ0OOYtdb6bkVXEnBx2tebKb7VlrqPxdwbc";
+const DOC_TYPE = "charter_doc_type";
+const DOC_REF = "charter_doc_ref";
+const SIG_NAME = "charter_sig_name";
+const SIG_HANDLE = "charter_sig_handle";
+const SIG_ADDR = "charter_sig_addr";
+const SIG_ISVERIFIED = "charter_sig_verified";
+const SIG_SIG = "charter_sig_signature";
+
 
 const SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL || "http://localhost:8080";
 
@@ -41,40 +50,27 @@ const jsonOrErrorHandler = async response => {
   }
 }
 
-export async function forkDeclaration(oldTxId, title, text, authors) {
-  const formData = new URLSearchParams({
-    authors: JSON.stringify(authors),
-    title,
-    text,
-  });
-
-  return fetch(`${SERVER_URL}/fork/${oldTxId}`, {
-    method: 'post',
-    body: formData,
-  }).then(jsonOrErrorHandler)
-}
-
-export async function generateSignature(declaration) {
+export async function generateSignature(charter) {
   if (!window.ethereum) {
     throw new Error("No wallet found. Please install Metamask or another Web3 wallet provider.");
   }
 
-  // Sign the declaration. Any errors here should be handled by the caller.
+  // Sign the charter. Any errors here should be handled by the caller.
   await window.ethereum.request({ method: "eth_requestAccounts" });
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const signer = provider.getSigner();
-  return await signer.signMessage(declaration.trim())
+  return await signer.signMessage(charter.trim())
 }
 
 const cleanHandle = handle => handle[0] === "@" ? handle.substring(1) : handle;
 
-export async function signDeclaration(txId, name, userProvidedHandle, declaration, signature) {
+export async function signCharter(txId, name, userProvidedHandle, charter, signature) {
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const signer = provider.getSigner();
   const address = await signer.getAddress();
 
   // Verify the signature, and print to console for convenience
-  const verifyingAddress = ethers.utils.verifyMessage(declaration.trim(), signature);
+  const verifyingAddress = ethers.utils.verifyMessage(charter.trim(), signature);
   if (verifyingAddress !== address) {
     throw new Error("Signature mismatch")
   }
@@ -107,7 +103,7 @@ export async function verifyTwitter(sig, handle) {
 Transactions are mined into Arweave blocks in 60 mins
 So signature query order is roughly buckets by that
 */}
-export async function fetchSignatures(txId, prevTx) {
+export async function fetchSignatures(txId) {
   const req = await fetch('https://arweave.net/graphql', {
     method: 'POST',
     headers: {
@@ -120,7 +116,6 @@ export async function fetchSignatures(txId, prevTx) {
         transactions(
           first: 50,
           sort: HEIGHT_ASC,
-          ${prevTx ? `after: "${prevTx}",` : ''}
           tags: [
             {
               name: "${DOC_TYPE}",
@@ -195,34 +190,46 @@ export function dedupe(sigs) {
   return Object.values(unique_set)
 }
 
-export function sortSigs(sigs) {
-  const TEAM = {
-    "0x29668d39c163f64a1c177c272a8e2D9ecc85F0dE": -10,
-    "0x35E61b11f1c05271B9369E324d6b4305f6aCB639": -9,
-    "0xbb806e75c7e71AD07dbEfd2B1B5DA2689A147340": -8,
-    "0x8416146b19e755B7Ad75914a57a2c77ca894B4DC": -7,
-    "0x6f9627aF4313508a4FB7E53577F7Fc55297A40A0": -6,
-    "0x34C3A5ea06a3A67229fb21a7043243B0eB3e853f": -5,
-    "0x99ed527BE6DF7a8196cECfE568ca03BC08863Ea5": -4,
-    "0x0f170e97a52c465DbfFFa573370e403F703C7D73": -3,
-    "0xBBA0A1e1bE58f5e03425890ae121f3BaA2F95a77": -2,
-  }
+export function compareSigs(snapAddrs, sigs) {
+  const addrScores = [];
+  snapAddrs.forEach((addr, index) => {
 
-  const priority = sig => {
-    if (sig.SIG_ADDR in TEAM) {
-      return TEAM[sig.SIG_ADDR]
-    }
-    return 1
-  }
+    var score = 0
 
-  return sigs.sort((a, b) => priority(a) - priority(b));
+    const checkAddr = obj => obj.SIG_ADDR === addr;
+    if (sigs.some(checkAddr)) score = 1
+
+    const scoreJSON = {"score":score, "address":addr}
+    addrScores.push(scoreJSON)
+  })
+  return addrScores
 }
 
-export async function getDeclaration(txId) {
-  if (!txId) {
-    return og
-  }
+export function sortSigs(sigs) {
+  // const TEAM = {
+  //   "": -10,
+  //   "": -9,
+  //   "": -8,
+  //   "": -7,
+  //   "": -6,
+  //   "": -5,
+  //   "": -4,
+  //   "": -3,
+  //   "": -2,
+  // }
 
+  // const priority = sig => {
+  //   if (sig.SIG_ADDR in TEAM) {
+  //     return TEAM[sig.SIG_ADDR]
+  //   }
+  //   return 1
+  // }
+
+  // return sigs.sort((a, b) => priority(a) - priority(b));
+  return sigs;
+}
+
+export async function getCharter(txId) {
   const res = {
     txId,
     data: {},
@@ -243,7 +250,7 @@ export async function getDeclaration(txId) {
   }, {});
 
   // ensure correct type, return undefined otherwise
-  if (!(DOC_TYPE in tags) || !['document', 'declaration'].includes(tags[DOC_TYPE])) {
+  if (!(DOC_TYPE in tags) || !['document', 'charter'].includes(tags[DOC_TYPE])) {
     return res;
   }
 
@@ -256,12 +263,11 @@ export async function getDeclaration(txId) {
     decode: true,
     string: true,
   }));
-  data.body = data.document || data.declaration // backwards compatability
+  data.body = data.document || data.charter // backwards compatability
 
   res.data = {
     ...data,
     timestamp: time.toLocaleDateString('en-US', options),
-    ancestor: tags[DOC_ORIGIN],
   };
 
   res.status = 200;

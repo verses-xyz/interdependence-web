@@ -1,6 +1,5 @@
-import {getDeclaration, fetchSignatures} from "../../arweaveFns";
+import {getCharter, fetchSignatures} from "../../arweaveFns";
 import Sign from "../../components/Sign";
-import Fork from "../../components/Fork";
 import Signatures from "../../components/Signatures";
 import HeadComponent from "../../components/Head";
 import Button from "../../components/core/Button";
@@ -10,14 +9,12 @@ import { useRouter } from 'next/router';
 import React from "react";
 import ReactMarkdown from 'react-markdown'
 
-export const CANONICAL = "e-bw-AGkYsZFYqmAe2771A6hi9ZMIkWrkBNtHIF1hF4";
+const CANONICAL = process.env.CANONICAL || "mJvuy-UJ1dP_30HYx1QJtGuNJDvTB2PWCd-Ebi1bUBE";
+
 function Header({ show }) {
   return (
   <div className="flex w-full">
     <div className={(show ? 'opacity-100' : 'opacity-0') + " transition duration-500 flex-0 w-full space-x-2 lg:space-x-4 flex justify-end"}>
-      <Button>
-        <a className="font-mono" href="/about">About</a>
-      </Button>
       <Button text="Sign" primary onClick={() => { document.getElementById('signatureForm').scrollIntoView(); }}>
         <p className="font-mono">Sign</p>
       </Button>
@@ -36,11 +33,7 @@ function Body({ txId, data, status }) {
       }
     }, [maybeSigs.result])
 
-    const {body, title, authors, timestamp, ancestor} = data;
-
-    const isOriginal = ancestor === ""
-    const ancestorText = isOriginal ? "A Declaration of the Independence of Cyberspace" : ancestor.slice(0, 12)
-    const ancestorUrl = isOriginal ? "https://www.eff.org/cyberspace-independence" : `/declaration/${ancestor}`
+    const {body, title, authors, timestamp} = data;
 
     const parsedAuthors = Array.isArray(authors) ? authors : JSON.parse(authors || "[]");
     return (<>
@@ -51,7 +44,6 @@ function Body({ txId, data, status }) {
         <p className="font-bold text-left text-gray-primary font-title text-2xl mt-8">{timestamp}</p>
         <p className="font-mono text-gray-placeholder text-base mt-8">
           This document lives on Arweave at transaction <a className="underline" href={`https://viewblock.io/arweave/tx/${txId}`}>{txId.slice(0,12)}</a>.
-          It was forked from <a className="underline" href={ancestorUrl}>{ancestorText}</a>. View the <a className="underline" href={`/diff/${txId}/${ancestor}`}>difference</a>.
         </p>
       </div>
 
@@ -66,7 +58,7 @@ function Body({ txId, data, status }) {
 
       <hr className="my-20" />
       <div id="signatureForm" className="mx-4 w-full max-w-2xl">
-        <Sign txId={txId} declaration={body} />
+        <Sign txId={txId} charter={body} />
       </div>
       <div className="mt-8 mx-4 max-w-2xl w-full">
         {(maybeSigs.loading || maybeSigs.error) ?
@@ -76,18 +68,8 @@ function Body({ txId, data, status }) {
           </div> :
           <Signatures txId={txId} sigs={clientSigList} setSigs={setClientSigList} />
         }
-    </div>
-
-      <hr className="my-20" />
-        <div className="mx-4 w-full max-w-2xl">
-          <Fork text={body} txId={txId} />
-        </div>
+     </div>
     </>);
-  } else if (status === 202) {
-    return <div className="w-1/4 font-title">
-      <h3 className="text-2xl font-bold">Forking in Progress</h3>
-      <p className="text-lg leading-tight my-4">The block containing your new declaration has not been mined yet. Check back in 5-10 minutes.</p>
-    </div>;
   } else {
     return <div className="w-1/4 font-title">
       <h3 className="text-2xl font-bold">Not Found</h3>
@@ -96,38 +78,26 @@ function Body({ txId, data, status }) {
   }
 }
 
-export default function Declaration() {
+export default function Charter() {
   const router = useRouter();
   const txId = router.query.txId || CANONICAL;
-  const maybeDeclaration = useAsync(getDeclaration, [txId]);
+  const maybeCharter = useAsync(getCharter, [txId]);
 
   return (
     <>
     <div className="flex flex-col items-center bg-gray-bg justify-center pt-8 pb-24 bg-blue-20">
       <HeadComponent/>
       <main className="flex flex-col items-center min-h-screen w-full flex-1 px-4 lg:px-8 text-center">
-        <Header show={!maybeDeclaration.loading} />
+        <Header show={!maybeCharter.loading} />
         <div className="w-3/5">
           <h1 className="text-4xl font-title mt-16 mb-16 md:mb-20 md:text-7xl font-semibold text-gray-primary">
-            A Declaration
-            <span className="text-2xl block font-light italic -mb-5 md:-mb-1 mt-1 md:mt-4 text-xl md:text-4xl text-gray-primary">of the</span>
-            {/* Two responsive elements to fix line breaking on xs viewports. */}
-            <div className="hidden md:block max-w-2xl m-auto text-gray-primary" style={{ lineHeight: "5.25rem" }}>Interdependence of Cyberspace</div>
-            <div className="md:hidden max-w-2xl m-auto mt-5 text-gray-primary" style={{ lineHeight: "2.5rem" }}>Interdependence of Cyberspace</div>
+            Founding Charter
           </h1>
         </div>
-        {maybeDeclaration.loading ? <BarLoader speedMultiplier=".75" height="2px" width ="300px" color="#bababa"/> : <Body txId={txId} {...maybeDeclaration.result} />}
+        {maybeCharter.loading ? <BarLoader speedMultiplier=".75" height="2px" width ="300px" color="#bababa"/> : <Body txId={txId} {...maybeCharter.result} />}
       </main>
       
-    </div>      
-    {/* <footer className="text-center sticky bottom-0 bg-gray-primary w-full p-6 mt-2 mb-2 text-sm leading-6 font-mono text-left text-white flex flex-col items-center"> 
-
-        <p className="font-light sm:max-w-2xl">
-        You are trusted to steward this link. If you're seeing this banner, we are still in soft launch mode.&nbsp; 
-        <u>Please do not share this link on social media.</u>
-        </p>
-    </footer> */}
-      </>
-    
+    </div>
+    </>
   );
 }

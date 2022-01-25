@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import {generateSignature, signDeclaration} from "../arweaveFns";
+import {generateSignature, signCharter} from "../arweaveFns";
 import Modal from "react-modal";
 import Button from "./core/Button";
 import Box from "./core/Box";
@@ -36,7 +36,7 @@ export function DisplayedError({displayedError}) {
 function SignScreen({handleSubmit, onSubmit, register, displayedError, loading}) {
   return <div className="w-full h-full bg-gray-50">
     <form onSubmit={handleSubmit(onSubmit)} className="w-full font-body pb-4">
-      <div className="w-full font-mono font-bold text-center py-3.5 bg-gray-wash text-gray-secondary border-b border-gray-detail font-bold">Sign the Declaration</div>
+      <div className="w-full font-mono font-bold text-center py-3.5 bg-gray-wash text-gray-secondary border-b border-gray-detail font-bold">Sign the Charter</div>
       <div className="pt-7 pb-4 px-8 bg-gray-50">
         <p className="font-mono text-brown-20">Enter your name to sign:</p>
         <div className="mt-6">
@@ -53,7 +53,7 @@ function SignScreen({handleSubmit, onSubmit, register, displayedError, loading})
 }
 
 
-export default function Sign({ txId, declaration }) {
+export default function Sign({ txId, charter }) {
   const {
     register,
     handleSubmit,
@@ -83,7 +83,7 @@ export default function Sign({ txId, declaration }) {
     }
   }
 
-  const sign = () => signDeclaration(txId, formData.name, formData.handle, declaration, formData.sig)
+  const sign = () => signCharter(txId, formData.name, formData.handle, charter, formData.sig)
     .then(() => setSignSuccess(true))
 
   const onSubmit = (data) => {
@@ -94,7 +94,7 @@ export default function Sign({ txId, declaration }) {
 
     setIsLoading(true);
     setDisplayedError(null);
-    generateSignature(declaration)
+    generateSignature(charter)
       .then((sig) => {
         setStage(1)
         setFormData({
@@ -112,17 +112,13 @@ export default function Sign({ txId, declaration }) {
 
 
 
-  return (<Box title="Sign the Declaration" 
+  return (<Box title="Sign the Charter" 
   content={
     <>
       <div className="my-4">
         <p className="font-mono mb-6 text-left">
-          If you'd like to endorse this declaration, you can sign it by clicking the button below. Signatures will become part of this document's permanent history on the Arweave blockchain.
+          Sign the Founding Charter to become a voting $CITIZEN. Signatures will become part of this document's permanent history.
         </p>
-        <a className="mt-4 font-mono underline font-light text-gray-400"
-          href="https://scribehow.com/shared/How-to-Sign-the-Declaration__Ws7_UIe0RNeBb2a-tEf3FA"> 
-          First time wallet user? Here is your guide. 
-        </a>
         <div className="mt-4">
         <Button
           primary
