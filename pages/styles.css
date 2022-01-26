@@ -1,16 +1,54 @@
+@font-face {
+  font-family: "Expanded";
+  src: url("/fonts/expanded.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Extended";
+  src: url("/fonts/extended.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Mono";
+  src: url("/fonts/mono.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Mono";
+}
+
 html {
   scroll-behavior: smooth;
-  background-color: #f5f5f5;
 }
 
 hr {
   overflow: visible;
   padding: 0;
   border: none;
-  border-top: 1px solid #bbb;
-  color: #bbb;
+  border-top: 1px solid #fff;
+  color: #fff;
   text-align: center;
   width: 300px;
+  font-family: "Mono";
 }
 
 hr:after {
@@ -19,11 +57,12 @@ hr:after {
   display: inline-block;
   background: none;
   position: relative;
-  top: -0.65em;
-  font-size: 1.5em;
+  top: -0.9em;
+  font-size: 0.9em;
   padding: 0 1em;
+  letter-spacing: -1px;
   margin: 0 -1em;
-  background: #fafafa;
+  background: #050604;
 }
 
 @media (min-width: 800px) {
@@ -33,13 +72,67 @@ hr:after {
   }
 }
 
-.metamaskLogo .st0{fill:#E2761B;stroke:#E2761B;stroke-linecap:round;stroke-linejoin:round;}
-.metamaskLogo .st1{fill:#E4761B;stroke:#E4761B;stroke-linecap:round;stroke-linejoin:round;}
-.metamaskLogo .st2{fill:#D7C1B3;stroke:#D7C1B3;stroke-linecap:round;stroke-linejoin:round;}
-.metamaskLogo .st3{fill:#233447;stroke:#233447;stroke-linecap:round;stroke-linejoin:round;}
-.metamaskLogo .st4{fill:#CD6116;stroke:#CD6116;stroke-linecap:round;stroke-linejoin:round;}
-.metamaskLogo .st5{fill:#E4751F;stroke:#E4751F;stroke-linecap:round;stroke-linejoin:round;}
-.metamaskLogo .st6{fill:#F6851B;stroke:#F6851B;stroke-linecap:round;stroke-linejoin:round;}
-.metamaskLogo .st7{fill:#C0AD9E;stroke:#C0AD9E;stroke-linecap:round;stroke-linejoin:round;}
-.metamaskLogo .st8{fill:#161616;stroke:#161616;stroke-linecap:round;stroke-linejoin:round;}
-.metamaskLogo .st9{fill:#763D16;stroke:#763D16;stroke-linecap:round;stroke-linejoin:round;}
+.metamaskLogo .st0 {
+  fill: #e2761b;
+  stroke: #e2761b;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.metamaskLogo .st1 {
+  fill: #e4761b;
+  stroke: #e4761b;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.metamaskLogo .st2 {
+  fill: #d7c1b3;
+  stroke: #d7c1b3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.metamaskLogo .st3 {
+  fill: #233447;
+  stroke: #233447;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.metamaskLogo .st4 {
+  fill: #cd6116;
+  stroke: #cd6116;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.metamaskLogo .st5 {
+  fill: #e4751f;
+  stroke: #e4751f;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.metamaskLogo .st6 {
+  fill: #f6851b;
+  stroke: #f6851b;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.metamaskLogo .st7 {
+  fill: #c0ad9e;
+  stroke: #c0ad9e;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.metamaskLogo .st8 {
+  fill: #161616;
+  stroke: #161616;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.metamaskLogo .st9 {
+  fill: #763d16;
+  stroke: #763d16;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.markdown-rte * {
+  word-break: break-word;
+}
